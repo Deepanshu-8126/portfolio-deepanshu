@@ -1,0 +1,78 @@
+[
+  {
+    "id": "python-data-analysis",
+    "title": "Python Data Analysis Fundamentals",
+    "excerpt": "Core concepts of pandas DataFrame operations, data cleaning techniques, and basic statistical analysis.",
+    "date": "Jan 2026",
+    "category": "Python",
+    "tags": ["pandas", "NumPy", "Data Cleaning", "EDA"],
+    "readTime": "8 min read",
+    "pdfUrl": "/pdfs/python-data-analysis.pdf",
+    "imageUrl": "/images/notes/python-notes.jpg"
+  },
+  {
+    "id": "sql-queries",
+    "title": "SQL Queries for Data Analysis",
+    "excerpt": "Essential SQL patterns for extracting insights from relational databases, including joins and aggregations.",
+    "date": "Dec 2025",
+    "category": "SQL",
+    "tags": ["SELECT", "JOIN", "GROUP BY", "Subqueries"],
+    "readTime": "10 min read",
+    "pdfUrl": "/pdfs/sql-queries.pdf",
+    "imageUrl": "/images/notes/sql-notes.jpg"
+  },
+  {
+    "id": "statistics-basics",
+    "title": "Statistics Basics for Data Science",
+    "excerpt": "Foundational statistical concepts including descriptive statistics, probability, and hypothesis testing.",
+    "date": "Nov 2025",
+    "category": "Statistics",
+    "tags": [
+      "Descriptive Stats",
+      "Probability",
+      "Hypothesis Testing",
+      "Correlation"
+    ],
+    "readTime": "12 min read",
+    "pdfUrl": "/pdfs/statistics-basics.pdf",
+    "imageUrl": "/images/notes/stats-notes.jpg"
+  },
+  {
+    "id": "data-visualization",
+    "title": "Data Visualization Best Practices",
+    "excerpt": "Principles for creating effective charts and dashboards that communicate insights clearly.",
+    "date": "Oct 2025",
+    "category": "Visualization",
+    "tags": ["Matplotlib", "Seaborn", "Chart Types", "Color Theory"],
+    "readTime": "9 min read",
+    "pdfUrl": "/pdfs/data-visualization.pdf",
+    "imageUrl": "/images/notes/viz-notes.jpg"
+  },
+  {
+    "id": "data-analysis-checklist",
+    "title": "Data Analysis Checklist",
+    "excerpt": "Step-by-step checklist for thorough exploratory data analysis and project workflows.",
+    "date": "Sep 2025",
+    "category": "Workflow",
+    "tags": ["EDA", "Checklist", "Best Practices", "Project Management"],
+    "readTime": "7 min read",
+    "pdfUrl": "/pdfs/data-analysis-checklist.pdf",
+    "imageUrl": "/images/notes/checklist-notes.jpg"
+  },
+  {
+    "id": "interview-prep",
+    "title": "Data Analyst Interview Prep",
+    "excerpt": "Common interview questions, case study frameworks, and technical concepts to review.",
+    "date": "Aug 2025",
+    "category": "Career",
+    "tags": [
+      "Interview Prep",
+      "Case Studies",
+      "Technical Questions",
+      "Behavioral"
+    ],
+    "readTime": "15 min read",
+    "pdfUrl": "/pdfs/interview-prep.pdf",
+    "imageUrl": "/images/notes/interview-notes.jpg"
+  }
+]

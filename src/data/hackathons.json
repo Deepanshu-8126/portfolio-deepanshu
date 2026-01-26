@@ -1,0 +1,137 @@
+[
+  {
+    "id": "graphic-era",
+    "title": "24-hour Hackathon at Graphic Era, Haldwani",
+    "description": "First hackathon experience - learned teamwork under pressure and rapid prototyping while building a student resource management system.",
+    "organizedBy": "Graphic Era University",
+    "location": "Haldwani, Uttarakhand",
+    "duration": "24 hours",
+    "year": "2024",
+    "role": "Full-stack Participant",
+    "teamSize": "4 members",
+    "techStack": ["HTML/CSS", "JavaScript", "Python", "Flask"],
+    "experience": "This was my first hackathon experience. I was nervous but excited to test my skills in a real competition environment. Our team built a student resource management system that helped organize college materials, assignments, and study resources in one centralized platform.",
+    "challenges": "Time management was the biggest challenge. We had ambitious ideas but limited time to implement them. I learned to break down complex problems into smaller, manageable tasks and focus on delivering a minimum viable product first rather than trying to build everything perfectly.",
+    "learnings": {
+      "technical": [
+        "Rapid prototyping under tight deadlines",
+        "API integration between frontend and backend",
+        "Basic full-stack development workflow",
+        "Version control with Git in team environment"
+      ],
+      "softSkills": [
+        "Team coordination under pressure",
+        "Time management and prioritization",
+        "Problem decomposition and task allocation",
+        "Communication with teammates from different skill levels"
+      ]
+    },
+    "result": "Participated among 50+ teams, gained valuable experience and confidence to participate in future competitions. Successfully delivered a working prototype within 24 hours.",
+    "status": "Participated",
+    "photos": [
+      {
+        "url": "/images/hackathon2-1.jpg",
+        "caption": ""
+      },
+      {
+        "url": "/images/hackathon1-2.jpg",
+        "caption": "Final presentation setup with our working prototype"
+      },
+      {
+        "url": "/images/hackathon1-3.jpg",
+        "caption": "Team celebration after successful submission"
+      }
+    ]
+  },
+  {
+    "id": "miet-college",
+    "title": "MIET College Hackathon",
+    "description": "Led data analysis for team project, handled real-time data processing and created actionable insights dashboard.",
+    "organizedBy": "MIET College",
+    "location": "Meerut, Uttar Pradesh",
+    "duration": "36 hours",
+    "year": "2024",
+    "role": "Data Analysis Lead",
+    "teamSize": "3 members",
+    "techStack": ["Python", "pandas", "Matplotlib", "Streamlit"],
+    "experience": "In this hackathon, I took the lead role in data analysis for our team's project. We built a data-driven dashboard to analyze student performance patterns and provide actionable insights for academic improvement. My responsibility was to clean the dataset, perform exploratory data analysis, and create meaningful visualizations that could help improve academic outcomes.",
+    "challenges": "The dataset was messy with missing values and inconsistencies. I had to quickly develop data cleaning strategies and validate our findings. Coordinating with frontend developers to ensure our visualizations were properly integrated was also challenging but rewarding.",
+    "learnings": {
+      "technical": [
+        "Data cleaning techniques for real-world messy datasets",
+        "Exploratory Data Analysis (EDA) methodology",
+        "Dashboard development with Streamlit",
+        "Real-time data processing and visualization"
+      ],
+      "softSkills": [
+        "Leadership and team guidance",
+        "Delegation of tasks based on team strengths",
+        "Stakeholder communication and requirement gathering",
+        "Project management under time constraints"
+      ]
+    },
+    "result": "Won Best Project Award for our data-driven solution that provided actionable insights for academic improvement. The judges appreciated our practical approach and clear visualizations.",
+    "status": "Winner",
+    "photos": [
+      {
+        "url": "",
+        "caption": "Working on data analysis and cleaning the dataset"
+      },
+      {
+        "url": "/images/1.jpeg",
+        "caption": "Dashboard prototype showing student performance metrics"
+      },
+      {
+        "url": "/images/4.jpeg",
+        "caption": "Award ceremony - receiving Best Project Award"
+      },
+      {
+        "url": "/images/5.jpeg"
+      }
+    ]
+  },
+  {
+    "id": "kumaun-university",
+    "title": "Kumaun University Level Hackathon",
+    "description": "Worked on cross-functional team solving real business problems for campus resource optimization.",
+    "organizedBy": "Kumaun University",
+    "location": "Nainital, Uttarakhand",
+    "duration": "48 hours",
+    "year": "2024",
+    "role": "Collaborative Team Member",
+    "teamSize": "5 members",
+    "techStack": ["Python", "Django", "PostgreSQL", "React"],
+    "experience": "This was a university-level competition with participants from multiple colleges. Our team worked on a comprehensive solution for campus resource optimization including classroom scheduling, lab equipment booking, and faculty availability tracking. I contributed to both backend development and data analysis components, ensuring our solution was both functional and data-driven.",
+    "challenges": "Working with teammates from different colleges meant adapting to different coding styles and communication preferences. The extended 48-hour duration required careful energy management and strategic breaks to maintain productivity throughout the competition.",
+    "learnings": {
+      "technical": [
+        "Database design and schema planning",
+        "API development with Django REST framework",
+        "Cross-platform integration between frontend and backend",
+        "Performance optimization for real-time applications"
+      ],
+      "softSkills": [
+        "Cross-cultural collaboration with diverse team members",
+        "Conflict resolution and consensus building",
+        "Energy management during extended coding sessions",
+        "Strategic planning and milestone setting"
+      ]
+    },
+    "result": "Selected among top 10 teams out of 100+ participants for our comprehensive campus resource optimization solution. Our project was noted for its scalability and practical implementation potential.",
+    "status": "Winner",
+    "photos": [
+      {
+        "url": "/images/hackathon3-1.jpg",
+        "caption": "Team brainstorming session for campus resource optimization"
+      },
+      {
+        "url": "/images/hackathon3-2.jpg",
+        "caption": "System architecture diagram and database schema"
+      },
+      {
+        "url": "/images/hackathon3-3.jpg",
+        "caption": "Final team photo with our completed project"
+      }
+    ]
+  }
+]

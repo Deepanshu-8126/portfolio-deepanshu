@@ -1,0 +1,123 @@
+[
+  {
+    "id": "sales-data-analysis",
+    "title": "Sales Data Analysis",
+    "description": "Analyzed sales patterns and top-performing products using Python and pandas.",
+    "shortDesc": "Analyzed sales patterns and top-performing products using Python and pandas.",
+    "tech": ["Python", "pandas", "Matplotlib", "Seaborn"],
+    "status": "Completed",
+    "category": "Data Analysis",
+    "featured": true,
+    "problem": "Understanding sales patterns and identifying top-performing products to optimize inventory and marketing strategies.",
+    "solution": "Built comprehensive data analysis pipeline using Python and pandas to clean, analyze, and visualize sales data across multiple dimensions including time, product categories, and regions.",
+    "tools": [
+      "Python",
+      "pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "Jupyter Notebook"
+    ],
+    "insights": [
+      "Seasonal trends show 35% higher sales during Q4 holidays",
+      "Electronics category contributes 45% of total revenue",
+      "Top 10 products account for 60% of total sales volume"
+    ],
+    "learnings": "Learned the importance of data cleaning and validation before analysis. Realized that 80% of time goes into data preparation rather than modeling.",
+    "github": "https://github.com/Deepanshu-8126/sales-analysis",
+    "metrics": {
+      "datasets": 3,
+      "visualizations": 12,
+      "insights": 8
+    }
+  },
+  {
+    "id": "customer-churn-analysis",
+    "title": "Customer Churn Analysis",
+    "description": "Identified churn factors in telecom industry through exploratory data analysis.",
+    "shortDesc": "Identified churn factors in telecom industry through exploratory data analysis.",
+    "tech": ["Python", "pandas", "Seaborn", "EDA"],
+    "status": "Completed",
+    "category": "Data Analysis",
+    "featured": true,
+    "problem": "Identifying factors that lead to customer churn in telecom industry to develop retention strategies.",
+    "solution": "Performed exploratory data analysis on customer demographics, service usage, and billing information to identify key churn indicators and create actionable insights.",
+    "tools": [
+      "Python",
+      "pandas",
+      "Seaborn",
+      "Matplotlib",
+      "Jupyter Notebook",
+      "EDA"
+    ],
+    "insights": [
+      "Customers with month-to-month contracts are 3x more likely to churn",
+      "Poor customer service experience correlates strongly with churn",
+      "Higher monthly charges increase churn probability significantly"
+    ],
+    "learnings": "Discovered that simple statistical analysis can provide more actionable insights than complex machine learning models in many business scenarios.",
+    "github": "https://github.com/Deepanshu-8126/churn-analysis",
+    "metrics": {
+      "datasets": 1,
+      "visualizations": 8,
+      "insights": 5
+    }
+  },
+  {
+    "id": "house-price-prediction",
+    "title": "House Price Prediction",
+    "description": "Built beginner ML model with 78% accuracy using scikit-learn.",
+    "shortDesc": "Built beginner ML model with 78% accuracy using scikit-learn.",
+    "tech": ["Python", "scikit-learn", "pandas", "ML"],
+    "status": "Completed",
+    "category": "Machine Learning",
+    "featured": false,
+    "problem": "Predicting house prices based on property features to help buyers and sellers make informed decisions.",
+    "solution": "Built a linear regression model using scikit-learn to predict house prices based on features like area, location, bedrooms, and age of property.",
+    "tools": ["Python", "pandas", "scikit-learn", "NumPy", "Matplotlib", "ML"],
+    "insights": [
+      "Model achieved 78% accuracy on test dataset",
+      "Property area and location are the strongest predictors",
+      "Feature engineering improved model performance by 15%"
+    ],
+    "learnings": "Understood the complete machine learning workflow from data preprocessing to model evaluation and learned when simpler models outperform complex ones.",
+    "github": "https://github.com/Deepanshu-8126/house-price-prediction",
+    "metrics": {
+      "datasets": 1,
+      "visualizations": 6,
+      "insights": 3
+    }
+  },
+  {
+    "id": "netflix-content-analysis",
+    "title": "Netflix Content Analysis",
+    "description": "Explored content trends and regional preferences using real-world datasets.",
+    "shortDesc": "Explored content trends and regional preferences using real-world datasets.",
+    "tech": ["Python", "pandas", "Matplotlib", "Data Viz"],
+    "status": "Completed",
+    "category": "Data Visualization",
+    "featured": true,
+    "problem": "Understanding Netflix content distribution and regional preferences to identify content gaps and opportunities.",
+    "solution": "Analyzed Netflix dataset containing movies and TV shows across different countries to visualize content trends, genre distributions, and release patterns.",
+    "tools": [
+      "Python",
+      "pandas",
+      "Matplotlib",
+      "Seaborn",
+      "Data Viz",
+      "Jupyter Notebook"
+    ],
+    "insights": [
+      "Dramas and Comedies dominate the content library (45% combined)",
+      "Content production has increased by 300% since 2015",
+      "International content represents 40% of total library"
+    ],
+    "learnings": "Mastered the art of storytelling through data visualization — learned that the right chart type matters more than fancy styling.",
+    "github": "https://github.com/Deepanshu-8126/netflix-analysis",
+    "metrics": {
+      "datasets": 1,
+      "visualizations": 10,
+      "insights": 6
+    }
+  }
+]

@@ -1,0 +1,132 @@
+{
+  "hero": {
+    "name": "Deepanshu",
+    "title": "Data Analyst → Future Data Scientist",
+    "subtitle": "Building real-world data solutions with Python, SQL, and honest learning",
+    "tools": ["Python", "pandas", "NumPy", "SQL", "Matplotlib", "Seaborn"]
+  },
+  "skills": [
+    {
+      "name": "Python",
+      "level": 80,
+      "category": "Core",
+      "description": "Primary programming language for data analysis"
+    },
+    {
+      "name": "pandas",
+      "level": 80,
+      "category": "Core",
+      "description": "Data manipulation and analysis"
+    },
+    {
+      "name": "SQL",
+      "level": 75,
+      "category": "Core",
+      "description": "Database querying and data extraction"
+    },
+    {
+      "name": "Statistics",
+      "level": 65,
+      "category": "Foundation",
+      "description": "Statistical analysis and inference"
+    },
+    {
+      "name": "Machine Learning",
+      "level": 45,
+      "category": "Learning",
+      "description": "Supervised learning fundamentals"
+    },
+    {
+      "name": "Data Visualization",
+      "level": 70,
+      "category": "Core",
+      "description": "Communicating insights effectively"
+    }
+  ],
+  "projects": [
+    {
+      "id": "sales-analysis",
+      "title": "Sales Data Analysis",
+      "description": "Comprehensive analysis of sales patterns and top-performing products",
+      "tech": ["Python", "pandas", "Matplotlib"],
+      "metrics": { "datasets": 3, "visualizations": 12, "insights": 8 }
+    },
+    {
+      "id": "churn-analysis",
+      "title": "Customer Churn Analysis",
+      "description": "Identified key churn factors in telecom industry through EDA",
+      "tech": ["Python", "pandas", "Seaborn"],
+      "metrics": { "datasets": 1, "visualizations": 8, "insights": 5 }
+    },
+    {
+      "id": "netflix-analysis",
+      "title": "Netflix Content Analysis",
+      "description": "Explored content trends and regional preferences using real-world data",
+      "tech": ["Python", "pandas", "Matplotlib"],
+      "metrics": { "datasets": 1, "visualizations": 10, "insights": 6 }
+    }
+  ],
+  "experience": [
+    {
+      "type": "hackathon",
+      "title": "DataVerse Hackathon",
+      "description": "Participated as Data Analysis Lead - analyzed customer behavior patterns",
+      "date": "Jan 2025",
+      "role": "Data Analysis Lead"
+    },
+    {
+      "type": "learning",
+      "title": "Data Science Bootcamp",
+      "description": "Completed comprehensive data science curriculum with hands-on projects",
+      "date": "Dec 2024",
+      "role": "Student"
+    },
+    {
+      "type": "project",
+      "title": "College Hackathon Winner",
+      "description": "Won Best Project Award for data-driven solution",
+      "date": "Nov 2024",
+      "role": "Team Lead"
+    }
+  ],
+  "notes": [
+    {
+      "title": "Python Data Analysis Fundamentals",
+      "description": "Comprehensive notes on pandas and NumPy best practices",
+      "date": "2 days ago",
+      "tags": ["Python", "pandas", "NumPy"]
+    },
+    {
+      "title": "Exploratory Data Analysis Checklist",
+      "description": "Systematic approach to EDA with real examples",
+      "date": "1 week ago",
+      "tags": ["EDA", "Analysis", "Workflow"]
+    },
+    {
+      "title": "SQL Query Optimization",
+      "description": "Best practices for efficient database queries",
+      "date": "2 weeks ago",
+      "tags": ["SQL", "Database", "Optimization"]
+    }
+  ],
+  "roadmap": [
+    {
+      "stage": "Current",
+      "role": "BCA Student | Data Analyst Learner",
+      "focus": ["Python", "SQL", "EDA", "Visualization"],
+      "timeline": "2024-2025"
+    },
+    {
+      "stage": "Next",
+      "role": "Junior Data Analyst",
+      "focus": ["Advanced SQL", "Business Intelligence", "Dashboarding"],
+      "timeline": "2026"
+    },
+    {
+      "stage": "Future",
+      "role": "Data Scientist",
+      "focus": ["Machine Learning", "Deep Learning", "MLOps"],
+      "timeline": "2027+"
+    }
+  ]
+}

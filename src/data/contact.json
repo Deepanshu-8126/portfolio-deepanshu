@@ -1,0 +1,38 @@
+{
+  "title": "Let's Connect",
+  "subtitle": "Easy ways to reach out and connect with me",
+  "links": [
+    {
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/in/deepanshu",
+      "icon": "linkedin",
+      "description": "View Profile",
+      "color": "text-[#0A66C2]"
+    },
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/Deepanshu-8126",
+      "icon": "github",
+      "description": "View Repositories",
+      "color": "text-white"
+    },
+    {
+      "platform": "Email",
+      "url": "mailto:vishaljoshi1357@gmail.com",
+      "icon": "email",
+      "description": "Send Message",
+      "color": "text-[#FF7B7B]"
+    },
+    {
+      "platform": "Resume",
+      "url": "/Deepanshu_Resume.pdf",
+      "icon": "resume",
+      "description": "Download Resume",
+      "color": "text-[#4CC9F0]"
+    }
+  ],
+  "directContact": {
+    "email": "deepanshukapri4@gmail.com",
+    "responseTime": "I typically respond within 24-48 hours"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "core": {
+    "name": "Deepanshu",
+    "currentRole": "BCA 2nd Year Student | Data Analytics Learner",
+    "college": "MIET College, Kumaun University",
+    "graduation": "2027",
+    "futurePath": [
+      "Data Analyst",
+      "Data Scientist",
+      "Machine Learning Engineer",
+      "AI Researcher"
+    ],
+    "currentFocus": "Building foundational data analysis skills through hands-on projects and real-world datasets"
+  },
+  "learningEngine": {
+    "primaryLanguage": "Python",
+    "libraries": ["pandas", "NumPy", "Matplotlib", "Seaborn", "scikit-learn"],
+    "focusAreas": [
+      {
+        "area": "Data Analysis",
+        "status": "Practicing",
+        "description": "Cleaning, transforming, and analyzing real datasets"
+      }
+    ],
+    "learningPhilosophy": "Project-based learning > theoretical knowledge. Real datasets > toy examples."
+  },
+  "personality": {
+    "discipline": "Gym & fitness enthusiast with strong daily routine",
+    "mindset": "Consistency over motivation. Discipline over talent.",
+    "creativeInterests": [
+      "Video editing",
+      "Visual storytelling",
+      "Design thinking"
+    ],
+    "coreValues": [
+      "Hard work",
+      "Self-improvement",
+      "Long-term vision",
+      "Honest learning"
+    ]
+  }
+}
