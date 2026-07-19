@@ -91,7 +91,6 @@ export default function DashboardPage() {
             className="max-w-5xl mx-auto mb-20"
           >
             <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-
               {/* LEFT - Profile Picture with animated glow */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -103,7 +102,8 @@ export default function DashboardPage() {
                 <motion.div
                   className="absolute -inset-1 rounded-full"
                   style={{
-                    background: "conic-gradient(from 0deg, #4CC9F0, #7209B7, #4CC9F0)",
+                    background:
+                      "conic-gradient(from 0deg, #4CC9F0, #7209B7, #4CC9F0)",
                     borderRadius: "50%",
                   }}
                   animate={{ rotate: 360 }}
@@ -114,8 +114,10 @@ export default function DashboardPage() {
                 {/* Profile image */}
                 <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-2 border-[#1F1F29]">
                   <img
-                    src={DASHBOARD_DATA.hero?.avatar || "/images/profile-pic.jpg"}
-                    alt={DASHBOARD_DATA.hero?.name || "Deepanshu"}
+                    src={
+                      DASHBOARD_DATA.hero?.avatar || "/images/profile-pic.jpg"
+                    }
+                    alt={DASHBOARD_DATA.hero?.name || "Deepanshu Kapri"}
                     className="w-full h-full object-cover object-top"
                     onError={(e) => {
                       const el = e.target as HTMLImageElement;
@@ -164,7 +166,8 @@ export default function DashboardPage() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4, duration: 0.6 }}
                 >
-                  {DASHBOARD_DATA.hero?.title || "Data Analyst → Future Data Scientist"}
+                  {DASHBOARD_DATA.hero?.title ||
+                    "Data Analyst → Future Data Scientist"}
                 </motion.p>
 
                 <motion.p
@@ -191,7 +194,10 @@ export default function DashboardPage() {
                         className="px-3 py-1 bg-[#1F1F29]/50 text-[#A0A0C0] rounded-full text-sm border border-[#1F1F29]/50"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8 + index * 0.05, duration: 0.4 }}
+                        transition={{
+                          delay: 0.8 + index * 0.05,
+                          duration: 0.4,
+                        }}
                         whileHover={{
                           y: -2,
                           backgroundColor: "rgba(76, 201, 240, 0.15)",
@@ -231,7 +237,6 @@ export default function DashboardPage() {
                   </a>
                 </motion.div>
               </div>
-
             </div>
           </motion.div>
 
