@@ -51,10 +51,10 @@ export default function Resume() {
             <div className="text-[#4CC9F0] mb-2">📧</div>
             <div className="font-medium">Email</div>
             <a
-              href="mailto:vishaljoshi1357@gmail.com"
+              href="mailto:deepanshukapri4@gmail.com"
               className="text-[#A0A0C0] hover:text-[#4CC9F0]"
             >
-              vishaljoshi1357@gmail.com
+              deepanshukapri4@gmail.com
             </a>
           </GlassCard>
           <GlassCard className="text-center">
@@ -84,7 +84,7 @@ export default function Resume() {
               <h3 className="font-bold text-lg">
                 Bachelor of Computer Applications (BCA)
               </h3>
-              <span className="text-[#4CC9F0]">2024 - 2026</span>
+              <span className="text-[#4CC9F0]">2024 - 2027</span>
             </div>
             <p className="text-[#A0A0C0]">
               Currently pursuing BCA with focus on Data Science and Analytics
