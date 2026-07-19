@@ -96,7 +96,7 @@
     "description": "Worked on cross-functional team solving real business problems for campus resource optimization.",
     "organizedBy": "Kumaun University",
     "location": "Nainital, Uttarakhand",
-    "duration": "48 hours",
+    "duration": "3 days",
     "year": "2024",
     "role": "Collaborative Team Member",
     "teamSize": "5 members",
@@ -117,20 +117,20 @@
         "Strategic planning and milestone setting"
       ]
     },
-    "result": "Selected among top 10 teams out of 100+ participants for our comprehensive campus resource optimization solution. Our project was noted for its scalability and practical implementation potential.",
+    "result": "2nd Position",
     "status": "Winner",
     "photos": [
       {
-        "url": "/images/hackathon3-1.jpg",
+        "url": "public/images/6.jpeg",
         "caption": "Team brainstorming session for campus resource optimization"
       },
       {
-        "url": "/images/hackathon3-2.jpg",
-        "caption": "System architecture diagram and database schema"
+        "url": "public/images/66.jpeg",
+        "caption": "Creativity , ui map "
       },
       {
-        "url": "/images/hackathon3-3.jpg",
-        "caption": "Final team photo with our completed project"
+        "url": "public/images/7.jpeg",
+        "caption": "Finally got 2nd Prize"
       }
     ]
   }
