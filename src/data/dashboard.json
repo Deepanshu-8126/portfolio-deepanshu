@@ -1,9 +1,17 @@
 {
   "hero": {
     "name": "Deepanshu",
-    "title": "Data Analyst → Future Data Scientist",
+    "title": "Aspiring Data Analyst and  Data Scientist",
     "subtitle": "Building real-world data solutions with Python, SQL, and honest learning",
-    "tools": ["Python", "pandas", "NumPy", "SQL", "Matplotlib", "Seaborn"]
+    "tools": [
+      "Python",
+      "pandas",
+      "NumPy",
+      "SQL",
+      "Matplotlib",
+      "Seaborn",
+      "Scikit-Learn"
+    ]
   },
   "skills": [
     {
@@ -13,7 +21,7 @@
       "description": "Primary programming language for data analysis"
     },
     {
-      "name": "pandas",
+      "name": "Pandas",
       "level": 80,
       "category": "Core",
       "description": "Data manipulation and analysis"
