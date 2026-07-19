@@ -1,5 +1,38 @@
 [
   {
+    "id": "netflix-content-analysis",
+    "title": "Netflix Content Analysis",
+    "description": "Explored content trends and regional preferences using real-world datasets.",
+    "shortDesc": "Explored content trends and regional preferences using real-world datasets.",
+    "tech": ["Python", "pandas", "Matplotlib", "Data Viz"],
+    "status": "Completed",
+    "category": "Data Visualization",
+    "featured": true,
+    "problem": "Understanding Netflix content distribution and regional preferences to identify content gaps and opportunities.",
+    "solution": "Analyzed Netflix dataset containing movies and TV shows across different countries to visualize content trends, genre distributions, and release patterns.",
+    "tools": [
+      "Python",
+      "pandas",
+      "Matplotlib",
+      "Seaborn",
+      "Data Viz",
+      "Jupyter Notebook",
+      "Power Bi"
+    ],
+    "insights": [
+      "Dramas and Comedies dominate the content library (45% combined)",
+      "Content production has increased by 300% since 2015",
+      "International content represents 40% of total library"
+    ],
+    "learnings": "Mastered the art of storytelling through data visualization — learned that the right chart type matters more than fancy styling.",
+    "github": "https://github.com/Deepanshu-8126/Netflix-Content-Analysis",
+    "metrics": {
+      "datasets": 1,
+      "visualizations": 10,
+      "insights": 6
+    }
+  },
+  {
     "id": "sales-data-analysis",
     "title": "Sales Data Analysis",
     "description": "Analyzed sales patterns and top-performing products using Python and pandas.",
@@ -86,39 +119,6 @@
       "datasets": 1,
       "visualizations": 6,
       "insights": 3
-    }
-  },
-  {
-    "id": "netflix-content-analysis",
-    "title": "Netflix Content Analysis",
-    "description": "Explored content trends and regional preferences using real-world datasets.",
-    "shortDesc": "Explored content trends and regional preferences using real-world datasets.",
-    "tech": ["Python", "pandas", "Matplotlib", "Data Viz"],
-    "status": "Completed",
-    "category": "Data Visualization",
-    "featured": true,
-    "problem": "Understanding Netflix content distribution and regional preferences to identify content gaps and opportunities.",
-    "solution": "Analyzed Netflix dataset containing movies and TV shows across different countries to visualize content trends, genre distributions, and release patterns.",
-    "tools": [
-      "Python",
-      "pandas",
-      "Matplotlib",
-      "Seaborn",
-      "Data Viz",
-      "Jupyter Notebook",
-      "Power Bi"
-    ],
-    "insights": [
-      "Dramas and Comedies dominate the content library (45% combined)",
-      "Content production has increased by 300% since 2015",
-      "International content represents 40% of total library"
-    ],
-    "learnings": "Mastered the art of storytelling through data visualization — learned that the right chart type matters more than fancy styling.",
-    "github": "https://github.com/Deepanshu-8126/Netflix-Content-Analysis",
-    "metrics": {
-      "datasets": 1,
-      "visualizations": 10,
-      "insights": 6
     }
   }
 ]
