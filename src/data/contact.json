@@ -25,7 +25,7 @@
     },
     {
       "platform": "Resume",
-      "url": "/deepanshu_resume.pdf",
+      "url": "/public/Resume_Deepanshu.docx",
       "icon": "resume",
       "description": "Download Resume",
       "color": "text-[#4CC9F0]"
