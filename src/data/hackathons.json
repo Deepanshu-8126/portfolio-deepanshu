@@ -1,37 +1,93 @@
 [
   {
-    "id": "graphic-era",
-    "title": "24-hour Hackathon at Graphic Era, Haldwani",
-    "description": "First hackathon experience - learned teamwork under pressure and rapid prototyping while building a student resource management system.",
-    "organizedBy": "Graphic Era University",
+    "id": "miet-college",
+    "title": "MIET College Level Hackathon",
+    "description": "My first hackathon experience where I built a basic login system using HTML, CSS and JavaScript.",
+    "organizedBy": "MIET Kumaon",
     "location": "Haldwani, Uttarakhand",
-    "duration": "24 hours",
+    "duration": "8 Hours",
     "year": "2024",
-    "role": "Full-stack Participant",
-    "teamSize": "4 members",
-    "techStack": ["HTML/CSS", "JavaScript", "Python", "Flask"],
-    "experience": "This was my first hackathon experience. I was nervous but excited to test my skills in a real competition environment. Our team built a student resource management system that helped organize college materials, assignments, and study resources in one centralized platform.",
-    "challenges": "Time management was the biggest challenge. We had ambitious ideas but limited time to implement them. I learned to break down complex problems into smaller, manageable tasks and focus on delivering a minimum viable product first rather than trying to build everything perfectly.",
+    "role": "Participant",
+    "teamSize": "3 Members",
+    "techStack": ["HTML", "CSS", "JavaScript"],
+
+    "experience": "This was my first hackathon experience. Our team built a simple login page and frontend interface using HTML, CSS and JavaScript. At that time many concepts were completely new to me and even running the project properly felt challenging. Participating itself was a big achievement because it gave me confidence to work on real projects and competitions.",
+
+    "challenges": "Understanding how HTML, CSS and JavaScript work together while fixing errors within a limited time.",
+
     "learnings": {
       "technical": [
-        "Rapid prototyping under tight deadlines",
-        "API integration between frontend and backend",
-        "Basic full-stack development workflow",
-        "Version control with Git in team environment"
+        "HTML page structure",
+        "CSS styling and layouts",
+        "JavaScript basics and event handling",
+        "Frontend development workflow"
       ],
       "softSkills": [
-        "Team coordination under pressure",
-        "Time management and prioritization",
-        "Problem decomposition and task allocation",
-        "Communication with teammates from different skill levels"
+        "Team collaboration",
+        "Confidence building",
+        "Problem solving",
+        "Time management"
       ]
     },
-    "result": "Participated among 50+ teams, gained valuable experience and confidence to participate in future competitions. Successfully delivered a working prototype within 24 hours.",
+
+    "result": "Won 3rd Position and received a cash award.",
+    "status": "Winner",
+
+    "photos": [
+      {
+        "url": "",
+        "caption": "Working on our first hackathon project"
+      },
+      {
+        "url": "/images/_DSC0475.JPG",
+        "caption": "Presenting our project to judges"
+      },
+      {
+        "url": "",
+        "caption": "Receiving 3rd position award"
+      }
+    ]
+  },
+  {
+    "id": "graphic-era",
+    "title": "24-Hour Hackathon at Graphic Era, Haldwani",
+    "description": "One of the most intense and memorable hackathon experiences where we built a Student Attendance and Tracking Dashboard.",
+
+    "organizedBy": "Graphic Era University",
+    "location": "Haldwani, Uttarakhand",
+    "duration": "24 Hours",
+    "year": "2024",
+    "role": "Team Member",
+    "teamSize": "4 Members",
+
+    "techStack": ["HTML", "CSS", "JavaScript", "Python", "Flask"],
+
+    "experience": "Before the offline hackathon, our team cleared an online selection round by building a Chrome Extension prototype. After getting selected, our team consisting of Deepanshu, Vishal, Himanshu Singh Bisht and Gaurav Giri participated in the 24-hour event. We worked continuously day and night building a Student Attendance and Tracking Dashboard. Every few hours mentors reviewed our progress and awarded points. We spent most of the time coding, debugging and improving the project. Although we did not win, it became one of the best learning experiences of my journey.",
+
+    "challenges": "Working without proper sleep, fixing unexpected bugs, managing time and delivering features within 24 hours.",
+
+    "learnings": {
+      "technical": [
+        "Rapid prototyping",
+        "Frontend and backend integration",
+        "Flask project structure",
+        "Debugging under pressure"
+      ],
+      "softSkills": [
+        "Teamwork",
+        "Communication",
+        "Working under pressure",
+        "Project planning"
+      ]
+    },
+
+    "result": "Successfully built and demonstrated a working Student Attendance Dashboard.",
     "status": "Participated",
+
     "photos": [
       {
         "url": "/images/hackathon2-1.jpg",
-        "caption": ""
+        "caption": "Working through the night during the 24-hour hackathon"
       },
       {
         "url": "/images/hackathon1-2.jpg",
@@ -39,94 +95,56 @@
       },
       {
         "url": "/images/hackathon1-3.jpg",
-        "caption": "Team celebration after successful submission"
-      }
-    ]
-  },
-  {
-    "id": "miet-college",
-    "title": "MIET College Hackathon",
-    "description": "Led data analysis for team project, handled real-time data processing and created actionable insights dashboard.",
-    "organizedBy": "MIET College",
-    "location": "Meerut, Uttar Pradesh",
-    "duration": "36 hours",
-    "year": "2024",
-    "role": "Data Analysis Lead",
-    "teamSize": "3 members",
-    "techStack": ["Python", "pandas", "Matplotlib", "Streamlit"],
-    "experience": "In this hackathon, I took the lead role in data analysis for our team's project. We built a data-driven dashboard to analyze student performance patterns and provide actionable insights for academic improvement. My responsibility was to clean the dataset, perform exploratory data analysis, and create meaningful visualizations that could help improve academic outcomes.",
-    "challenges": "The dataset was messy with missing values and inconsistencies. I had to quickly develop data cleaning strategies and validate our findings. Coordinating with frontend developers to ensure our visualizations were properly integrated was also challenging but rewarding.",
-    "learnings": {
-      "technical": [
-        "Data cleaning techniques for real-world messy datasets",
-        "Exploratory Data Analysis (EDA) methodology",
-        "Dashboard development with Streamlit",
-        "Real-time data processing and visualization"
-      ],
-      "softSkills": [
-        "Leadership and team guidance",
-        "Delegation of tasks based on team strengths",
-        "Stakeholder communication and requirement gathering",
-        "Project management under time constraints"
-      ]
-    },
-    "result": "Won Best Project Award for our data-driven solution that provided actionable insights for academic improvement. The judges appreciated our practical approach and clear visualizations.",
-    "status": "Winner",
-    "photos": [
-      {
-        "url": "",
-        "caption": "Working on data analysis and cleaning the dataset"
-      },
-      {
-        "url": "/images/_DSC0475.JPG",
-        "caption": "Dashboard prototype showing student performance metrics"
-      },
-      {
-        "url": "",
-        "caption": ""
-      },
-      {
-        "url": ""
+        "caption": "Team after project submission"
       }
     ]
   },
   {
     "id": "kumaun-university",
-    "title": "Kumaun University Level Hackathon",
-    "description": "Worked on cross-functional team solving real business problems for campus resource optimization.",
+    "title": "Kumaun University Hackathon",
+    "description": "Built an Urban AI solution focused on smart city problem identification and visualization.",
+
     "organizedBy": "Kumaun University",
     "location": "Nainital, Uttarakhand",
-    "duration": "3 days",
-    "year": "2024",
-    "role": "Collaborative Team Member",
-    "teamSize": "5 members",
-    "techStack": ["Python", "Django", "PostgreSQL", "React"],
-    "experience": "This was a university-level competition with participants from multiple colleges. Our team worked on a comprehensive solution for campus resource optimization including classroom scheduling, lab equipment booking, and faculty availability tracking. I contributed to both backend development and data analysis components, ensuring our solution was both functional and data-driven.",
-    "challenges": "Working with teammates from different colleges meant adapting to different coding styles and communication preferences. The extended 48-hour duration required careful energy management and strategic breaks to maintain productivity throughout the competition.",
+    "duration": "3 Days",
+    "year": "2025",
+
+    "role": "Team Member",
+    "teamSize": "5 Members",
+
+    "techStack": ["React", "Python", "AI Mapping", "Data Visualization"],
+
+    "experience": "Our team worked on an Urban AI system focused on solving city-level problems such as waste management and civic issue tracking. We built an interactive map-based platform that highlighted problem areas and visualized important city data. The experience of travelling to Nainital, collaborating with teammates and presenting our solution to judges made this one of the most enjoyable and rewarding hackathons.",
+
+    "challenges": "Designing a practical solution, building map-based visualizations and preparing a strong presentation within the given timeline.",
+
     "learnings": {
       "technical": [
-        "Database design and schema planning",
-        "API development with Django REST framework",
-        "Cross-platform integration between frontend and backend",
-        "Performance optimization for real-time applications"
+        "Map-based UI design",
+        "Urban data visualization",
+        "Problem analysis",
+        "Frontend development"
       ],
       "softSkills": [
-        "Cross-cultural collaboration with diverse team members",
-        "Conflict resolution and consensus building",
-        "Energy management during extended coding sessions",
-        "Strategic planning and milestone setting"
+        "Presentation skills",
+        "Team collaboration",
+        "Leadership",
+        "Decision making"
       ]
     },
-    "result": "2nd Position",
+
+    "result": "Won 2nd Position.",
+
     "status": "Winner",
+
     "photos": [
       {
         "url": "/images/6.jpeg",
-        "caption": ""
+        "caption": "Project discussion and planning"
       },
       {
         "url": "/images/66.jpeg",
-        "caption": "Creativity , 3d ui map "
+        "caption": "Urban AI dashboard and map visualization"
       },
       {
         "url": "/images/7.jpeg",
@@ -134,16 +152,64 @@
       },
       {
         "url": "/images/4.jpeg",
-        "caption": ""
+        "caption": "Team presentation session"
       },
       {
         "url": "/images/22.jpeg",
-        "caption": ""
+        "caption": "Hackathon event moments"
       },
       {
         "url": "/images/5.jpeg",
-        "caption": ""
+        "caption": "Working together on the solution"
       }
     ]
+  },
+  {
+    "id": "urban-os",
+    "title": "Urban OS – Smart City Management Platform",
+    "description": "Built a smart city management platform to improve communication between citizens and city administration.",
+    "category": "Full Stack Project",
+    "duration": "1 Month",
+    "year": "2025",
+
+    "role": "Full Stack Contributor",
+
+    "team": ["Deepanshu", "Vishal Joshi", "Uday Bhan", "Mahesh"],
+
+    "techStack": ["React", "MongoDB", "Node.js", "REST API", "AI Features"],
+
+    "overview": "Urban OS is a smart city management platform developed under the theme 'Chota Kadam Badlata Bharat'. The system helps citizens report issues, monitor city services and interact with administration through a centralized platform.",
+
+    "contributions": [
+      "UI/UX design",
+      "Signup and Login workflow",
+      "MongoDB database management",
+      "API integration",
+      "Testing and debugging",
+      "Deployment setup",
+      "System workflow planning"
+    ],
+
+    "features": [
+      "Complaint Management",
+      "Live Location Tracking",
+      "Emergency SOS",
+      "AQI Monitoring",
+      "AI Complaint Assistant",
+      "Voice Complaint Registration",
+      "Heat Maps",
+      "Admin Analytics Dashboard"
+    ],
+
+    "learnings": [
+      "System design thinking",
+      "Full-stack workflow understanding",
+      "Database management",
+      "API integration",
+      "Real-world problem solving",
+      "Team collaboration"
+    ],
+
+    "result": "Successfully developed and demonstrated a working smart city platform with multiple citizen and admin features."
   }
 ]
