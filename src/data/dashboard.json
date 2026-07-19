@@ -22,6 +22,13 @@
       "Open to full-time Data Analyst roles starting 2026-2027"
     ]
   },
+  "systemInfo": {
+    "title": "My Operating System & Mindset",
+    "discipline": "Daily Gym & Fitness routine built on strict consistency",
+    "philosophy": "Consistency over motivation. Discipline over talent.",
+    "creativeSkills": ["Data Storytelling", "Visual Analytics", "Design Thinking"],
+    "technicalStack": ["Python", "SQL", "Pandas", "Power BI / Excel"]
+  },
   "education": [
     {
       "id": "bca",
@@ -39,6 +46,7 @@
       "title": "Python for Data Science & Analytics",
       "issuer": "Coursera / IBM",
       "issueDate": "2025",
+      "image": "/images/cert-python.jpg",
       "credentialUrl": "https://coursera.org",
       "skills": ["Python", "pandas", "NumPy", "Data Cleaning"]
     },
@@ -47,6 +55,7 @@
       "title": "SQL Fundamentals & Relational Databases",
       "issuer": "freeCodeCamp",
       "issueDate": "2025",
+      "image": "/images/cert-sql.jpg",
       "credentialUrl": "https://freecodecamp.org",
       "skills": ["SQL", "Join Operations", "Query Optimization"]
     },
@@ -55,6 +64,7 @@
       "title": "Exploratory Data Analysis & Visualization",
       "issuer": "Kaggle Certificates",
       "issueDate": "2025",
+      "image": "/images/cert-eda.jpg",
       "credentialUrl": "https://kaggle.com",
       "skills": ["Seaborn", "Matplotlib", "Data Storytelling"]
     },
@@ -63,6 +73,7 @@
       "title": "Excel & Business Data Analysis",
       "issuer": "Udemy / Microsoft",
       "issueDate": "2024",
+      "image": "/images/cert-excel.jpg",
       "credentialUrl": "https://udemy.com",
       "skills": ["Pivot Tables", "VLOOKUP/XLOOKUP", "Dashboarding"]
     }
@@ -169,26 +180,6 @@
       "description": "Best practices for efficient database queries",
       "date": "2 weeks ago",
       "tags": ["SQL", "Database", "Optimization"]
-    }
-  ],
-  "roadmap": [
-    {
-      "stage": "Current",
-      "role": "BCA Student | Data Analyst Learner",
-      "focus": ["Python", "SQL", "EDA", "Visualization"],
-      "timeline": "2024-2025"
-    },
-    {
-      "stage": "Next",
-      "role": "Junior Data Analyst",
-      "focus": ["Advanced SQL", "Business Intelligence", "Dashboarding"],
-      "timeline": "2026"
-    },
-    {
-      "stage": "Future",
-      "role": "Data Scientist",
-      "focus": ["Machine Learning", "Deep Learning", "MLOps"],
-      "timeline": "2027+"
     }
   ]
 }
