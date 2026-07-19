@@ -1,7 +1,8 @@
 {
   "hero": {
     "name": "Deepanshu",
-    "title": "Aspiring Data Analyst and  Data Scientist",
+    "avatar": "/images/profile-pic.jpeg",
+    "title": "Aspiring Data Analyst and Data Scientist",
     "subtitle": "Building real-world data solutions with Python, SQL, and honest learning",
     "tools": [
       "Python",

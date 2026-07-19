@@ -88,63 +88,151 @@ export default function DashboardPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2 }}
-            className="max-w-4xl mx-auto mb-20 text-center"
+            className="max-w-5xl mx-auto mb-20"
           >
-            <motion.h1
-              className="text-4xl md:text-5xl font-bold mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-            >
-              <span className="bg-gradient-to-r from-[#E6E6FF] to-[#A0A0C0] bg-clip-text text-transparent">
-                Hi, I'm {DASHBOARD_DATA.hero?.name || "Deepanshu"}
-              </span>
-            </motion.h1>
-            <motion.p
-              className="text-xl text-[#A0A0C0] mb-6"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-            >
-              {DASHBOARD_DATA.hero?.title ||
-                "Data Analyst → Future Data Scientist"}
-            </motion.p>
-            <motion.p
-              className="text-lg text-[#707090] max-w-2xl mx-auto mb-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-            >
-              {DASHBOARD_DATA.hero?.subtitle ||
-                "Building real-world data solutions with Python, SQL, and honest learning"}
-            </motion.p>
+            <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
 
-            {/* Tools - Staggered entrance */}
-            <motion.div
-              className="flex flex-wrap justify-center gap-2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-            >
-              {(DASHBOARD_DATA.hero?.tools || ["Python", "SQL"]).map(
-                (tool, index) => (
-                  <motion.span
-                    key={tool}
-                    className="px-3 py-1 bg-[#1F1F29]/50 text-[#A0A0C0] rounded-full text-sm"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.9 + index * 0.05, duration: 0.4 }}
-                    whileHover={{
-                      y: -2,
-                      backgroundColor: "rgba(67, 201, 240, 0.15)",
-                      color: "#4CC9F0",
+              {/* LEFT - Profile Picture with animated glow */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1, duration: 0.8, type: "spring" }}
+                className="flex-shrink-0 relative"
+              >
+                {/* Spinning gradient border */}
+                <motion.div
+                  className="absolute -inset-1 rounded-full"
+                  style={{
+                    background: "conic-gradient(from 0deg, #4CC9F0, #7209B7, #4CC9F0)",
+                    borderRadius: "50%",
+                  }}
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                />
+                {/* Dark gap ring */}
+                <div className="absolute -inset-0.5 rounded-full bg-[#0A0A0F]" />
+                {/* Profile image */}
+                <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-2 border-[#1F1F29]">
+                  <img
+                    src={DASHBOARD_DATA.hero?.avatar || "/images/profile-pic.jpg"}
+                    alt={DASHBOARD_DATA.hero?.name || "Deepanshu"}
+                    className="w-full h-full object-cover object-top"
+                    onError={(e) => {
+                      const el = e.target as HTMLImageElement;
+                      el.style.display = "none";
+                      if (el.parentElement) {
+                        el.parentElement.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(76,201,240,0.2),rgba(114,9,183,0.2));color:#4CC9F0;font-size:3.5rem;font-weight:bold;">D</div>`;
+                      }
                     }}
+                  />
+                </div>
+                {/* Green online dot */}
+                <motion.div
+                  className="absolute bottom-2 right-2 w-5 h-5 bg-green-400 rounded-full border-2 border-[#0A0A0F]"
+                  animate={{ scale: [1, 1.3, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+              </motion.div>
+
+              {/* RIGHT - Name, title, tools, CTAs */}
+              <div className="flex-1 text-center md:text-left">
+                {/* Available badge */}
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="inline-flex items-center gap-2 px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-xs font-medium mb-4"
+                >
+                  <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+                  Open to opportunities
+                </motion.div>
+
+                <motion.h1
+                  className="text-4xl md:text-5xl font-bold mb-3"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.8 }}
+                >
+                  <span className="bg-gradient-to-r from-[#E6E6FF] via-[#4CC9F0] to-[#7209B7] bg-clip-text text-transparent">
+                    Hi, I&apos;m {DASHBOARD_DATA.hero?.name || "Deepanshu"}
+                  </span>
+                </motion.h1>
+
+                <motion.p
+                  className="text-xl text-[#A0A0C0] mb-3 font-medium"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                >
+                  {DASHBOARD_DATA.hero?.title || "Data Analyst → Future Data Scientist"}
+                </motion.p>
+
+                <motion.p
+                  className="text-base text-[#707090] mb-6 max-w-xl"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 0.6 }}
+                >
+                  {DASHBOARD_DATA.hero?.subtitle ||
+                    "Building real-world data solutions with Python, SQL, and honest learning"}
+                </motion.p>
+
+                {/* Tools */}
+                <motion.div
+                  className="flex flex-wrap justify-center md:justify-start gap-2 mb-6"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.7, duration: 0.6 }}
+                >
+                  {(DASHBOARD_DATA.hero?.tools || ["Python", "SQL"]).map(
+                    (tool, index) => (
+                      <motion.span
+                        key={tool}
+                        className="px-3 py-1 bg-[#1F1F29]/50 text-[#A0A0C0] rounded-full text-sm border border-[#1F1F29]/50"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8 + index * 0.05, duration: 0.4 }}
+                        whileHover={{
+                          y: -2,
+                          backgroundColor: "rgba(76, 201, 240, 0.15)",
+                          color: "#4CC9F0",
+                        }}
+                      >
+                        {tool}
+                      </motion.span>
+                    ),
+                  )}
+                </motion.div>
+
+                {/* CTA Buttons */}
+                <motion.div
+                  className="flex flex-wrap gap-3 justify-center md:justify-start"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.0, duration: 0.5 }}
+                >
+                  <a
+                    href="/resume"
+                    className="px-5 py-2.5 bg-[#4CC9F0]/10 text-[#4CC9F0] border border-[#4CC9F0]/30 rounded-lg hover:bg-[#4CC9F0]/20 transition-all text-sm font-medium"
                   >
-                    {tool}
-                  </motion.span>
-                ),
-              )}
-            </motion.div>
+                    View Resume
+                  </a>
+                  <a
+                    href="/projects"
+                    className="px-5 py-2.5 bg-[#7209B7]/10 text-[#A855F7] border border-[#7209B7]/30 rounded-lg hover:bg-[#7209B7]/20 transition-all text-sm font-medium"
+                  >
+                    My Projects
+                  </a>
+                  <a
+                    href="/contact"
+                    className="px-5 py-2.5 bg-[#1F1F29]/50 text-[#E6E6FF] border border-[#1F1F29] rounded-lg hover:bg-[#1F1F29] transition-all text-sm font-medium"
+                  >
+                    Contact Me
+                  </a>
+                </motion.div>
+              </div>
+
+            </div>
           </motion.div>
 
           {/* PROJECTS SECTION - CLICKABLE TO PROJECTS PAGE */}
