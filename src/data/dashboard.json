@@ -26,21 +26,22 @@
     {
       "id": "bca",
       "degree": "Bachelor of Computer Applications (BCA)",
-      "institution": "MIET College, Kumaun University",
+      "institution": "MIET College, Kumaon University",
       "timeline": "2024 - 2027",
       "status": "Currently Pursuing (3rd Year)",
-      "description": "Specializing in Computer Applications, Database Management Systems, Data Structures, and Data Science Fundamentals.",
+      "description": "Specializing in Computer Applications, DBMS, DSA, ML",
       "badge": "Active"
     }
   ],
   "certifications": [
     {
       "id": "cert-1",
-      "title": "Python for Data Science & Analytics",
-      "issuer": "Coursera / IBM",
-      "issueDate": "2025",
-      "credentialUrl": "https://coursera.org",
-      "skills": ["Python", "pandas", "NumPy", "Data Cleaning"]
+      "title": "Sql ",
+      "issuer": "Hacker Rank",
+      "issueDate": "2026",
+      "image": "/images/sql.png",
+      "credentialUrl": "https://www.hackerrank.com/certificates/3f35f4d124a0",
+      "skills": ["Sql queries , aggregate functions"]
     },
     {
       "id": "cert-2",
