@@ -9,6 +9,7 @@ import {
   FaHome,
   FaProjectDiagram,
   FaUser,
+  FaAward,
   FaFileAlt,
   FaPaperPlane,
   FaBars,
@@ -19,6 +20,7 @@ const NAV_ITEMS = [
   { name: "Dashboard", href: "/dashboard", icon: <FaHome /> },
   { name: "My Works", href: "/projects", icon: <FaProjectDiagram /> },
   { name: "About", href: "/about", icon: <FaUser /> },
+  { name: "Certifications", href: "/certifications", icon: <FaAward /> },
   { name: "Resume", href: "/resume", icon: <FaFileAlt /> },
   { name: "Contact", href: "/contact", icon: <FaPaperPlane />, isCta: true },
 ];
