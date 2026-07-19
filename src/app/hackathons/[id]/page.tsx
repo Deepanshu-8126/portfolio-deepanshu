@@ -8,14 +8,39 @@ import { FloatingNavbar } from "@/components/ui/FloatingNavbar";
 import { BackNavigation } from "@/components/ui/BackNavigation";
 import { Button } from "@/components/ui/Button";
 import hackathonsData from "@/data/hackathons.json";
+type Hackathon = {
+  id: string;
+  title: string;
+  description: string;
+  organizedBy: string;
+  location: string;
+  duration: string;
+  year: string;
+  role: string;
+  teamSize: string;
+  techStack: string[];
+  experience: string;
+  challenges: string;
+  result: string;
+  status: string;
 
+  learnings: {
+    technical: string[];
+    softSkills: string[];
+  };
+
+  photos?: {
+    url: string;
+    caption?: string;
+  }[];
+};
 // Convert array to object for easy lookup
-const HACKATHON_DETAILS = hackathonsData.reduce(
+const HACKATHON_DETAILS = (hackathonsData as Hackathon[]).reduce(
   (acc, hackathon) => {
     acc[hackathon.id] = hackathon;
     return acc;
   },
-  {} as Record<string, (typeof hackathonsData)[0]>,
+  {} as Record<string, Hackathon>,
 );
 
 export default function HackathonDetailPage() {
@@ -187,7 +212,7 @@ export default function HackathonDetailPage() {
                     Technical Learnings
                   </h3>
                   <ul className="space-y-2">
-                    {hackathon.learnings.technical.map((learning, index) => (
+                    {hackathon.learnings?.technical?.map((learning, index) => (
                       <li key={index} className="flex items-start">
                         <span className="text-[#4CC9F0] mr-2 mt-1">•</span>
                         <span className="text-[#E6E6FF]">{learning}</span>
@@ -200,7 +225,7 @@ export default function HackathonDetailPage() {
                     Soft Skill Learnings
                   </h3>
                   <ul className="space-y-2">
-                    {hackathon.learnings.softSkills.map((learning, index) => (
+                    {hackathon.learnings?.softSkills?.map((learning, index) => (
                       <li key={index} className="flex items-start">
                         <span className="text-[#4CC9F0] mr-2 mt-1">•</span>
                         <span className="text-[#E6E6FF]">{learning}</span>
@@ -239,23 +264,30 @@ export default function HackathonDetailPage() {
                 <h2 className="text-xl font-bold mb-6 text-[#7209B7]">
                   Mission Photos
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {hackathon.photos.map((photo, index) => (
-                    <motion.div
-                      key={index}
-                      whileHover={{ scale: 1.02 }}
-                      className="relative overflow-hidden rounded-lg cursor-pointer"
-                    >
-                      <img
-                        src={photo.url}
-                        alt={photo.caption}
-                        className="w-full h-48 object-cover filter blur-sm hover:blur-none transition-all duration-500"
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                        <p className="text-white text-sm">{photo.caption}</p>
-                      </div>
-                    </motion.div>
-                  ))}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {hackathon.photos
+                    .filter((photo) => photo.url)
+                    .map((photo, index) => (
+                      <motion.div
+                        key={index}
+                        whileHover={{ scale: 1.02 }}
+                        className="overflow-hidden rounded-xl bg-[#111]"
+                      >
+                        <img
+                          src={photo.url}
+                          alt={photo.caption || `Photo ${index + 1}`}
+                          className="w-full h-auto object-contain"
+                        />
+
+                        {photo.caption && (
+                          <div className="p-3">
+                            <p className="text-sm text-[#A0A0C0]">
+                              {photo.caption}
+                            </p>
+                          </div>
+                        )}
+                      </motion.div>
+                    ))}
                 </div>
               </GlassCard>
             </motion.div>
