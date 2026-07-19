@@ -39,7 +39,7 @@ export default function Resume() {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
               href="/Resume_Deepanshu.docx"
-              download="deepanshu_resume.pdf"
+              download="public/Resume_Deepanshu.docx"
               className="px-6 py-3 rounded-lg bg-[#4CC9F0] text-black font-semibold hover:scale-105 transition"
             >
               ⬇ Download CV
