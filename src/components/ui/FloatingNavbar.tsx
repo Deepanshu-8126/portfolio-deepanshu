@@ -39,8 +39,8 @@ export function FloatingNavbar() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#4CC9F0] to-[#7209B7] flex items-center justify-center text-white font-bold text-base shadow-md group-hover:scale-105 transition-transform">
               D
             </div>
-            <span className="font-bold text-base md:text-lg bg-gradient-to-r from-[#E6E6FF] to-[#A0A0C0] bg-clip-text text-transparent group-hover:text-white transition-colors">
-              Deepanshu<span className="text-[#4CC9F0]">.</span>
+            <span className="font-bold text-base md:text-lg text-[#E6E6FF] group-hover:text-white transition-colors">
+              Deepanshu <span className="text-[#4CC9F0]">Kapri</span>
             </span>
           </Link>
 

@@ -11,8 +11,6 @@ import {
   FaAward,
   FaExternalLinkAlt,
   FaCheckCircle,
-  FaLaptopCode,
-  FaDumbbell,
   FaTimes,
   FaSearchPlus,
 } from "react-icons/fa";
@@ -204,61 +202,30 @@ export default function DashboardPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-16 space-y-6"
+            className="mb-16"
           >
-            <SectionHeader title="About Me & My System" />
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Bio Card */}
-              <GlassCard className="lg:col-span-2 p-6 md:p-8 border-l-4 border-l-[#4CC9F0]">
-                <h3 className="text-xl font-bold text-[#E6E6FF] mb-3">Who I Am</h3>
-                <p className="text-base text-[#E6E6FF] leading-relaxed mb-4">
-                  {DASHBOARD_DATA.aboutSummary?.bio ||
-                    "I am a 3rd-year BCA student passionate about unlocking business insights from data. I focus on project-based learning—working with real-world datasets in Python and SQL to build practical solutions."}
-                </p>
-                <div className="space-y-2 pt-4 border-t border-[#1F1F29]">
-                  {(
-                    DASHBOARD_DATA.aboutSummary?.highlights || [
-                      "Driven by daily discipline & problem solving",
-                      "Proficient in exploratory data analysis (EDA)",
-                      "Open to full-time Data Analyst roles starting 2026-2027",
-                    ]
-                  ).map((highlight: string, idx: number) => (
-                    <div key={idx} className="flex items-center gap-2.5 text-xs md:text-sm text-[#A0A0C0]">
-                      <FaCheckCircle className="text-[#4CC9F0] flex-shrink-0" />
-                      <span>{highlight}</span>
-                    </div>
-                  ))}
-                </div>
-              </GlassCard>
-
-              {/* My System / Discipline Card */}
-              <GlassCard className="p-6 border-l-4 border-l-[#7209B7] flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-2 text-[#A855F7] font-bold text-sm mb-3">
-                    <FaDumbbell className="text-base" />
-                    <span>My Operating System</span>
+            <SectionHeader title="About Me" />
+            <GlassCard className="p-6 md:p-8 border-l-4 border-l-[#4CC9F0]">
+              <h3 className="text-xl font-bold text-[#E6E6FF] mb-3">Who I Am</h3>
+              <p className="text-base text-[#E6E6FF] leading-relaxed mb-4">
+                {DASHBOARD_DATA.aboutSummary?.bio ||
+                  "I am a 3rd-year BCA student passionate about unlocking business insights from data. I focus on project-based learning—working with real-world datasets in Python and SQL to build practical solutions."}
+              </p>
+              <div className="space-y-2 pt-4 border-t border-[#1F1F29]">
+                {(
+                  DASHBOARD_DATA.aboutSummary?.highlights || [
+                    "Driven by daily discipline & problem solving",
+                    "Proficient in exploratory data analysis (EDA)",
+                    "Open to full-time Data Analyst roles starting 2026-2027",
+                  ]
+                ).map((highlight: string, idx: number) => (
+                  <div key={idx} className="flex items-center gap-2.5 text-xs md:text-sm text-[#A0A0C0]">
+                    <FaCheckCircle className="text-[#4CC9F0] flex-shrink-0" />
+                    <span>{highlight}</span>
                   </div>
-
-                  <h4 className="text-base font-bold text-[#E6E6FF] mb-2">Discipline & Daily Routine</h4>
-                  <p className="text-xs text-[#A0A0C0] mb-4 leading-relaxed">
-                    {DASHBOARD_DATA.systemInfo?.discipline ||
-                      "Daily Gym & Fitness routine built on strict consistency, focused learning, and problem solving."}
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-[#1F1F29]">
-                  <div className="text-[11px] uppercase tracking-wider text-[#707090] font-bold mb-2">Technical Core</div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {(DASHBOARD_DATA.systemInfo?.technicalStack || ["Python", "SQL", "Pandas", "Power BI"]).map((item: string) => (
-                      <span key={item} className="text-xs px-2.5 py-0.5 rounded bg-[#1F1F29] text-[#4CC9F0]">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </GlassCard>
-            </div>
+                ))}
+              </div>
+            </GlassCard>
           </motion.div>
 
 

@@ -4,217 +4,263 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
 import { FloatingNavbar } from "@/components/ui/FloatingNavbar";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { FaDownload, FaEnvelope, FaMapMarkerAlt, FaGraduationCap, FaBriefcase, FaAward, FaExternalLinkAlt } from "react-icons/fa";
+import dashboardData from "@/data/dashboard.json";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
+
+const SKILLS = (dashboardData.skills || []) as { name: string; level: number; category: string; description: string }[];
+const CERTS = (dashboardData.certifications || []) as { id: string; title: string; issuer: string; issueDate: string; credentialUrl: string; skills: string[] }[];
+const PROJECTS = (dashboardData.projects || []) as { id: string; title: string; description: string; tech: string[] }[];
+
+const SKILL_CATEGORIES = [
+  { key: "Core", label: "Core Skills", color: "#4CC9F0" },
+  { key: "Foundation", label: "Foundation", color: "#7209B7" },
+  { key: "Learning", label: "Currently Learning", color: "#A855F7" },
+];
 
 export default function Resume() {
   return (
-    <div className="min-h-screen bg-[#0A0A0F] text-[#E6E6FF]">
-      {/* Navbar */}
+    <div className="min-h-screen bg-gradient-to-br from-[#08080F] via-[#0A0A0F] to-[#0C0C12] text-[#E6E6FF]">
+      <ScrollProgress />
       <FloatingNavbar />
-      <div className="container mx-auto px-6 py-16 md:py-24 max-w-4xl">
-        {/* Header */}
+
+      <div className="container mx-auto px-4 md:px-6 pt-24 pb-20 max-w-4xl">
+
+        {/* ─── HEADER ─── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-14"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-3 bg-gradient-to-r from-[#E6E6FF] via-[#4CC9F0] to-[#A855F7] bg-clip-text text-transparent">
             Deepanshu Kapri
           </h1>
-
-          <p className="text-xl text-[#A0A0C0] mb-6">
-            Aspiring Data Analyst | Data Analytics & Business Intelligence
+          <p className="text-lg text-[#A0A0C0] font-medium mb-2">
+            Aspiring Data Analyst &amp; Business Intelligence Enthusiast
+          </p>
+          <p className="text-sm text-[#707090] max-w-2xl mx-auto mb-8 leading-relaxed">
+            Hands-on experience in Python, SQL, Pandas, NumPy and Power BI. Passionate about building
+            dashboards, performing exploratory data analysis, and solving business problems using data.
           </p>
 
-          <p className="text-lg text-[#E6E6FF] max-w-2xl mx-auto">
-            Aspiring Data Analytics professional with hands-on experience in
-            Python, SQL, Pandas, NumPy and Power BI. Passionate about building
-            dashboards, performing exploratory data analysis, and solving
-            business problems using data.
-          </p>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap justify-center gap-4">
             <a
               href="/Resume_Deepanshu.docx"
-              download="public/Resume_Deepanshu.docx"
-              className="px-6 py-3 rounded-lg bg-[#4CC9F0] text-black font-semibold hover:scale-105 transition"
+              download="Resume_Deepanshu.docx"
+              className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#4CC9F0] to-[#7209B7] text-white font-semibold hover:scale-105 transition shadow-lg shadow-[#4CC9F0]/20"
             >
-              ⬇ Download CV
+              <FaDownload /> Download CV
             </a>
-
-            <Link href="/contact">
-              <Button variant="primary">Contact Me</Button>
+            <Link
+              href="/contact"
+              className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1F1F29] border border-[#4CC9F0]/30 text-[#4CC9F0] font-semibold hover:bg-[#4CC9F0]/10 transition"
+            >
+              <FaEnvelope /> Contact Me
             </Link>
-
-            <Link href="/projects">
-              <Button variant="secondary">View Projects</Button>
+            <Link
+              href="/projects"
+              className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1F1F29] border border-[#1F1F29] text-[#E6E6FF] font-semibold hover:border-[#707090] transition"
+            >
+              <FaBriefcase /> View Projects
             </Link>
           </div>
         </motion.div>
 
-        {/* Contact Info */}
+        {/* ─── CONTACT INFO ─── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14"
         >
-          <GlassCard className="text-center">
-            <div className="text-[#4CC9F0] mb-2">📧</div>
-            <div className="font-medium">Email</div>
-            <a
-              href="mailto:deepanshukapri4@gmail.com"
-              className="text-[#A0A0C0] hover:text-[#4CC9F0]"
-            >
+          <GlassCard className="text-center p-5">
+            <div className="text-[#4CC9F0] text-2xl mb-2 flex justify-center"><FaEnvelope /></div>
+            <div className="font-semibold mb-1 text-sm">Email</div>
+            <a href="mailto:deepanshukapri4@gmail.com" className="text-[#A0A0C0] hover:text-[#4CC9F0] text-xs break-all">
               deepanshukapri4@gmail.com
             </a>
           </GlassCard>
-          <GlassCard className="text-center">
-            <div className="text-[#4CC9F0] mb-2">📍</div>
-            <div className="font-medium">Location</div>
-            <div className="text-[#A0A0C0]">India • Remote</div>
+          <GlassCard className="text-center p-5">
+            <div className="text-[#4CC9F0] text-2xl mb-2 flex justify-center"><FaMapMarkerAlt /></div>
+            <div className="font-semibold mb-1 text-sm">Location</div>
+            <div className="text-[#A0A0C0] text-xs">India • Open to Remote</div>
           </GlassCard>
-          <GlassCard className="text-center">
-            <div className="text-[#4CC9F0] mb-2">🎓</div>
-            <div className="font-medium">Education</div>
-            <div className="text-[#A0A0C0]">BCA Student • 2026</div>
+          <GlassCard className="text-center p-5">
+            <div className="text-[#4CC9F0] text-2xl mb-2 flex justify-center"><FaGraduationCap /></div>
+            <div className="font-semibold mb-1 text-sm">Education</div>
+            <div className="text-[#A0A0C0] text-xs">BCA Student • 2024-2027</div>
           </GlassCard>
         </motion.div>
 
-        {/* Education */}
+        {/* ─── EDUCATION ─── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-[#1F1F29]">
-            Education
-          </h2>
-          <GlassCard>
-            <div className="flex justify-between items-start mb-2">
-              <h3 className="font-bold text-lg">
-                Bachelor of Computer Applications (BCA)
-              </h3>
-              <span className="text-[#4CC9F0]">Aug 2024 - Jun 2027</span>
+          <SectionHeader title="Education" />
+          <GlassCard className="p-6 border-t-2 border-t-[#4CC9F0]">
+            <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
+              <div>
+                <h3 className="font-bold text-lg text-[#E6E6FF]">Bachelor of Computer Applications (BCA)</h3>
+                <p className="text-sm text-[#A0A0C0]">MIET College, Kumaun University</p>
+                <p className="text-xs text-[#707090] mt-1">CGPA: 7.0 / 10 • Specializing in Data Science & CS Fundamentals</p>
+              </div>
+              <span className="text-[#4CC9F0] font-semibold text-sm whitespace-nowrap">Aug 2024 – Jun 2027</span>
             </div>
-            <p className="text-[#A0A0C0]">CGPA: 7.0 / 10</p>
           </GlassCard>
         </motion.div>
 
-        {/* Technical Skills */}
+        {/* ─── TECHNICAL SKILLS ─── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-[#1F1F29]">
-            Technical Skills
-          </h2>
+          <SectionHeader title="Technical Skills" />
+          <div className="space-y-5">
+            {SKILL_CATEGORIES.map(({ key, label, color }) => {
+              const filtered = SKILLS.filter((s) => s.category === key);
+              if (!filtered.length) return null;
+              return (
+                <GlassCard key={key} className="p-5">
+                  <h3 className="text-sm font-bold mb-4" style={{ color }}>{label}</h3>
+                  <div className="space-y-3">
+                    {filtered.map((skill) => (
+                      <div key={skill.name}>
+                        <div className="flex justify-between items-center mb-1">
+                          <span className="text-sm font-medium text-[#E6E6FF]">{skill.name}</span>
+                          <span className="text-xs text-[#707090]">{skill.level}%</span>
+                        </div>
+                        <div className="h-1.5 bg-[#1F1F29] rounded-full overflow-hidden">
+                          <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${skill.level}%` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1, delay: 0.2 }}
+                            className="h-full rounded-full"
+                            style={{ background: `linear-gradient(to right, ${color}, #7209B7)` }}
+                          />
+                        </div>
+                        <p className="text-xs text-[#707090] mt-0.5">{skill.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </GlassCard>
+              );
+            })}
 
-          <div className="space-y-6">
-            <div>
-              <h3 className="font-bold mb-3 text-[#4CC9F0]">Programming</h3>
-
+            {/* Tools row */}
+            <GlassCard className="p-5">
+              <h3 className="text-sm font-bold mb-3 text-[#A0A0C0]">Tools & Environment</h3>
               <div className="flex flex-wrap gap-2">
-                {["Python", "SQL"].map((skill) => (
-                  <Badge key={skill} variant="primary">
-                    {skill}
-                  </Badge>
+                {["Excel", "GitHub", "Google Colab", "Jupyter Notebook", "Power BI", "VS Code"].map((tool) => (
+                  <span key={tool} className="px-3 py-1 bg-[#1F1F29] text-[#A0A0C0] rounded-full text-xs border border-[#1F1F29] hover:border-[#4CC9F0]/40 hover:text-[#4CC9F0] transition-colors">
+                    {tool}
+                  </span>
                 ))}
               </div>
-            </div>
-
-            <div>
-              <h3 className="font-bold mb-3 text-[#4CC9F0]">Data Analysis</h3>
-
-              <div className="flex flex-wrap gap-2">
-                {["Pandas", "NumPy", "EDA"].map((skill) => (
-                  <Badge key={skill} variant="primary">
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-bold mb-3 text-[#4CC9F0]">Visualization</h3>
-
-              <div className="flex flex-wrap gap-2">
-                {["Power BI", "Matplotlib", "Seaborn"].map((skill) => (
-                  <Badge key={skill} variant="primary">
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-bold mb-3 text-[#4CC9F0]">Databases</h3>
-
-              <div className="flex flex-wrap gap-2">
-                {["SQL Joins", "Aggregations", "Subqueries"].map((skill) => (
-                  <Badge key={skill} variant="primary">
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-bold mb-3 text-[#4CC9F0]">Tools</h3>
-
-              <div className="flex flex-wrap gap-2">
-                {["Excel", "GitHub", "Google Colab", "Jupyter Notebook"].map(
-                  (skill) => (
-                    <Badge key={skill} variant="primary">
-                      {skill}
-                    </Badge>
-                  ),
-                )}
-              </div>
-            </div>
+            </GlassCard>
           </div>
         </motion.div>
 
-        {/* Certifications */}
+        {/* ─── PROJECTS ─── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-[#1F1F29]">
-            Certifications
-          </h2>
-
+          <div className="flex items-center justify-between mb-4">
+            <SectionHeader title="Key Projects" />
+            <Link href="/projects" className="text-xs text-[#4CC9F0] hover:underline">View All →</Link>
+          </div>
           <div className="space-y-4">
-            {[
-              {
-                name: "Python Programming",
-                issuer: "One Roadmap",
-              },
-              {
-                name: "SQL",
-                issuer: "HackerRank",
-              },
-            ].map((cert, index) => (
-              <GlassCard
-                key={index}
-                className="flex justify-between items-start"
-              >
-                <div>
-                  <h3 className="font-bold">{cert.name}</h3>
-                  <p className="text-[#A0A0C0]">{cert.issuer}</p>
+            {PROJECTS.map((project) => (
+              <GlassCard key={project.id} className="p-5 hover:border-[#4CC9F0]/40 transition">
+                <div className="flex items-start justify-between gap-3 mb-2">
+                  <h3 className="font-bold text-base text-[#E6E6FF]">{project.title}</h3>
+                </div>
+                <p className="text-sm text-[#A0A0C0] mb-3">{project.description}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tech.map((t) => (
+                    <span key={t} className="text-xs px-2.5 py-0.5 bg-[#4CC9F0]/10 text-[#4CC9F0] rounded border border-[#4CC9F0]/20">
+                      {t}
+                    </span>
+                  ))}
                 </div>
               </GlassCard>
             ))}
           </div>
         </motion.div>
+
+        {/* ─── CERTIFICATIONS ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <div className="flex items-center justify-between mb-4">
+            <SectionHeader title="Certifications" />
+            <Link href="/certifications" className="text-xs text-[#4CC9F0] hover:underline">View All →</Link>
+          </div>
+          <div className="space-y-3">
+            {CERTS.map((cert) => (
+              <GlassCard key={cert.id} className="p-5 flex flex-col md:flex-row md:items-center justify-between gap-3">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <FaAward className="text-[#4CC9F0] text-sm" />
+                    <h3 className="font-bold text-sm text-[#E6E6FF]">{cert.title}</h3>
+                  </div>
+                  <p className="text-xs text-[#A0A0C0]">{cert.issuer} • {cert.issueDate}</p>
+                </div>
+                <a
+                  href={cert.credentialUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs text-[#4CC9F0] hover:underline whitespace-nowrap"
+                >
+                  Verify <FaExternalLinkAlt size={10} />
+                </a>
+              </GlassCard>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* ─── DOWNLOAD CTA ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <GlassCard className="p-8 border border-[#4CC9F0]/20">
+            <p className="text-[#A0A0C0] mb-5 text-base">Want a full PDF version of this resume?</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/Resume_Deepanshu.docx"
+                download="Resume_Deepanshu.docx"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#4CC9F0] to-[#7209B7] text-white font-semibold hover:scale-105 transition"
+              >
+                <FaDownload /> Download CV
+              </a>
+              <Link
+                href="/contact"
+                className="px-6 py-3 rounded-xl bg-[#1F1F29] border border-[#1F1F29] text-[#E6E6FF] font-semibold hover:border-[#4CC9F0] transition"
+              >
+                Contact Me
+              </Link>
+            </div>
+          </GlassCard>
+        </motion.div>
+
       </div>
     </div>
   );
