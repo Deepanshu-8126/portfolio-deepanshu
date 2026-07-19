@@ -163,53 +163,5 @@
         "caption": "Working together on the solution"
       }
     ]
-  },
-  {
-    "id": "urban-os",
-    "title": "Urban OS – Smart City Management Platform",
-    "description": "Built a smart city management platform to improve communication between citizens and city administration.",
-    "category": "Full Stack Project",
-    "duration": "1 Month",
-    "year": "2025",
-
-    "role": "Full Stack Contributor",
-
-    "team": ["Deepanshu", "Vishal Joshi", "Uday Bhan", "Mahesh"],
-
-    "techStack": ["React", "MongoDB", "Node.js", "REST API", "AI Features"],
-
-    "overview": "Urban OS is a smart city management platform developed under the theme 'Chota Kadam Badlata Bharat'. The system helps citizens report issues, monitor city services and interact with administration through a centralized platform.",
-
-    "contributions": [
-      "UI/UX design",
-      "Signup and Login workflow",
-      "MongoDB database management",
-      "API integration",
-      "Testing and debugging",
-      "Deployment setup",
-      "System workflow planning"
-    ],
-
-    "features": [
-      "Complaint Management",
-      "Live Location Tracking",
-      "Emergency SOS",
-      "AQI Monitoring",
-      "AI Complaint Assistant",
-      "Voice Complaint Registration",
-      "Heat Maps",
-      "Admin Analytics Dashboard"
-    ],
-
-    "learnings": [
-      "System design thinking",
-      "Full-stack workflow understanding",
-      "Database management",
-      "API integration",
-      "Real-world problem solving",
-      "Team collaboration"
-    ],
-
-    "result": "Successfully developed and demonstrated a working smart city platform with multiple citizen and admin features."
   }
 ]
