@@ -45,27 +45,11 @@
     },
     {
       "id": "cert-2",
-      "title": "SQL Fundamentals & Relational Databases",
-      "issuer": "freeCodeCamp",
-      "issueDate": "2025",
-      "credentialUrl": "https://freecodecamp.org",
-      "skills": ["SQL", "Join Operations", "Query Optimization"]
-    },
-    {
-      "id": "cert-3",
-      "title": "Exploratory Data Analysis & Visualization",
-      "issuer": "Kaggle Certificates",
-      "issueDate": "2025",
-      "credentialUrl": "https://kaggle.com",
-      "skills": ["Seaborn", "Matplotlib", "Data Storytelling"]
-    },
-    {
-      "id": "cert-4",
-      "title": "Excel & Business Data Analysis",
-      "issuer": "Udemy / Microsoft",
-      "issueDate": "2024",
-      "credentialUrl": "https://udemy.com",
-      "skills": ["Pivot Tables", "VLOOKUP/XLOOKUP", "Dashboarding"]
+      "title": "Python",
+      "issuer": "oneroadmap",
+      "issueDate": "2026",
+      "credentialUrl": "https://www.oneroadmap.io/skills/python/certificate/CERT-03FA1545",
+      "skills": ["Python", "Loops", "Function"]
     }
   ],
   "skills": [
