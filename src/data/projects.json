@@ -1,91 +1,172 @@
 [
   {
-    "id": "sales-data-analysis",
-    "title": "Sales Data Analysis",
-    "description": "Analyzed sales patterns and top-performing products using Python and pandas.",
-    "shortDesc": "Analyzed sales patterns and top-performing products using Python and pandas.",
-    "tech": ["Python", "pandas", "Matplotlib", "Seaborn"],
+    "id": "Netflix-content-analysis",
+    "title": "Netflix Content Analysis",
+    "description": "Explored content trends and regional preferences using real-world datasets.",
+    "shortDesc": "Explored content trends and regional preferences using real-world datasets.",
+    "tech": ["Python", "pandas", "Matplotlib", "Data Viz"],
     "status": "Completed",
-    "category": "Data Analysis",
+    "category": "Data Visualization",
     "featured": true,
-    "problem": "Understanding sales patterns and identifying top-performing products to optimize inventory and marketing strategies.",
-    "solution": "Built comprehensive data analysis pipeline using Python and pandas to clean, analyze, and visualize sales data across multiple dimensions including time, product categories, and regions.",
+    "problem": "Understanding Netflix content distribution and regional preferences to identify content gaps and opportunities.",
+    "solution": "Analyzed Netflix dataset containing movies and TV shows across different countries to visualize content trends, genre distributions, and release patterns.",
+    "tools": [
+      "Python",
+      "pandas",
+      "Matplotlib",
+      "Seaborn",
+      "Data Viz",
+      "Jupyter Notebook",
+      "Power Bi"
+    ],
+    "insights": [
+      "Dramas and Comedies dominate the content library (45% combined)",
+      "Content production has increased by 300% since 2015",
+      "International content represents 40% of total library"
+    ],
+    "learnings": "Mastered the art of storytelling through data visualization — learned that the right chart type matters more than fancy styling.",
+    "github": "https://github.com/Deepanshu-8126/Netflix-Content-Analysis",
+    "metrics": {
+      "datasets": 1,
+      "visualizations": 10,
+      "insights": 6
+    }
+  },
+  {
+    "id": "customer-churn-analysis",
+    "title": "Customer Churn Analysis",
+    "description": "Analyzed telecom customer behavior to identify factors contributing to customer churn.",
+    "shortDesc": "Identified key drivers behind customer churn using exploratory data analysis.",
+    "tech": ["Python", "pandas", "Seaborn", "EDA"],
+    "status": "Completed",
+    "category": "Business Analytics",
+    "featured": true,
+    "problem": "Telecom companies lose revenue when customers discontinue services. Understanding churn patterns is essential for retention strategies.",
+    "solution": "Performed exploratory data analysis on telecom customer data to uncover relationships between churn and factors such as contract type, monthly charges, tenure, and payment methods.",
     "tools": [
       "Python",
       "pandas",
       "NumPy",
       "Matplotlib",
       "Seaborn",
-      "Jupyter Notebook"
+      "Jupyter Notebook",
+      "Power BI"
     ],
     "insights": [
-      "Seasonal trends show 35% higher sales during Q4 holidays",
-      "Electronics category contributes 45% of total revenue",
-      "Top 10 products account for 60% of total sales volume"
+      "Month-to-month contract customers showed the highest churn rate",
+      "Customers with shorter tenure were more likely to leave",
+      "Electronic check users had significantly higher churn",
+      "Higher monthly charges correlated with increased churn risk"
     ],
-    "learnings": "Learned the importance of data cleaning and validation before analysis. Realized that 80% of time goes into data preparation rather than modeling.",
-    "github": "https://github.com/Deepanshu-8126/sales-analysis",
+    "learnings": "Learned how business metrics and customer behavior data can be transformed into actionable retention strategies using data analysis.",
+    "github": "https://github.com/Deepanshu-8126/customer-churn-analysis",
     "metrics": {
-      "datasets": 3,
+      "datasets": 1,
       "visualizations": 12,
       "insights": 8
     }
   },
   {
-    "id": "customer-churn-analysis",
-    "title": "Customer Churn Analysis",
-    "description": "Identified churn factors in telecom industry through exploratory data analysis.",
-    "shortDesc": "Identified churn factors in telecom industry through exploratory data analysis.",
-    "tech": ["Python", "pandas", "Seaborn", "EDA"],
+    "id": "hospital-data-analysis",
+    "title": "Hospital Data Analysis",
+    "description": "Analyzed patient admission and treatment data to identify healthcare trends and operational insights.",
+    "shortDesc": "Explored hospital operations, patient demographics, and treatment patterns.",
+    "tech": ["Python", "pandas", "Matplotlib", "Healthcare Analytics"],
     "status": "Completed",
-    "category": "Data Analysis",
+    "category": "Healthcare Analytics",
     "featured": true,
-    "problem": "Identifying factors that lead to customer churn in telecom industry to develop retention strategies.",
-    "solution": "Performed exploratory data analysis on customer demographics, service usage, and billing information to identify key churn indicators and create actionable insights.",
+    "problem": "Hospitals generate large volumes of patient data but often struggle to identify trends affecting operational efficiency and patient care.",
+    "solution": "Conducted exploratory analysis on hospital records to study patient demographics, admission trends, department workload, and treatment outcomes.",
     "tools": [
       "Python",
       "pandas",
-      "Seaborn",
+      "NumPy",
       "Matplotlib",
+      "Seaborn",
       "Jupyter Notebook",
-      "EDA"
+      "Power BI"
     ],
     "insights": [
-      "Customers with month-to-month contracts are 3x more likely to churn",
-      "Poor customer service experience correlates strongly with churn",
-      "Higher monthly charges increase churn probability significantly"
+      "Emergency department handled over 35% of total admissions",
+      "Patients aged 50+ accounted for the highest hospitalization rate",
+      "Cardiology and General Medicine had the largest patient volume",
+      "Average length of stay increased during peak admission months"
     ],
-    "learnings": "Discovered that simple statistical analysis can provide more actionable insights than complex machine learning models in many business scenarios.",
-    "github": "https://github.com/Deepanshu-8126/churn-analysis",
+    "learnings": "Developed experience in healthcare analytics and learned how operational data can support resource planning and decision-making.",
+    "github": "https://github.com/Deepanshu-8126/Hospital_Analysis_Capstone",
     "metrics": {
       "datasets": 1,
-      "visualizations": 8,
-      "insights": 5
+      "visualizations": 11,
+      "insights": 7
     }
   },
   {
-    "id": "house-price-prediction",
-    "title": "House Price Prediction",
-    "description": "Built beginner ML model with 78% accuracy using scikit-learn.",
-    "shortDesc": "Built beginner ML model with 78% accuracy using scikit-learn.",
-    "tech": ["Python", "scikit-learn", "pandas", "ML"],
+    "id": "superstore-sales-eda",
+    "title": "Superstore Sales Analysis",
+    "description": "Performed exploratory data analysis on retail sales data to uncover revenue and profit trends.",
+    "shortDesc": "Analyzed sales, profit, and customer segments using Superstore dataset.",
+    "tech": ["Python", "pandas", "Matplotlib", "EDA"],
     "status": "Completed",
-    "category": "Machine Learning",
-    "featured": false,
-    "problem": "Predicting house prices based on property features to help buyers and sellers make informed decisions.",
-    "solution": "Built a linear regression model using scikit-learn to predict house prices based on features like area, location, bedrooms, and age of property.",
-    "tools": ["Python", "pandas", "scikit-learn", "NumPy", "Matplotlib", "ML"],
-    "insights": [
-      "Model achieved 78% accuracy on test dataset",
-      "Property area and location are the strongest predictors",
-      "Feature engineering improved model performance by 15%"
+    "category": "Retail Analytics",
+    "featured": true,
+    "problem": "Retail businesses need to understand sales performance, profitability, and customer behavior to improve decision-making.",
+    "solution": "Analyzed Superstore sales data to identify top-performing categories, regional trends, customer segments, and profit drivers.",
+    "tools": [
+      "Python",
+      "pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "Jupyter Notebook",
+      "Power BI"
     ],
-    "learnings": "Understood the complete machine learning workflow from data preprocessing to model evaluation and learned when simpler models outperform complex ones.",
-    "github": "https://github.com/Deepanshu-8126/house-price-prediction",
+    "insights": [
+      "Technology category generated the highest profit",
+      "West region recorded the strongest overall sales",
+      "Consumer segment contributed the largest share of revenue",
+      "Several high-sales products generated negative profit due to discounts"
+    ],
+    "learnings": "Strengthened business analytics skills by converting raw retail data into meaningful business recommendations and performance insights.",
+    "github": "https://github.com/Deepanshu-8126/superstore-sales-analysis",
     "metrics": {
       "datasets": 1,
-      "visualizations": 6,
-      "insights": 3
+      "visualizations": 14,
+      "insights": 9
+    }
+  },
+  {
+    "id": "covid19-data-analysis",
+    "title": "COVID-19 Data Analysis",
+    "description": "Analyzed global COVID-19 trends to understand infection patterns, recovery rates, and regional impact.",
+    "shortDesc": "Explored COVID-19 cases, deaths, and recovery trends using real-world pandemic data.",
+    "tech": ["Python", "pandas", "Matplotlib", "EDA"],
+    "status": "Completed",
+    "category": "Healthcare Analytics",
+    "featured": true,
+    "problem": "Governments and healthcare organizations needed data-driven insights to monitor the spread of COVID-19 and allocate resources effectively.",
+    "solution": "Performed exploratory data analysis on global COVID-19 datasets to visualize case growth, mortality rates, recovery trends, and country-wise impact during different phases of the pandemic.",
+    "tools": [
+      "Python",
+      "pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "Jupyter Notebook",
+      "Power BI"
+    ],
+    "insights": [
+      "United States, India, and Brazil reported the highest cumulative case counts",
+      "Global recovery rates improved significantly after vaccine rollouts",
+      "Case spikes occurred in multiple waves across different regions",
+      "Mortality rates varied considerably between countries",
+      "Vaccination campaigns contributed to reduced hospitalization and fatality trends"
+    ],
+    "learnings": "Learned how to work with large-scale time-series datasets, analyze public health trends, and communicate findings through dashboards and visualizations.",
+    "github": "https://github.com/Deepanshu-8126/covid19-data-analysis",
+    "metrics": {
+      "datasets": 2,
+      "visualizations": 15,
+      "insights": 10
     }
   }
 ]
