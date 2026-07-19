@@ -47,6 +47,7 @@
       "id": "cert-2",
       "title": "Python",
       "issuer": "oneroadmap",
+      "image": "/images/python_oneroadmap.png",
       "issueDate": "2026",
       "credentialUrl": "https://www.oneroadmap.io/skills/python/certificate/CERT-03FA1545",
       "skills": ["Python", "Loops", "Function"]
