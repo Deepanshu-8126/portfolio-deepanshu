@@ -122,15 +122,27 @@
     "photos": [
       {
         "url": "/images/6.jpeg",
-        "caption": "Team brainstorming session for campus resource optimization"
+        "caption": ""
       },
       {
         "url": "/images/66.jpeg",
-        "caption": "Creativity , ui map "
+        "caption": "Creativity , 3d ui map "
       },
       {
         "url": "/images/7.jpeg",
         "caption": "Finally got 2nd Prize"
+      },
+      {
+        "url": "/images/4.jpeg",
+        "caption": ""
+      },
+      {
+        "url": "/images/22.jpeg",
+        "caption": ""
+      },
+      {
+        "url": "/images/5.jpeg",
+        "caption": ""
       }
     ]
   }
