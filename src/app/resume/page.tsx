@@ -25,15 +25,30 @@ export default function Resume() {
           <p className="text-xl text-[#A0A0C0] mb-6">
             BCA Student | Data Science & Analytics Learner
           </p>
-          <p className="text-lg text-[#E6E6FF] max-w-2xl mx-auto">
-            Building real-world data projects and participating in hackathons.
-            Open to full-time Data Analyst roles starting 2026.
+          <p className="text-xl text-[#A0A0C0] mb-6">
+            Aspiring Data Analyst | Data Analytics & Business Intelligence
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <p className="text-lg text-[#E6E6FF] max-w-2xl mx-auto">
+            Aspiring Data Analytics professional with hands-on experience in
+            Python, SQL, Pandas, NumPy and Power BI. Passionate about building
+            dashboards, performing exploratory data analysis, and solving
+            business problems using data.
+          </p>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <a
+              href="/resume.pdf"
+              download="Deepanshu_Kapri_Resume.pdf"
+              className="px-6 py-3 rounded-lg bg-[#4CC9F0] text-black font-semibold hover:scale-105 transition"
+            >
+              ⬇ Download CV
+            </a>
+
             <Link href="/contact">
               <Button variant="primary">Contact Me</Button>
             </Link>
+
             <Link href="/projects">
               <Button variant="secondary">View Projects</Button>
             </Link>
