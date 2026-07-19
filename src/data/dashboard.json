@@ -2,7 +2,7 @@
   "hero": {
     "name": "Deepanshu Kapri",
     "avatar": "/images/deepanshu_photo_portfolio.jpeg",
-    "title": "Aspiring Data Analyst and Data Scientist",
+    "title": "Aspiring Data Analyst & Data Scientist",
     "subtitle": "Building real-world data solutions with Python, SQL, and honest learning",
     "tools": [
       "Python",
@@ -14,6 +14,59 @@
       "Scikit-Learn"
     ]
   },
+  "aboutSummary": {
+    "bio": "I am a 3rd-year BCA student passionate about unlocking business insights from data. I focus on project-based learning—working with real-world datasets in Python and SQL to build practical solutions.",
+    "highlights": [
+      "Driven by daily discipline & problem solving",
+      "Proficient in exploratory data analysis (EDA)",
+      "Open to full-time Data Analyst roles starting 2026-2027"
+    ]
+  },
+  "education": [
+    {
+      "id": "bca",
+      "degree": "Bachelor of Computer Applications (BCA)",
+      "institution": "MIET College, Kumaun University",
+      "timeline": "2024 - 2027",
+      "status": "Currently Pursuing (3rd Year)",
+      "description": "Specializing in Computer Applications, Database Management Systems, Data Structures, and Data Science Fundamentals.",
+      "badge": "Active"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert-1",
+      "title": "Python for Data Science & Analytics",
+      "issuer": "Coursera / IBM",
+      "issueDate": "2025",
+      "credentialUrl": "https://coursera.org",
+      "skills": ["Python", "pandas", "NumPy", "Data Cleaning"]
+    },
+    {
+      "id": "cert-2",
+      "title": "SQL Fundamentals & Relational Databases",
+      "issuer": "freeCodeCamp",
+      "issueDate": "2025",
+      "credentialUrl": "https://freecodecamp.org",
+      "skills": ["SQL", "Join Operations", "Query Optimization"]
+    },
+    {
+      "id": "cert-3",
+      "title": "Exploratory Data Analysis & Visualization",
+      "issuer": "Kaggle Certificates",
+      "issueDate": "2025",
+      "credentialUrl": "https://kaggle.com",
+      "skills": ["Seaborn", "Matplotlib", "Data Storytelling"]
+    },
+    {
+      "id": "cert-4",
+      "title": "Excel & Business Data Analysis",
+      "issuer": "Udemy / Microsoft",
+      "issueDate": "2024",
+      "credentialUrl": "https://udemy.com",
+      "skills": ["Pivot Tables", "VLOOKUP/XLOOKUP", "Dashboarding"]
+    }
+  ],
   "skills": [
     {
       "name": "Python",
