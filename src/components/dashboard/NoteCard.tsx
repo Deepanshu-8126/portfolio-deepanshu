@@ -1,4 +1,4 @@
-// src/components/dashboard/NoteCard.tsx
+//src/components/dashboard/NoteCard.tsx
 import { motion } from "framer-motion";
 import { GlassCard } from "@/components/ui/GlassCard";
 

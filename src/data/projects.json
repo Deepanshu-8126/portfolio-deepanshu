@@ -105,7 +105,8 @@
       "Matplotlib",
       "Seaborn",
       "Data Viz",
-      "Jupyter Notebook"
+      "Jupyter Notebook",
+      "Power Bi"
     ],
     "insights": [
       "Dramas and Comedies dominate the content library (45% combined)",
@@ -113,7 +114,7 @@
       "International content represents 40% of total library"
     ],
     "learnings": "Mastered the art of storytelling through data visualization — learned that the right chart type matters more than fancy styling.",
-    "github": "https://github.com/Deepanshu-8126/netflix-analysis",
+    "github": "https://github.com/Deepanshu-8126/Netflix-Content-Analysis",
     "metrics": {
       "datasets": 1,
       "visualizations": 10,
