@@ -121,15 +121,15 @@
     "status": "Winner",
     "photos": [
       {
-        "url": "public/images/6.jpeg",
+        "url": "/images/6.jpeg",
         "caption": "Team brainstorming session for campus resource optimization"
       },
       {
-        "url": "public/images/66.jpeg",
+        "url": "/images/66.jpeg",
         "caption": "Creativity , ui map "
       },
       {
-        "url": "public/images/7.jpeg",
+        "url": "/images/7.jpeg",
         "caption": "Finally got 2nd Prize"
       }
     ]
