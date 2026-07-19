@@ -74,19 +74,19 @@ export default function DashboardPage() {
           >
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-14">
 
-              {/* PROFILE IMAGE - PROFESSIONAL CIRCLE (NO BADGE) */}
+              {/* PROFILE IMAGE - EXTRA LARGE & PROFESSIONAL GLASS CARD FRAME */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, type: "spring" }}
                 className="flex-shrink-0 relative group"
               >
-                {/* Outer Glow Halo */}
-                <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-[#4CC9F0] via-[#7209B7] to-[#4CC9F0] opacity-75 blur-md group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
+                {/* Outer Ambient Glow Halo */}
+                <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-[#4CC9F0] via-[#7209B7] to-[#4CC9F0] opacity-80 blur-xl group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
 
-                {/* Ring Border */}
-                <div className="relative p-1 rounded-full bg-gradient-to-r from-[#4CC9F0] to-[#7209B7]">
-                  <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-[#0A0A0F] bg-[#12121A]">
+                {/* Glassmorphism Outer Ring Frame */}
+                <div className="relative p-2 rounded-full bg-gradient-to-r from-[#4CC9F0]/80 via-[#7209B7]/80 to-[#4CC9F0]/80 backdrop-blur-md shadow-2xl">
+                  <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-[#0A0A0F] bg-[#12121A] shadow-inner">
                     <img
                       src={DASHBOARD_DATA.hero?.avatar || "/images/deepanshu_photo_portfolio.jpeg"}
                       alt={DASHBOARD_DATA.hero?.name || "Deepanshu Kapri"}
