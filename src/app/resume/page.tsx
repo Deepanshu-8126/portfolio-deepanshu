@@ -6,10 +6,13 @@ import Link from "next/link";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { FloatingNavbar } from "@/components/ui/FloatingNavbar";
 
 export default function Resume() {
   return (
     <div className="min-h-screen bg-[#0A0A0F] text-[#E6E6FF]">
+      {/* Navbar */}
+      <FloatingNavbar />
       <div className="container mx-auto px-6 py-16 md:py-24 max-w-4xl">
         {/* Header */}
         <motion.div
@@ -284,13 +287,22 @@ export default function Resume() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <GlassCard className="inline-block p-6">
-            <p className="text-[#A0A0C0] mb-4">
+          <GlassCard className="inline-block p-8">
+            <p className="text-[#A0A0C0] mb-6 text-lg">
               Want a PDF version of this resume?
             </p>
-            <Link href="/contact">
-              <Button variant="primary">Contact Me for PDF</Button>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/resume.pdf"
+                download="Deepanshu_Resume.pdf"
+                className="px-6 py-3 bg-[#4CC9F0]/10 text-[#4CC9F0] border border-[#4CC9F0]/30 rounded-lg hover:bg-[#4CC9F0]/20 transition-colors font-medium inline-flex items-center gap-2"
+              >
+                ⬇️ Download PDF
+              </a>
+              <Link href="/contact">
+                <Button variant="primary">Contact Me</Button>
+              </Link>
+            </div>
           </GlassCard>
         </motion.div>
       </div>

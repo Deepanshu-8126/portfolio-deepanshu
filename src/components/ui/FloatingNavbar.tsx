@@ -11,6 +11,7 @@ import {
   FaBriefcase,
   FaBook,
   FaEnvelope,
+  FaFileAlt,
 } from "react-icons/fa";
 
 const NAV_ITEMS = [
@@ -20,6 +21,7 @@ const NAV_ITEMS = [
   { name: "Career", href: "/career", icon: <FaBriefcase /> },
   { name: "Notes", href: "/notes", icon: <FaBook /> },
   { name: "About", href: "/about", icon: <FaUser /> },
+  { name: "Resume", href: "/resume", icon: <FaFileAlt /> },
   { name: "Contact", href: "/contact", icon: <FaEnvelope /> },
 ];
 
