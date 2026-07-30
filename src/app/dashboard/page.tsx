@@ -447,7 +447,7 @@ export default function DashboardPage() {
           >
             <div className="flex items-center justify-between mb-6">
               <SectionHeader title="Hackathon Journey" />
-              <Link href="/projects" className="text-xs text-[#4CC9F0] hover:underline">
+              <Link href="/hackathons" className="text-xs text-[#4CC9F0] hover:underline">
                 View Details →
               </Link>
             </div>
