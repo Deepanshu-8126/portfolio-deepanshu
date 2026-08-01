@@ -4,7 +4,12 @@
     "title": "Netflix Content Analysis",
     "description": "Explored content trends and regional preferences using real-world datasets.",
     "shortDesc": "Explored content trends and regional preferences using real-world datasets.",
-    "tech": ["Python", "pandas", "Matplotlib", "Data Viz"],
+    "tech": [
+      "Python",
+      "pandas",
+      "Matplotlib",
+      "Data Viz"
+    ],
     "status": "Completed",
     "category": "Data Visualization",
     "featured": true,
@@ -30,14 +35,20 @@
       "datasets": 1,
       "visualizations": 10,
       "insights": 6
-    }
+    },
+    "image": "/images/project-1.webp"
   },
   {
     "id": "customer-churn-analysis",
     "title": "Customer Churn Analysis",
     "description": "Analyzed telecom customer behavior to identify factors contributing to customer churn.",
     "shortDesc": "Identified key drivers behind customer churn using exploratory data analysis.",
-    "tech": ["Python", "pandas", "Seaborn", "EDA"],
+    "tech": [
+      "Python",
+      "pandas",
+      "Seaborn",
+      "EDA"
+    ],
     "status": "Completed",
     "category": "Business Analytics",
     "featured": true,
@@ -64,14 +75,20 @@
       "datasets": 1,
       "visualizations": 12,
       "insights": 8
-    }
+    },
+    "image": "/images/project-2.webp"
   },
   {
     "id": "hospital-data-analysis",
     "title": "Hospital Data Analysis",
     "description": "Analyzed patient admission and treatment data to identify healthcare trends and operational insights.",
     "shortDesc": "Explored hospital operations, patient demographics, and treatment patterns.",
-    "tech": ["Python", "pandas", "Matplotlib", "Healthcare Analytics"],
+    "tech": [
+      "Python",
+      "pandas",
+      "Matplotlib",
+      "Healthcare Analytics"
+    ],
     "status": "Completed",
     "category": "Healthcare Analytics",
     "featured": true,
@@ -98,14 +115,20 @@
       "datasets": 1,
       "visualizations": 11,
       "insights": 7
-    }
+    },
+    "image": "/images/project-3.webp"
   },
   {
     "id": "superstore-sales-eda",
     "title": "Superstore Sales Analysis",
     "description": "Performed exploratory data analysis on retail sales data to uncover revenue and profit trends.",
     "shortDesc": "Analyzed sales, profit, and customer segments using Superstore dataset.",
-    "tech": ["Python", "pandas", "Matplotlib", "EDA"],
+    "tech": [
+      "Python",
+      "pandas",
+      "Matplotlib",
+      "EDA"
+    ],
     "status": "Completed",
     "category": "Retail Analytics",
     "featured": true,
@@ -132,14 +155,20 @@
       "datasets": 1,
       "visualizations": 14,
       "insights": 9
-    }
+    },
+    "image": "/images/project-4.webp"
   },
   {
     "id": "covid19-data-analysis",
     "title": "COVID-19 Data Analysis",
     "description": "Analyzed global COVID-19 trends to understand infection patterns, recovery rates, and regional impact.",
     "shortDesc": "Explored COVID-19 cases, deaths, and recovery trends using real-world pandemic data.",
-    "tech": ["Python", "pandas", "Matplotlib", "EDA"],
+    "tech": [
+      "Python",
+      "pandas",
+      "Matplotlib",
+      "EDA"
+    ],
     "status": "Completed",
     "category": "Healthcare Analytics",
     "featured": true,
@@ -167,6 +196,7 @@
       "datasets": 2,
       "visualizations": 15,
       "insights": 10
-    }
+    },
+    "image": "/images/project-5.webp"
   }
 ]
