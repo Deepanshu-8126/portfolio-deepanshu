@@ -103,7 +103,7 @@ export default function SinglePagePortfolio() {
       
       {/* 1. HERO SECTION */}
       <section id="landing" ref={heroRef} className="min-h-screen flex items-center justify-center pt-20 pb-10">
-        <div className="container mx-auto px-6 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 relative z-10">
+        <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
           
           <div className="flex-1 text-center lg:text-left z-10 flex flex-col justify-center mt-12 lg:mt-0">
             <h2 className="hero-subtext text-2xl md:text-3xl font-bold text-[#4CC9F0] mb-2 tracking-wide">
