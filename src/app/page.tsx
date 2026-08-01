@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { HoloPhoto3D } from "@/components/webgl/HoloPhoto3D";
 import { TechStackGalaxy } from "@/components/webgl/TechStackGalaxy";
 import { CertificateCarousel } from "@/components/ui/CertificateCarousel";
 import { ProjectCard } from "@/components/dashboard/ProjectCard";
@@ -26,15 +25,57 @@ export default function SinglePagePortfolio() {
   const contactRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Helper to split text into spans for GitHub-like character animation
+    const splitText = (selector: string) => {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach(el => {
+        const text = el.textContent;
+        if (!text) return;
+        el.textContent = "";
+        text.split("").forEach(char => {
+          const span = document.createElement("span");
+          span.textContent = char === " " ? "\u00A0" : char;
+          span.style.opacity = "0";
+          span.style.display = "inline-block";
+          el.appendChild(span);
+        });
+      });
+    };
+
     const ctx = gsap.context(() => {
-      // Hero Animation
-      gsap.from(".hero-text-anim", {
-        y: 100,
+      // Split the title text
+      splitText(".split-char");
+
+      // Hero Animation - GitHub style staggered character reveal
+      gsap.fromTo(".split-char span", 
+        { opacity: 0, y: 50, rotateX: -90 },
+        { opacity: 1, y: 0, rotateX: 0, stagger: 0.05, duration: 1, ease: "back.out(1.7)", delay: 0.2 }
+      );
+
+      gsap.from(".hero-subtext", {
+        y: 30,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        delay: 1
+      });
+
+      gsap.from(".hero-btn", {
+        y: 20,
         opacity: 0,
         stagger: 0.2,
-        duration: 1.5,
-        ease: "power4.out",
-        delay: 0.5
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 1.2
+      });
+
+      // Subtle float for the profile image
+      gsap.to(".hero-image", {
+        y: -15,
+        duration: 2,
+        yoyo: true,
+        repeat: -1,
+        ease: "sine.inOut"
       });
 
       // Section Fade-ins on scroll
@@ -62,38 +103,42 @@ export default function SinglePagePortfolio() {
       
       {/* 1. HERO SECTION */}
       <section id="landing" ref={heroRef} className="min-h-screen flex items-center justify-center pt-20 pb-10">
-        <div className="container mx-auto px-6 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
-          <div className="flex-1 text-center lg:text-left z-10">
-            <h2 className="hero-text-anim text-2xl md:text-3xl font-bold text-[#4CC9F0] mb-2 tracking-wide">
+        <div className="container mx-auto px-6 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 relative z-10">
+          
+          <div className="flex-1 text-center lg:text-left z-10 flex flex-col justify-center mt-12 lg:mt-0">
+            <h2 className="hero-subtext text-2xl md:text-3xl font-bold text-[#4CC9F0] mb-2 tracking-wide">
               Hello! I'm
             </h2>
-            <h1 className="hero-text-anim text-6xl md:text-8xl font-black uppercase tracking-tighter shimmer-text leading-none mb-6">
-              Deepanshu <br /> Kapri
+            <h1 className="split-char text-6xl md:text-8xl lg:text-[100px] font-black uppercase tracking-tighter shimmer-text leading-none mb-6" style={{ perspective: "1000px" }}>
+              Deepanshu Kapri
             </h1>
-            <div className="hero-text-anim mb-8">
-              <h3 className="text-xl text-[#A0A0C0] mb-2">An</h3>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
-                Aspiring <span className="neon-text-purple">Data Analyst</span>
-              </h2>
-              <h2 className="text-2xl md:text-3xl font-semibold text-[#A0A0C0]">
-                & Full-Stack Developer
-              </h2>
-            </div>
             
-            <div className="hero-text-anim flex flex-wrap gap-4 justify-center lg:justify-start">
-              <a href="#contact" className="glass-btn-primary px-8 py-4 text-lg font-bold flex items-center gap-2">
-                <FaPaperPlane /> Hire Me
+            <p className="hero-subtext text-xl md:text-2xl lg:text-3xl mb-12 text-[#E6E6FF] font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              Engineering intelligence through <span className="neon-text-purple font-bold">Data Science</span> and precision <span className="text-glow-cyan font-bold">Analytics</span>.
+            </p>
+            
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+              <a href="#works" className="hero-btn group glass-btn-primary px-8 py-4 text-lg font-bold flex items-center gap-3 overflow-hidden relative">
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
+                Explore Data Archives
               </a>
-              <a href="#works" className="glass-btn px-8 py-4 text-lg font-bold flex items-center gap-2">
-                <FaBriefcase /> View Works
+              <a href="#contact" className="hero-btn glass-btn px-8 py-4 text-lg font-bold flex items-center gap-2 hover:border-[#4CC9F0]/50 transition-colors">
+                <FaPaperPlane /> Contact Me
               </a>
             </div>
           </div>
 
-          {/* 3D Holo Photo - Replaces the rigged character */}
-          <div className="flex-1 w-full max-w-lg lg:max-w-xl hero-text-anim relative">
-             <div className="absolute inset-0 bg-gradient-radial from-[#7209B7]/20 to-transparent blur-3xl rounded-full" />
-             <HoloPhoto3D photoUrl={dashboardData.hero?.avatar || "/images/deepanshu_photo_portfolio.jpeg"} />
+          {/* Proper 2D Profile Image with GSAP Float - NO Distorted 3D Hologram */}
+          <div className="flex-1 w-full max-w-sm lg:max-w-md mx-auto relative hero-image">
+             <div className="absolute inset-0 bg-gradient-to-tr from-[#4CC9F0]/30 to-[#7209B7]/30 rounded-full blur-[80px] pointer-events-none transform scale-90" />
+             <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(76,201,240,0.2)]">
+               <img 
+                 src={dashboardData.hero?.avatar || "/images/deepanshu_photo_portfolio.jpeg"} 
+                 alt="Deepanshu Kapri"
+                 className="w-full h-auto object-cover"
+               />
+               <div className="absolute inset-0 bg-gradient-to-t from-[#06060B] via-transparent to-transparent opacity-80" />
+             </div>
           </div>
         </div>
       </section>

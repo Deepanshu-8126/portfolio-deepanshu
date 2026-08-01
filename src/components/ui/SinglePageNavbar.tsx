@@ -35,7 +35,6 @@ export function SinglePageNavbar() {
     { name: "About", href: "#about", icon: <FaUser /> },
     { name: "Skills", href: "#skills", icon: <FaGraduationCap /> },
     { name: "Works", href: "#works", icon: <FaBriefcase /> },
-    { name: "Hackathons", href: "#hackathons", icon: <FaBriefcase /> },
     { name: "Contact", href: "#contact", icon: <FaEnvelope /> },
   ];
 
