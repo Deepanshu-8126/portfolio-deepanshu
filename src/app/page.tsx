@@ -7,11 +7,13 @@ import { HoloPhoto3D } from "@/components/webgl/HoloPhoto3D";
 import { TechStackGalaxy } from "@/components/webgl/TechStackGalaxy";
 import { CertificateCarousel } from "@/components/ui/CertificateCarousel";
 import { ProjectCard } from "@/components/dashboard/ProjectCard";
+import { Tilt3DCard } from "@/components/ui/Tilt3DCard";
 import { FaPaperPlane, FaBriefcase, FaGraduationCap } from "react-icons/fa";
 
 // Data Imports
 import dashboardData from "@/data/dashboard.json";
 import projectsData from "@/data/projects.json";
+import hackathonsData from "@/data/hackathons.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,6 +22,7 @@ export default function SinglePagePortfolio() {
   const aboutRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
   const worksRef = useRef<HTMLDivElement>(null);
+  const hackathonsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -35,7 +38,7 @@ export default function SinglePagePortfolio() {
       });
 
       // Section Fade-ins on scroll
-      const sections = [aboutRef, skillsRef, worksRef, contactRef];
+      const sections = [aboutRef, skillsRef, worksRef, hackathonsRef, contactRef];
       sections.forEach((sec) => {
         gsap.from(sec.current, {
           scrollTrigger: {
@@ -158,8 +161,69 @@ export default function SinglePagePortfolio() {
         </div>
       </section>
 
-      {/* 5. CONTACT SECTION */}
-      <section id="contact" ref={contactRef} className="py-32 border-t border-white/5 relative overflow-hidden">
+      {/* 5. HACKATHONS / MISSIONS SECTION */}
+      <section id="hackathons" ref={hackathonsRef} className="py-24 border-t border-white/5">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <h2 className="text-4xl md:text-5xl font-black mb-4 text-center">
+            <span className="text-[#4CC9F0]">04.</span> Hackathons
+          </h2>
+          <p className="text-[#A0A0C0] mb-16 max-w-2xl mx-auto text-center">
+            Interactive experience archive of hackathons and competitions. I value learning over winning, growth over hype.
+          </p>
+          
+          <div className="relative">
+            {/* Vertical timeline line */}
+            <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#4CC9F0] to-[#7209B7] neon-border"></div>
+
+            <div className="space-y-12">
+              {(hackathonsData || []).map((hackathon: any, index: number) => (
+                <div key={hackathon.id || index} className={`relative flex items-center justify-between w-full ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                  {/* Timeline dot */}
+                  <div className="absolute left-4 md:left-1/2 -translate-x-[7px] w-4 h-4 rounded-full bg-[#4CC9F0] shadow-[0_0_10px_#4CC9F0] z-10"></div>
+                  
+                  {/* Empty space for alternating layout */}
+                  <div className="hidden md:block w-5/12"></div>
+                  
+                  <div className="w-full md:w-5/12 ml-12 md:ml-0">
+                    <Tilt3DCard className="p-6 hover:bg-[#121218]/80 transition-colors bg-[#12121A]/60 rounded-xl border border-[#1F1F29]">
+                      <div className="flex items-start justify-between mb-3">
+                        <div>
+                          <h4 className="text-lg font-bold text-[#E6E6FF]">
+                            {hackathon.title}
+                          </h4>
+                          <p className="text-xs text-[#A0A0C0]">
+                            {hackathon.location} • {hackathon.year}
+                          </p>
+                        </div>
+                        <span
+                          className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                            hackathon.status === "Winner"
+                              ? "bg-green-500/20 text-green-400"
+                              : hackathon.status === "Selected"
+                                ? "bg-[#7209B7]/20 text-[#A855F7]"
+                                : "bg-[#707090]/20 text-[#707090]"
+                          }`}
+                        >
+                          {hackathon.status}
+                        </span>
+                      </div>
+                      <p className="text-sm text-[#A0A0C0] mb-4 line-clamp-2">
+                        {hackathon.description || "Participated in the Hackathon. Check details page for more."}
+                      </p>
+                      <a href={`/hackathons/${hackathon.id}`} className="text-xs font-semibold text-[#4CC9F0] hover:underline">
+                        → View Details
+                      </a>
+                    </Tilt3DCard>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. CONTACT SECTION */}
+      <section id="contact" ref={contactRef} className="py-32 border-t border-white/5 relative overflow-hidden bg-[#0A0A0F]/50">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#4CC9F0]/10 pointer-events-none" />
         <div className="container mx-auto px-6 max-w-3xl text-center relative z-10">
           <h2 className="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter shimmer-text">
