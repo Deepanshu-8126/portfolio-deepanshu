@@ -53,9 +53,22 @@ export function SinglePageNavbar() {
         <div className="container mx-auto px-6 flex items-center justify-between">
           <button 
             onClick={() => scrollTo("#landing")}
-            className="text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#4CC9F0] to-[#7209B7] hover:scale-105 transition-transform"
+            className="flex items-center gap-2.5 group hover:scale-105 transition-transform"
           >
-            DK.
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-[#4CC9F0]/50 shadow-md group-hover:scale-105 transition-transform flex-shrink-0 bg-[#12121A]">
+              <img
+                src="/images/deepanshu_photo_portfolio.jpeg"
+                alt="Deepanshu Kapri"
+                className="w-full h-full object-cover object-top"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = "/images/profile-pic.jpg";
+                }}
+              />
+            </div>
+            <span className="font-bold text-base md:text-lg text-[#E6E6FF] group-hover:text-white transition-colors">
+              Deepanshu <span className="text-[#4CC9F0]">Kapri</span>
+            </span>
           </button>
 
           {/* Desktop Links */}

@@ -1,128 +1,116 @@
 "use client";
 
-import { useRef, useMemo, useState } from "react";
+import { useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Html, Float, Trail } from "@react-three/drei";
+import { Html, Float } from "@react-three/drei";
 import * as THREE from "three";
 import { 
-  SiPython, SiMysql, SiPandas, SiNumpy, SiScikitlearn, 
-  SiTableau 
+  SiPython, SiNumpy, SiPandas, 
+  SiMysql, SiPostgresql, SiMongodb, SiRedis
 } from "react-icons/si";
-import { FaChartBar, FaBrain, FaChartLine, FaTable } from "react-icons/fa";
+import { FaChartBar } from "react-icons/fa"; // Using this for Matplotlib/Seaborn representation
 
 const SKILLS = [
-  { name: "Python", icon: <SiPython size={40} /> },
-  { name: "SQL", icon: <SiMysql size={40} /> },
-  { name: "Pandas", icon: <SiPandas size={40} /> },
-  { name: "NumPy", icon: <SiNumpy size={40} /> },
-  { name: "Machine Learning", icon: <FaBrain size={40} /> },
-  { name: "Data Visualization", icon: <FaChartBar size={40} /> },
-  { name: "Excel", icon: <FaTable size={40} /> },
-  { name: "Tableau", icon: <SiTableau size={40} /> },
-  { name: "Power BI", icon: <FaChartLine size={40} /> },
-  { name: "Statistics", icon: <SiScikitlearn size={40} /> }
+  { name: "Python", icon: <SiPython size={40} />, color: "#3776AB" },
+  { name: "NumPy", icon: <SiNumpy size={40} />, color: "#013243" },
+  { name: "Pandas", icon: <SiPandas size={40} />, color: "#150458" },
+  { name: "Seaborn", icon: <FaChartBar size={40} />, color: "#4CC9F0" },
+  { name: "Matplotlib", icon: <FaChartBar size={40} />, color: "#11557C" },
+  { name: "MySQL", icon: <SiMysql size={40} />, color: "#4479A1" },
+  { name: "PostgreSQL", icon: <SiPostgresql size={40} />, color: "#336791" },
+  { name: "MongoDB", icon: <SiMongodb size={40} />, color: "#47A248" },
+  { name: "Redis", icon: <SiRedis size={40} />, color: "#DC382D" }
 ];
 
-function SkillNode({ skill, position, index }: { skill: any, position: [number, number, number], index: number }) {
+function SkillNode({ skill, index, total }: { skill: any, index: number, total: number }) {
   const groupRef = useRef<THREE.Group>(null);
   const [hovered, setHover] = useState(false);
   
-  // Color palette cycling
-  const colors = ["#4CC9F0", "#7209B7", "#A855F7", "#F72585"];
-  const color = colors[index % colors.length];
+  const radius = 6;
+  const angle = (index / total) * Math.PI * 2;
 
   useFrame((state) => {
     if (groupRef.current) {
-      // Normal orbit vs Crazy Hover animation
+      // Circular Orbit Motion
+      const speed = 0.5;
+      const currentAngle = angle + state.clock.getElapsedTime() * speed;
+      
+      groupRef.current.position.x = Math.cos(currentAngle) * radius;
+      groupRef.current.position.z = Math.sin(currentAngle) * radius;
+      groupRef.current.position.y = Math.sin(state.clock.getElapsedTime() * 2 + index) * 0.5;
+
+      // Hover Animation
       if (hovered) {
-        groupRef.current.rotation.x += 0.1;
-        groupRef.current.rotation.y += 0.1;
-        groupRef.current.rotation.z += 0.1;
-        
-        // Pulse scale
-        const pulse = 1.5 + Math.sin(state.clock.elapsedTime * 20) * 0.2;
+        const pulse = 1.8 + Math.sin(state.clock.elapsedTime * 15) * 0.1;
         groupRef.current.scale.lerp(new THREE.Vector3(pulse, pulse, pulse), 0.2);
       } else {
-        groupRef.current.rotation.x = state.clock.getElapsedTime() * 0.2 + index;
-        groupRef.current.rotation.y = state.clock.getElapsedTime() * 0.3 + index;
         groupRef.current.scale.lerp(new THREE.Vector3(1, 1, 1), 0.1);
       }
     }
   });
 
   return (
-    <Float speed={2} rotationIntensity={0.5} floatIntensity={2}>
-      <group position={position} ref={groupRef}>
-        <Trail width={0.2} length={4} color={color} attenuation={(t) => t * t}>
-          <mesh
-            onPointerOver={() => setHover(true)}
-            onPointerOut={() => setHover(false)}
-          >
-            <icosahedronGeometry args={[0.8, 0]} />
-            <meshStandardMaterial 
-              color={color} 
-              emissive={color} 
-              emissiveIntensity={hovered ? 2 : 0} 
-              wireframe 
-              transparent
-              opacity={hovered ? 1 : 0.3}
-            />
-          </mesh>
-        </Trail>
-        
-        {/* Render actual React Icon in 3D Space */}
-        <Html center zIndexRange={[100, 0]} className="pointer-events-none">
-          <div 
-            className={`flex flex-col items-center justify-center transition-all duration-300 ${
-              hovered ? "scale-150 drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] text-white" : "text-[#A0A0C0] opacity-80"
-            }`}
-            style={{ color: hovered ? color : undefined }}
-          >
-            {skill.icon}
-            <span className={`text-[10px] font-bold mt-2 whitespace-nowrap px-2 py-1 rounded bg-black/50 backdrop-blur-sm border border-white/10 ${
-              hovered ? "opacity-100" : "opacity-0"
-            }`}>
-              {skill.name}
-            </span>
-          </div>
-        </Html>
-      </group>
-    </Float>
+    <group ref={groupRef}>
+      {/* Invisible mesh for hover detection without the wireframe */}
+      <mesh
+        onPointerOver={() => setHover(true)}
+        onPointerOut={() => setHover(false)}
+      >
+        <sphereGeometry args={[1, 16, 16]} />
+        <meshBasicMaterial visible={false} />
+      </mesh>
+      
+      <Html center zIndexRange={[100, 0]} className="pointer-events-none">
+        <div 
+          className={`flex flex-col items-center justify-center transition-all duration-300 ${
+            hovered ? "scale-125 drop-shadow-[0_0_20px_rgba(255,255,255,1)] text-white" : "text-[#A0A0C0] opacity-80 hover:opacity-100"
+          }`}
+          style={{ color: hovered ? skill.color : undefined }}
+        >
+          {skill.icon}
+          <span className={`text-[12px] font-bold mt-2 whitespace-nowrap px-3 py-1 rounded bg-[#06060B]/80 backdrop-blur-md border transition-opacity duration-300 ${
+            hovered ? "opacity-100 border-[#4CC9F0]" : "opacity-0 border-white/10"
+          }`}
+          style={{ borderColor: hovered ? skill.color : undefined }}>
+            {skill.name}
+          </span>
+        </div>
+      </Html>
+    </group>
   );
 }
 
 export function TechStackGalaxy() {
-  // Generate random spherical positions
-  const positions = useMemo(() => {
-    const pos: [number, number, number][] = [];
-    for (let i = 0; i < SKILLS.length; i++) {
-      const radius = 4 + Math.random() * 2;
-      const theta = 2 * Math.PI * Math.random();
-      const phi = Math.acos(2 * Math.random() - 1);
-      
-      pos.push([
-        radius * Math.sin(phi) * Math.cos(theta),
-        radius * Math.sin(phi) * Math.sin(theta),
-        radius * Math.cos(phi)
-      ]);
-    }
-    return pos;
-  }, []);
-
   return (
-    <div className="w-full h-[600px] rounded-3xl overflow-hidden border border-white/5 bg-[#0D0D14]/50 backdrop-blur-md shadow-2xl relative">
-      <div className="absolute inset-0 bg-gradient-radial from-[#7209B7]/10 to-transparent pointer-events-none" />
-      <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 10]} intensity={2} />
-        <group>
+    <div className="w-full h-[600px] rounded-3xl overflow-hidden border border-white/5 bg-transparent relative">
+      <Canvas camera={{ position: [0, 4, 12], fov: 60 }}>
+        <ambientLight intensity={1} />
+        
+        {/* Subtle center core */}
+        <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
+          <group position={[0,0,0]}>
+             <Html center className="pointer-events-none">
+                <div className="text-[#4CC9F0] text-xl font-black uppercase tracking-widest text-center drop-shadow-[0_0_20px_#4CC9F0]">
+                   Tech <br/> Stack
+                </div>
+             </Html>
+             <mesh>
+               <sphereGeometry args={[1.5, 32, 32]} />
+               <meshBasicMaterial color="#4CC9F0" wireframe transparent opacity={0.1} />
+             </mesh>
+          </group>
+        </Float>
+
+        <group rotation={[0.2, 0, 0]}>
           {SKILLS.map((skill, i) => (
-            <SkillNode key={skill.name} skill={skill} position={positions[i]} index={i} />
+            <SkillNode key={skill.name} skill={skill} index={i} total={SKILLS.length} />
           ))}
         </group>
       </Canvas>
       <div className="absolute bottom-4 left-0 w-full text-center pointer-events-none z-10">
-        <p className="text-xs text-[#A0A0C0] uppercase tracking-[0.2em]">Interactive 3D Tech Stack • Hover to explore</p>
+        <p className="text-xs text-[#A0A0C0] uppercase tracking-[0.2em] font-semibold bg-[#06060B]/50 inline-block px-4 py-2 rounded-full backdrop-blur-md">
+          Interactive Orbital Tech Stack • Hover to explore
+        </p>
       </div>
     </div>
   );

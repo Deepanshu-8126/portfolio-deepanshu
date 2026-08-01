@@ -82,6 +82,7 @@ import { CustomCursor } from "@/components/ui/CustomCursor";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { BackgroundParticles } from "@/components/webgl/BackgroundParticles";
 import { SinglePageNavbar } from "@/components/ui/SinglePageNavbar";
+import { StarsBackground } from "@/components/webgl/StarsBackground";
 
 export default function RootLayout({
   children,
@@ -91,6 +92,7 @@ export default function RootLayout({
       <body className={`${spaceGrotesk.variable} font-sans antialiased bg-[#06060B]`}>
         <CustomCursor />
         <BackgroundParticles />
+        <StarsBackground />
         <SinglePageNavbar />
         <SmoothScroll>
           <div className="relative z-10 min-h-screen">{children}</div>
