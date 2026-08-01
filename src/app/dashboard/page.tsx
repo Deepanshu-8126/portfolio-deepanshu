@@ -21,6 +21,8 @@ import { SkillCard } from "@/components/dashboard/SkillCard";
 import { ProjectCard } from "@/components/dashboard/ProjectCard";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { ParticleGrid } from "@/components/ui/ParticleGrid";
+import { TechStackGalaxy } from "@/components/webgl/TechStackGalaxy";
+import { CertificateCarousel } from "@/components/ui/CertificateCarousel";
 
 // ✅ JSON IMPORTS
 import dashboardData from "@/data/dashboard.json";
@@ -287,15 +289,9 @@ export default function DashboardPage() {
             transition={{ duration: 0.6 }}
             className="mb-16"
           >
-            <SectionHeader title="My Skills & Expertise" />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {(DASHBOARD_DATA.skills || []).map((skill: any, index: number) => (
-                <SkillCard
-                  key={skill.name || index}
-                  skill={skill}
-                  delay={index * 0.05}
-                />
-              ))}
+            <SectionHeader title="My Tech Stack Galaxy" />
+            <div className="mt-8">
+              <TechStackGalaxy />
             </div>
           </motion.div>
 
@@ -340,10 +336,10 @@ export default function DashboardPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-16"
+            className="mb-24"
           >
-            <div className="flex items-center justify-between mb-6">
-              <SectionHeader title="Certifications & Milestones" />
+            <div className="flex items-center justify-between mb-2">
+              <SectionHeader title="Certifications Vault" />
               <Link
                 href="/certifications"
                 className="text-[#4CC9F0] hover:text-white text-sm font-semibold flex items-center gap-1 group"
@@ -352,80 +348,11 @@ export default function DashboardPage() {
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </Link>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {(DASHBOARD_DATA.certifications || []).map((cert: any, index: number) => (
-                <motion.div
-                  key={cert.id || index}
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <GlassCard className="h-full flex flex-col justify-between overflow-hidden border border-[#1F1F29] hover:border-[#4CC9F0]/50 transition-all group">
-                    
-                    {/* Cover Preview Image */}
-                    <div 
-                      className="relative h-36 w-full bg-[#12121A] overflow-hidden cursor-pointer"
-                      onClick={() => setSelectedCert(cert)}
-                    >
-                      <img
-                        src={cert.image}
-                        alt={cert.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = "none";
-                          if (target.parentElement) {
-                            target.parentElement.innerHTML = `
-                              <div class="w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-br from-[#12121F] via-[#1A1A2E] to-[#0D0D14] text-center">
-                                <span class="text-2xl mb-1">🎓</span>
-                                <span class="text-[10px] font-bold text-[#4CC9F0] uppercase">${cert.issuer}</span>
-                                <span class="text-xs font-bold text-[#E6E6FF] line-clamp-1">${cert.title}</span>
-                              </div>
-                            `;
-                          }
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span className="px-2.5 py-1 rounded bg-[#4CC9F0] text-black text-[11px] font-bold flex items-center gap-1">
-                          <FaSearchPlus /> Preview
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="p-4 flex-1 flex flex-col justify-between">
-                      <div>
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="text-[11px] text-[#4CC9F0] font-semibold">{cert.issuer}</span>
-                          <span className="text-[10px] text-[#707090]">{cert.issueDate}</span>
-                        </div>
-
-                        <h4 className="font-bold text-xs text-[#E6E6FF] mb-3 group-hover:text-[#4CC9F0] transition-colors line-clamp-2">
-                          {cert.title}
-                        </h4>
-                      </div>
-
-                      <div className="pt-3 border-t border-[#1F1F29] flex items-center justify-between">
-                        <button
-                          onClick={() => setSelectedCert(cert)}
-                          className="text-[11px] font-semibold text-[#4CC9F0] hover:underline"
-                        >
-                          View Certificate
-                        </button>
-                        <a
-                          href={cert.credentialUrl || "#"}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[10px] text-[#707090] hover:text-[#E6E6FF]"
-                        >
-                          <FaExternalLinkAlt />
-                        </a>
-                      </div>
-                    </div>
-
-                  </GlassCard>
-                </motion.div>
-              ))}
-            </div>
+            <p className="text-sm text-[#A0A0C0] mb-8 max-w-xl text-center mx-auto md:text-left md:mx-0">
+              Interact with the 3D carousel to explore my verified credentials. Click to inspect any certificate.
+            </p>
+            
+            <CertificateCarousel certificates={DASHBOARD_DATA.certifications || []} />
           </motion.div>
 
 
@@ -502,80 +429,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* Certificate Modal Lightbox */}
-      <AnimatePresence>
-        {selectedCert && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
-            onClick={() => setSelectedCert(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-w-2xl w-full bg-[#12121A] border border-[#4CC9F0]/40 rounded-2xl p-6 shadow-2xl overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#1F1F29]">
-                <div>
-                  <h3 className="text-lg font-bold text-[#E6E6FF]">{selectedCert.title}</h3>
-                  <p className="text-xs text-[#4CC9F0]">{selectedCert.issuer} • {selectedCert.issueDate}</p>
-                </div>
-                <button
-                  onClick={() => setSelectedCert(null)}
-                  className="p-2 rounded-full bg-[#1F1F29] text-[#A0A0C0] hover:text-white transition-colors"
-                >
-                  <FaTimes />
-                </button>
-              </div>
-
-              {/* Certificate Cover Display */}
-              <div className="relative rounded-xl overflow-hidden bg-[#0A0A0F] border border-[#1F1F29] min-h-[220px] flex items-center justify-center p-4">
-                <img
-                  src={selectedCert.image}
-                  alt={selectedCert.title}
-                  className="max-h-[350px] w-auto object-contain rounded-lg shadow-lg"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = "none";
-                    if (target.parentElement) {
-                      target.parentElement.innerHTML = `
-                        <div class="text-center p-6">
-                          <div class="text-4xl mb-2">🎓</div>
-                          <h4 class="text-base font-bold text-[#E6E6FF]">${selectedCert.title}</h4>
-                          <p class="text-xs text-[#A0A0C0] mt-1">Issued by ${selectedCert.issuer} (${selectedCert.issueDate})</p>
-                        </div>
-                      `;
-                    }
-                  }}
-                />
-              </div>
-
-              <div className="mt-4 flex items-center justify-between">
-                <Link
-                  href="/certifications"
-                  className="text-xs text-[#4CC9F0] hover:underline"
-                  onClick={() => setSelectedCert(null)}
-                >
-                  View All Certifications Page →
-                </Link>
-
-                <a
-                  href={selectedCert.credentialUrl || "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#4CC9F0] to-[#7209B7] text-white text-xs font-bold shadow hover:scale-105 transition-transform"
-                >
-                  Verify Credential →
-                </a>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Removed old modal as it is now inside CertificateCarousel */}
     </div>
   );
 }

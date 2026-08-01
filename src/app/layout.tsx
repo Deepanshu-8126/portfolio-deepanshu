@@ -78,15 +78,21 @@ export const metadata: Metadata = {
   },
 };
 
+import { CustomCursor } from "@/components/ui/CustomCursor";
+import { SmoothScroll } from "@/components/ui/SmoothScroll";
+import { BackgroundParticles } from "@/components/webgl/BackgroundParticles";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.variable} font-sans antialiased`}>
-        <ParticleGrid />
-        {/* ✅ NO HEADER COMPONENT - Navbar will be in individual pages */}
-        <div className="pt-16">{children}</div>
+      <body className={`${spaceGrotesk.variable} font-sans antialiased bg-[#06060B]`}>
+        <CustomCursor />
+        <BackgroundParticles />
+        <SmoothScroll>
+          <div className="relative z-10 pt-16">{children}</div>
+        </SmoothScroll>
       </body>
     </html>
   );
