@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { FloatingNavbar } from "@/components/ui/FloatingNavbar"; // ✅ ADD THIS IMPORT
+import { Tilt3DCard } from "@/components/ui/Tilt3DCard";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -30,7 +31,7 @@ export default function ProjectsPage() {
   }, [activeCategory]);
 
   return (
-    <div className="min-h-screen bg-[#0A0A0F] text-[#E6E6FF]">
+    <div className="min-h-screen bg-gradient-to-br from-[#08080F] via-[#0A0A0F] to-[#0C0C12] text-[#E6E6FF]">
       <ScrollProgress />
       {/* ✅ NAVBAR ADDED HERE - WILL APPEAR ON EVERY PAGE */}
       <FloatingNavbar />
@@ -45,7 +46,7 @@ export default function ProjectsPage() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Projects</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 shimmer-text">Projects</h1>
           <p className="text-xl text-[#A0A0C0] max-w-2xl mx-auto">
             Real-world data projects built with honesty, learning, and practical
             problem-solving.
@@ -77,7 +78,7 @@ export default function ProjectsPage() {
           <motion.div
             key={activeCategory}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -86,13 +87,13 @@ export default function ProjectsPage() {
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
               >
-                <GlassCard className="h-full flex flex-col">
+                <Tilt3DCard className="h-full flex flex-col p-6 rounded-xl bg-[#12121A]/60 backdrop-blur-sm border border-[#1F1F29]">
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="font-bold text-lg">{project.title}</h3>
+                    <h3 className="font-bold text-lg">{project.title}</h3><div className="flex gap-4 mt-2 mb-2"><span className="text-glow-cyan text-[#4CC9F0] font-bold">100+</span><span className="text-xs text-[#A0A0C0]">Datasets</span></div>
                     <Badge
                       variant={
                         project.status === "Completed" ? "primary" : "secondary"
@@ -109,12 +110,10 @@ export default function ProjectsPage() {
                   <div className="mb-4">
                     <div className="flex flex-wrap gap-1">
                       {project.tech.slice(0, 3).map((tech) => (
-                        <Badge key={tech} variant="secondary">
-                          {tech}
-                        </Badge>
+                        <span key={tech} className="bg-[#4CC9F0]/10 text-[#4CC9F0] border border-[#4CC9F0]/20 rounded-lg px-2 py-1 text-xs">{tech}</span>
                       ))}
                       {project.tech.length > 3 && (
-                        <span className="text-xs text-[#A0A0C0]">
+                        <span className="bg-[#4CC9F0]/10 text-[#4CC9F0] border border-[#4CC9F0]/20 rounded-lg px-2 py-1 text-xs">
                           +{project.tech.length - 3}
                         </span>
                       )}
@@ -123,7 +122,7 @@ export default function ProjectsPage() {
 
                   <div className="flex gap-3 mt-auto">
                     <Link href={`/projects/${project.id}`} className="flex-1">
-                      <Button variant="ghost" className="w-full">
+                      <Button variant="ghost" className="w-full hover:neon-text transition-colors group-hover:neon-text">
                         View Details
                       </Button>
                     </Link>
@@ -138,7 +137,7 @@ export default function ProjectsPage() {
                       </Button>
                     </a>
                   </div>
-                </GlassCard>
+                </Tilt3DCard>
               </motion.div>
             ))}
           </motion.div>

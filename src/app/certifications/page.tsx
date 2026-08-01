@@ -5,6 +5,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaAward, FaExternalLinkAlt, FaTimes, FaCheckCircle, FaSearchPlus } from "react-icons/fa";
 import { FloatingNavbar } from "@/components/ui/FloatingNavbar";
+import { Tilt3DCard } from "@/components/ui/Tilt3DCard";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import dashboardData from "@/data/dashboard.json";
@@ -28,7 +29,7 @@ export default function CertificationsPage() {
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#4CC9F0]/10 border border-[#4CC9F0]/30 rounded-full text-[#4CC9F0] text-xs font-semibold mb-3">
             <FaAward /> Verified Credentials
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-[#E6E6FF] via-[#4CC9F0] to-[#A855F7] bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 shimmer-text">
             Certifications & Achievements
           </h1>
           <p className="text-base md:text-lg text-[#A0A0C0]">
@@ -46,7 +47,7 @@ export default function CertificationsPage() {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ y: -6 }}
             >
-              <GlassCard className="h-full flex flex-col justify-between overflow-hidden border border-[#1F1F29] hover:border-[#4CC9F0]/50 transition-all group">
+              <Tilt3DCard className="h-full flex flex-col justify-between overflow-hidden border border-[#1F1F29] hover:border-[#4CC9F0]/50 transition-all group bg-[#12121A]/60 rounded-xl">
                 
                 {/* Certificate Cover Image Preview with Blur Overlay */}
                 <div 
@@ -106,7 +107,7 @@ export default function CertificationsPage() {
                       {(cert.skills || []).map((skill: string) => (
                         <span
                           key={skill}
-                          className="text-xs px-2.5 py-0.5 bg-[#1F1F29]/80 border border-[#1F1F29] text-[#A0A0C0] rounded-full"
+                          className="text-xs px-2.5 py-0.5 bg-[#4CC9F0]/10 text-[#4CC9F0] border border-[#4CC9F0]/20 rounded-full"
                         >
                           {skill}
                         </span>
@@ -118,7 +119,7 @@ export default function CertificationsPage() {
                   <div className="pt-4 border-t border-[#1F1F29] flex items-center justify-between gap-3">
                     <button
                       onClick={() => setSelectedCert(cert)}
-                      className="text-xs font-semibold text-[#E6E6FF] hover:text-[#4CC9F0] transition-colors"
+                      className="glass-btn text-xs font-semibold"
                     >
                       View Preview
                     </button>
@@ -135,7 +136,7 @@ export default function CertificationsPage() {
                   </div>
                 </div>
 
-              </GlassCard>
+              </Tilt3DCard>
             </motion.div>
           ))}
         </div>
@@ -154,7 +155,7 @@ export default function CertificationsPage() {
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
-                className="relative max-w-3xl w-full bg-[#12121A] border border-[#4CC9F0]/40 rounded-2xl p-6 shadow-2xl overflow-hidden"
+                className="relative max-w-3xl w-full bg-[#12121A] border border-[#4CC9F0]/40 rounded-2xl p-6 shadow-2xl overflow-hidden neon-border"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#1F1F29]">

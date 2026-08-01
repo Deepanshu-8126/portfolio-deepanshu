@@ -3,6 +3,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Tilt3DCard } from "@/components/ui/Tilt3DCard";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { FloatingNavbar } from "@/components/ui/FloatingNavbar";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -35,7 +36,7 @@ export default function Resume() {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-3 bg-gradient-to-r from-[#E6E6FF] via-[#4CC9F0] to-[#A855F7] bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-3 shimmer-text">
             Deepanshu Kapri
           </h1>
           <p className="text-lg text-[#A0A0C0] font-medium mb-2">
@@ -57,13 +58,13 @@ export default function Resume() {
             </a>
             <Link
               href="/contact"
-              className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1F1F29] border border-[#4CC9F0]/30 text-[#4CC9F0] font-semibold hover:bg-[#4CC9F0]/10 transition"
+              className="flex items-center gap-2 px-6 py-3 rounded-xl glass-btn"
             >
               <FaEnvelope /> Contact Me
             </Link>
             <Link
               href="/projects"
-              className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1F1F29] border border-[#1F1F29] text-[#E6E6FF] font-semibold hover:border-[#707090] transition"
+              className="flex items-center gap-2 px-6 py-3 rounded-xl glass-btn"
             >
               <FaBriefcase /> View Projects
             </Link>
@@ -104,7 +105,7 @@ export default function Resume() {
           className="mb-12"
         >
           <SectionHeader title="Education" />
-          <GlassCard className="p-6 border-t-2 border-t-[#4CC9F0]">
+          <GlassCard className="p-6 border-t-2 border-t-[#4CC9F0] relative"><div className="absolute -top-1.5 right-6 w-3 h-3 rounded-full bg-[#4CC9F0] shadow-[0_0_10px_#4CC9F0]"></div>
             <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
               <div>
                 <h3 className="font-bold text-lg text-[#E6E6FF]">Bachelor of Computer Applications (BCA)</h3>
@@ -129,7 +130,7 @@ export default function Resume() {
               const filtered = SKILLS.filter((s) => s.category === key);
               if (!filtered.length) return null;
               return (
-                <GlassCard key={key} className="p-5">
+                <Tilt3DCard key={key} className="p-5 bg-[#12121A]/60 rounded-xl border border-[#1F1F29]">
                   <h3 className="text-sm font-bold mb-4" style={{ color }}>{label}</h3>
                   <div className="space-y-3">
                     {filtered.map((skill) => (
@@ -138,7 +139,7 @@ export default function Resume() {
                           <span className="text-sm font-medium text-[#E6E6FF]">{skill.name}</span>
                           <span className="text-xs text-[#707090]">{skill.level}%</span>
                         </div>
-                        <div className="h-1.5 bg-[#1F1F29] rounded-full overflow-hidden">
+                        <div className="h-1.5 bg-[#1F1F29] rounded-full overflow-hidden neon-progress">
                           <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${skill.level}%` }}
@@ -152,7 +153,7 @@ export default function Resume() {
                       </div>
                     ))}
                   </div>
-                </GlassCard>
+                </Tilt3DCard>
               );
             })}
 
@@ -253,7 +254,7 @@ export default function Resume() {
               </a>
               <Link
                 href="/contact"
-                className="px-6 py-3 rounded-xl bg-[#1F1F29] border border-[#1F1F29] text-[#E6E6FF] font-semibold hover:border-[#4CC9F0] transition"
+                className="px-6 py-3 rounded-xl glass-btn"
               >
                 Contact Me
               </Link>

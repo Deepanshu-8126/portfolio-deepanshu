@@ -3,6 +3,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Tilt3DCard } from "@/components/ui/Tilt3DCard";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { FloatingNavbar } from "@/components/ui/FloatingNavbar";
 import { BackNavigation } from "@/components/ui/BackNavigation";
@@ -26,7 +27,7 @@ export default function CareerPage() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto text-center mb-16"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 shimmer-text">
               Career Journey
             </h1>
             <p className="text-xl text-[#A0A0C0] mb-8">
@@ -88,11 +89,11 @@ export default function CareerPage() {
             </h2>
 
             {/* Current Stage */}
-            <Link href="/roadmap/current" className="block mb-8">
-              <GlassCard className="p-6 hover:bg-[#121218]/60 transition-all duration-300">
+            <div className="relative"><div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#4CC9F0] to-[#7209B7] neon-border hidden md:block"></div><Link href="/roadmap/current" className="block mb-8 md:ml-8 relative"><div className="absolute -left-10 top-6 w-4 h-4 rounded-full bg-[#4CC9F0] shadow-[0_0_10px_#4CC9F0] hidden md:block"></div>
+              <Tilt3DCard className="p-6 hover:bg-[#121218]/60 transition-all duration-300 bg-[#12121A]/60 rounded-xl border border-[#1F1F29]">
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="inline-block px-3 py-1 bg-[#4CC9F0]/20 text-[#4CC9F0] rounded-full text-sm font-medium mb-2">
+                    <div className="inline-block px-3 py-1 bg-[#4CC9F0]/20 text-[#4CC9F0] rounded-full text-sm font-medium mb-2 neon-text">
                       Current Stage
                     </div>
                     <h3 className="text-xl font-bold mb-2">
@@ -109,15 +110,15 @@ export default function CareerPage() {
                     View Details →
                   </div>
                 </div>
-              </GlassCard>
+              </Tilt3DCard>
             </Link>
 
             {/* Next Stage */}
-            <Link href="/roadmap/next" className="block mb-8">
-              <GlassCard className="p-6 hover:bg-[#121218]/60 transition-all duration-300">
+            <Link href="/roadmap/next" className="block mb-8 md:ml-8 relative"><div className="absolute -left-10 top-6 w-4 h-4 rounded-full bg-[#7209B7] shadow-[0_0_10px_#7209B7] hidden md:block"></div>
+              <Tilt3DCard className="p-6 hover:bg-[#121218]/60 transition-all duration-300 bg-[#12121A]/60 rounded-xl border border-[#1F1F29]">
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="inline-block px-3 py-1 bg-[#7209B7]/20 text-[#7209B7] rounded-full text-sm font-medium mb-2">
+                    <div className="inline-block px-3 py-1 bg-[#7209B7]/20 text-[#7209B7] rounded-full text-sm font-medium mb-2 neon-text">
                       Next Stage
                     </div>
                     <h3 className="text-xl font-bold mb-2">
@@ -134,15 +135,15 @@ export default function CareerPage() {
                     View Details →
                   </div>
                 </div>
-              </GlassCard>
+              </Tilt3DCard>
             </Link>
 
             {/* Future Stage */}
-            <Link href="/roadmap/future" className="block">
-              <GlassCard className="p-6 hover:bg-[#121218]/60 transition-all duration-300">
+            <Link href="/roadmap/future" className="block md:ml-8 relative"><div className="absolute -left-10 top-6 w-4 h-4 rounded-full bg-[#A0A0C0] shadow-[0_0_10px_#A0A0C0] hidden md:block"></div>
+              <Tilt3DCard className="p-6 hover:bg-[#121218]/60 transition-all duration-300 bg-[#12121A]/60 rounded-xl border border-[#1F1F29]">
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="inline-block px-3 py-1 bg-[#A0A0C0]/20 text-[#A0A0C0] rounded-full text-sm font-medium mb-2">
+                    <div className="inline-block px-3 py-1 bg-[#A0A0C0]/20 text-[#A0A0C0] rounded-full text-sm font-medium mb-2 neon-text">
                       Future Stage
                     </div>
                     <h3 className="text-xl font-bold mb-2">Data Scientist</h3>
@@ -157,9 +158,8 @@ export default function CareerPage() {
                     View Details →
                   </div>
                 </div>
-              </GlassCard>
-            </Link>
-          </motion.div>
+              </Tilt3DCard>
+            </Link></div></motion.div>
 
           {/* Philosophy Statement */}
           <motion.div

@@ -45,7 +45,7 @@ export default function NotesVault() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Notes Vault</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 shimmer-text">Notes Vault</h1>
           <p className="text-xl text-[#A0A0C0] max-w-2xl mx-auto">
             Downloadable, searchable PDFs covering everything I've learned in my
             data science journey.
@@ -142,7 +142,7 @@ export default function NotesVault() {
                     </div>
 
                     <div className="flex justify-between items-start mb-3">
-                      <span className="text-xs bg-[#7209B7]/20 text-[#7209B7] px-2 py-1 rounded">
+                      <span className="text-xs bg-[#7209B7]/20 text-[#7209B7] px-2 py-1 rounded border border-[#7209B7]/50 shadow-[0_0_8px_#7209B7]">
                         {note.category}
                       </span>
                       <span className="text-xs text-[#A0A0C0]">

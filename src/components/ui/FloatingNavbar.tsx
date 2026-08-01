@@ -30,13 +30,13 @@ export function FloatingNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0F]/90 backdrop-blur-md border-b border-[#1F1F29]/40 shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl bg-[#06060B]/70 border-b border-[#4CC9F0]/10 shadow-lg">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16">
           
           {/* Logo / Brand Name with Profile Avatar */}
           <Link href="/dashboard" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-full overflow-hidden border border-[#4CC9F0]/50 shadow-md group-hover:scale-105 transition-transform flex-shrink-0 bg-[#12121A]">
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-[#4CC9F0]/50 shadow-md group-hover:scale-105 transition-transform flex-shrink-0 bg-[#12121A] animate-[pulse_2s_ease-in-out_infinite]">
               <img
                 src="/images/deepanshu_photo_portfolio.jpeg"
                 alt="Deepanshu Kapri"
@@ -71,10 +71,7 @@ export function FloatingNavbar() {
               }
 
               return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg transition-all duration-200 text-sm font-medium ${
+                <Link key={item.name} href={item.href} className={`relative flex items-center space-x-2 px-3.5 py-2 rounded-lg transition-all duration-200 text-sm font-medium overflow-hidden ${
                     isActive
                       ? "text-[#4CC9F0] bg-[#1F1F29]/60 border border-[#4CC9F0]/30"
                       : "text-[#A0A0C0] hover:text-[#E6E6FF] hover:bg-[#1F1F29]/30"
@@ -82,6 +79,7 @@ export function FloatingNavbar() {
                 >
                   <span className="text-sm">{item.icon}</span>
                   <span>{item.name}</span>
+                  {isActive && <div className="absolute bottom-0 left-0 h-0.5 w-full bg-[#4CC9F0] shadow-[0_0_8px_#4CC9F0]"></div>}
                 </Link>
               );
             })}
@@ -116,7 +114,7 @@ export function FloatingNavbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden bg-[#0D0D14]/95 border-b border-[#1F1F29] px-4 pt-2 pb-5 space-y-2 shadow-2xl backdrop-blur-xl"
+            className="md:hidden bg-[#0D0D14]/95 border-b border-[#4CC9F0]/20 px-4 pt-2 pb-5 space-y-2 shadow-2xl backdrop-blur-xl neon-border"
           >
             {NAV_ITEMS.map((item) => {
               const isActive = pathname === item.href;
@@ -133,6 +131,7 @@ export function FloatingNavbar() {
                 >
                   <span className="text-base text-[#4CC9F0]">{item.icon}</span>
                   <span>{item.name}</span>
+                  {isActive && <div className="absolute bottom-0 left-0 h-0.5 w-full bg-[#4CC9F0] shadow-[0_0_8px_#4CC9F0]"></div>}
                 </Link>
               );
             })}

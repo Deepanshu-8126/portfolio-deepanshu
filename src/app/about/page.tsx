@@ -4,11 +4,13 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { Tilt3DCard } from "@/components/ui/Tilt3DCard";
 import { FloatingNavbar } from "@/components/ui/FloatingNavbar";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { BackNavigation } from "@/components/ui/BackNavigation";
 import aboutData from "@/data/about.json";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { ParticleGrid } from "@/components/ui/ParticleGrid";
 const ABOUT_DATA = aboutData;
 
 export default function AboutPage() {
@@ -27,28 +29,8 @@ export default function AboutPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#08080F] via-[#0A0A0F] to-[#0C0C12] text-[#E6E6FF] overflow-hidden relative">
-      {/* Animated Background */}
-      <motion.div
-        className="fixed inset-0 pointer-events-none"
-        style={{ opacity: backgroundOpacity }}
-      >
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/3 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.1, 1], rotate: [0, 180, 360] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-purple-500/3 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.2, 1], rotate: [0, -180, -360] }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 5,
-          }}
-        />
-      </motion.div>
+    <div className="min-h-screen bg-gradient-to-br from-[#08080F] via-[#0A0A0F] to-[#0C0C12] text-[#E6E6FF] overflow-hidden relative futuristic-grid">
+      <ParticleGrid />
 
       {/* Floating Navbar */}
       <FloatingNavbar />
@@ -67,10 +49,8 @@ export default function AboutPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-4xl mx-auto mb-20 text-center"
           >
-            <motion.h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-[#E6E6FF] to-[#A0A0C0] bg-clip-text text-transparent">
-                About My System
-              </span>
+            <motion.h1 className="text-4xl md:text-5xl font-bold mb-4 shimmer-text">
+              About Me
             </motion.h1>
             <p className="text-xl text-[#A0A0C0]">
               A personal profile of a future Data Scientist
@@ -84,7 +64,7 @@ export default function AboutPage() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mb-20"
           >
-            <GlassCard className="p-8">
+            <Tilt3DCard className="p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                   <h2 className="text-2xl font-bold mb-4 text-[#4CC9F0]">
@@ -144,7 +124,7 @@ export default function AboutPage() {
                   "{ABOUT_DATA.core.currentFocus}"
                 </p>
               </div>
-            </GlassCard>
+            </Tilt3DCard>
           </motion.div>
 
           {/* Learning Engine */}
@@ -184,7 +164,7 @@ export default function AboutPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {ABOUT_DATA.learningEngine.focusAreas.map((area, index) => (
-                <GlassCard key={area.area} className="p-6">
+                <Tilt3DCard key={area.area} className="p-6">
                   <div className="flex justify-between items-start mb-2">
                     <h4 className="font-bold text-[#E6E6FF]">{area.area}</h4>
                     <span
@@ -202,7 +182,7 @@ export default function AboutPage() {
                     </span>
                   </div>
                   <p className="text-sm text-[#A0A0C0]">{area.description}</p>
-                </GlassCard>
+                </Tilt3DCard>
               ))}
             </div>
 

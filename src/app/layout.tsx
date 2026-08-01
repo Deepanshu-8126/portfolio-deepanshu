@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./../styles/globals.css";
+import { ParticleGrid } from "@/components/ui/ParticleGrid";
 
 // ✅ SPACE GROTESK FONT (Premium tech feel)
 const spaceGrotesk = Space_Grotesk({
@@ -83,6 +84,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${spaceGrotesk.variable} font-sans antialiased`}>
+        <ParticleGrid />
         {/* ✅ NO HEADER COMPONENT - Navbar will be in individual pages */}
         <div className="pt-16">{children}</div>
       </body>

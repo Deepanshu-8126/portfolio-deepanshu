@@ -1,4 +1,5 @@
-// src/components/ui/Button.tsx
+"use client";
+
 import { ReactNode } from "react";
 import Link from "next/link";
 
@@ -18,14 +19,14 @@ export function Button({
   onClick,
 }: ButtonProps) {
   const baseClasses =
-    "px-4 py-2 rounded-lg font-medium transition-all duration-300";
+    "px-4 py-2 rounded-lg font-medium transition-all duration-300 relative overflow-hidden group";
 
   const variantClasses = {
     primary:
-      "bg-gradient-to-r from-[#4CC9F0] to-[#7209B7] text-[#0A0A0F] hover:from-[#4CC9F0] hover:to-[#4CC9F0]",
+      "glass-btn-primary bg-gradient-to-r from-[#4CC9F0] to-[#7209B7] text-[#0A0A0F] hover:shadow-neon-cyan",
     secondary:
-      "bg-transparent border border-[#1F1F29] text-[#E6E6FF] hover:bg-[#1F1F29]",
-    ghost: "text-[#4CC9F0] hover:text-white",
+      "glass-btn bg-transparent border border-[#1F1F29] text-[#E6E6FF] hover:bg-[#1F1F29] hover:shadow-neon-purple",
+    ghost: "text-[#4CC9F0] hover:text-white hover:shadow-[0_0_15px_rgba(76,201,240,0.4)]",
   };
 
   const buttonClass = `${baseClasses} ${variantClasses[variant]} ${className}`;

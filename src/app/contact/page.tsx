@@ -3,8 +3,10 @@
 
 import { motion } from "framer-motion";
 import { FloatingNavbar } from "@/components/ui/FloatingNavbar";
+import { Tilt3DCard } from "@/components/ui/Tilt3DCard";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { BackNavigation } from "@/components/ui/BackNavigation";
+import { ParticleGrid } from "@/components/ui/ParticleGrid";
 import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram } from "react-icons/fa";
 
 const CONTACT_LINKS = [
@@ -40,7 +42,8 @@ const CONTACT_LINKS = [
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#08080F] via-[#0A0A0F] to-[#0C0C12] text-[#E6E6FF]">
+    <div className="min-h-screen bg-gradient-to-br from-[#08080F] via-[#0A0A0F] to-[#0C0C12] text-[#E6E6FF] relative futuristic-grid">
+      <ParticleGrid />
       <FloatingNavbar />
 
       <div className="relative z-10 pt-24 pb-16">
@@ -86,11 +89,11 @@ export default function ContactPage() {
                   }}
                   className="block"
                 >
-                  <GlassCard className="p-6 text-center h-full flex flex-col items-center justify-center cursor-pointer hover:bg-[#121218]/80 transition-colors">
+                  <Tilt3DCard className="p-6 text-center h-full flex flex-col items-center justify-center cursor-pointer hover:bg-[#121218]/80 transition-colors">
                     <div className={`mb-3 ${link.color}`}>{link.icon}</div>
                     <h3 className="font-bold text-lg mb-2">{link.platform}</h3>
                     <p className="text-sm text-[#A0A0C0]">{link.description}</p>
-                  </GlassCard>
+                  </Tilt3DCard>
                 </motion.a>
               ))}
             </div>
@@ -104,13 +107,29 @@ export default function ContactPage() {
             className="max-w-2xl mx-auto mt-16 text-center"
           >
             <GlassCard className="p-8">
-              <h2 className="text-2xl font-bold mb-4">Direct Contact</h2>
-              <p className="text-[#E6E6FF] mb-2">
-                Email: deepanshukapri4@gmail.com
-              </p>
-              <p className="text-[#A0A0C0] text-sm">
-                I typically respond within 24-48 hours
-              </p>
+              <h2 className="text-2xl font-bold mb-6 text-center shimmer-text">Send a Message</h2>
+              <form className="flex flex-col gap-4 text-left" onSubmit={(e) => e.preventDefault()}>
+                <div>
+                  <label htmlFor="name" className="block text-sm text-[#A0A0C0] mb-2">Name</label>
+                  <input type="text" id="name" className="w-full bg-[#0D0D14]/80 border border-[#1A1A26] focus:border-[#4CC9F0] focus:outline-none rounded-xl px-4 py-3 text-[#E6E6FF] transition-colors" placeholder="Your Name" />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm text-[#A0A0C0] mb-2">Email</label>
+                  <input type="email" id="email" className="w-full bg-[#0D0D14]/80 border border-[#1A1A26] focus:border-[#4CC9F0] focus:outline-none rounded-xl px-4 py-3 text-[#E6E6FF] transition-colors" placeholder="Your Email" />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm text-[#A0A0C0] mb-2">Message</label>
+                  <textarea id="message" rows={4} className="w-full bg-[#0D0D14]/80 border border-[#1A1A26] focus:border-[#4CC9F0] focus:outline-none rounded-xl px-4 py-3 text-[#E6E6FF] transition-colors" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" className="glass-btn-primary w-full py-3 rounded-xl font-bold mt-2">
+                  Send Message
+                </button>
+              </form>
+              <div className="mt-8 pt-6 border-t border-[#1A1A26] text-center">
+                <h2 className="text-xl font-bold mb-2">Direct Contact</h2>
+                <p className="text-[#E6E6FF] mb-1">Email: deepanshukapri4@gmail.com</p>
+                <p className="text-[#A0A0C0] text-sm">I typically respond within 24-48 hours</p>
+              </div>
             </GlassCard>
           </motion.div>
         </div>

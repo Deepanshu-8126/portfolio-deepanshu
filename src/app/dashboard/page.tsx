@@ -20,6 +20,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { SkillCard } from "@/components/dashboard/SkillCard";
 import { ProjectCard } from "@/components/dashboard/ProjectCard";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { ParticleGrid } from "@/components/ui/ParticleGrid";
 
 // ✅ JSON IMPORTS
 import dashboardData from "@/data/dashboard.json";
@@ -47,7 +48,8 @@ export default function DashboardPage() {
   const [selectedCert, setSelectedCert] = useState<any>(null);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#08080F] via-[#0A0A0F] to-[#0C0C12] text-[#E6E6FF] overflow-hidden relative">
+    <div className="min-h-screen bg-gradient-to-br from-[#08080F] via-[#0A0A0F] to-[#0C0C12] text-[#E6E6FF] overflow-hidden relative futuristic-grid">
+      <ParticleGrid />
       <ScrollProgress />
 
       {/* Background Glow Orbs */}
@@ -79,24 +81,18 @@ export default function DashboardPage() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, type: "spring" }}
-                className="flex-shrink-0 relative group"
+                className="flex-shrink-0 relative group hologram-frame"
               >
-                {/* Outer Ambient Glow Halo */}
-                <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-[#4CC9F0] via-[#7209B7] to-[#4CC9F0] opacity-80 blur-xl group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
-
-                {/* Glassmorphism Outer Ring Frame */}
-                <div className="relative p-2 rounded-full bg-gradient-to-r from-[#4CC9F0]/80 via-[#7209B7]/80 to-[#4CC9F0]/80 backdrop-blur-md shadow-2xl">
-                  <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-[#0A0A0F] bg-[#12121A] shadow-inner">
-                    <img
-                      src={DASHBOARD_DATA.hero?.avatar || "/images/deepanshu_photo_portfolio.jpeg"}
-                      alt={DASHBOARD_DATA.hero?.name || "Deepanshu Kapri"}
-                      className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = "/images/profile-pic.jpg";
-                      }}
-                    />
-                  </div>
+                <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-[#0A0A0F] bg-[#12121A] shadow-inner relative z-10">
+                  <img
+                    src={DASHBOARD_DATA.hero?.avatar || "/images/deepanshu_photo_portfolio.jpeg"}
+                    alt={DASHBOARD_DATA.hero?.name || "Deepanshu Kapri"}
+                    className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = "/images/profile-pic.jpg";
+                    }}
+                  />
                 </div>
               </motion.div>
 
@@ -106,7 +102,7 @@ export default function DashboardPage() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="text-lg md:text-xl font-bold text-[#4CC9F0] mb-1 tracking-wide"
+                  className="text-lg md:text-xl font-bold mb-1 tracking-wide neon-text"
                 >
                   Hi, I&apos;m
                 </motion.p>
@@ -115,11 +111,9 @@ export default function DashboardPage() {
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-3 tracking-tight"
+                  className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-3 tracking-tight shimmer-text"
                 >
-                  <span className="bg-gradient-to-r from-[#E6E6FF] via-[#4CC9F0] to-[#A855F7] bg-clip-text text-transparent">
-                    {DASHBOARD_DATA.hero?.name || "Deepanshu Kapri"}
-                  </span>
+                  {DASHBOARD_DATA.hero?.name || "Deepanshu Kapri"}
                 </motion.h1>
 
                 <motion.p
@@ -489,14 +483,14 @@ export default function DashboardPage() {
                 <div className="flex flex-wrap gap-4 justify-center">
                   <Link
                     href="/contact"
-                    className="flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#4CC9F0] to-[#7209B7] text-white font-bold text-sm shadow-lg hover:scale-105 transition-transform"
+                    className="flex items-center gap-2 px-7 py-3.5 glass-btn-primary hover:scale-105 transition-transform"
                   >
                     <FaPaperPlane />
                     <span>Get In Touch / Hire Me</span>
                   </Link>
                   <Link
                     href="/resume"
-                    className="px-6 py-3.5 rounded-xl bg-[#1F1F29] border border-[#1F1F29] text-[#E6E6FF] font-semibold text-sm hover:border-[#4CC9F0] transition-colors"
+                    className="px-6 py-3.5 glass-btn hover:scale-105 transition-transform"
                   >
                     Check Resume
                   </Link>

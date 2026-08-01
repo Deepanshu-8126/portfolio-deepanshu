@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import { Tilt3DCard } from "@/components/ui/Tilt3DCard";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { FloatingNavbar } from "@/components/ui/FloatingNavbar";
 import { BackNavigation } from "@/components/ui/BackNavigation";
@@ -67,7 +68,7 @@ export default function HackathonsPage() {
             className="max-w-4xl mx-auto mb-20 text-center"
           >
             <motion.h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-[#E6E6FF] to-[#A0A0C0] bg-clip-text text-transparent">
+              <span className="shimmer-text">
                 Mission Log
               </span>
             </motion.h1>
@@ -85,18 +86,18 @@ export default function HackathonsPage() {
           >
             <div className="relative">
               {/* Vertical timeline line */}
-              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#4CC9F0] to-[#7209B7]"></div>
+              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#4CC9F0] to-[#7209B7] neon-border"></div>
 
               <div className="space-y-8 ml-12">
                 {HACKATHONS.map((hackathon, index) => (
-                  <Link key={hackathon.id} href={`/hackathons/${hackathon.id}`}>
+                  <div className="relative"><div className="absolute -left-14 top-6 w-4 h-4 rounded-full bg-[#4CC9F0] shadow-[0_0_10px_#4CC9F0]"></div><Link key={hackathon.id} href={`/hackathons/${hackathon.id}`}>
                     <motion.div
                       initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
                       transition={{ delay: index * 0.1, duration: 0.6 }}
                       whileHover={{ x: 4, y: -2 }}
                     >
-                      <GlassCard className="p-6 cursor-pointer hover:bg-[#121218]/80 transition-colors">
+                      <Tilt3DCard className="p-6 cursor-pointer hover:bg-[#121218]/80 transition-colors bg-[#12121A]/60 rounded-xl border border-[#1F1F29]">
                         <div className="flex items-start justify-between mb-3">
                           <div>
                             <h3 className="font-bold text-[#E6E6FF] mb-1">
@@ -110,11 +111,11 @@ export default function HackathonsPage() {
                             </p>
                           </div>
                           <span
-                            className={`px-3 py-1 rounded-full text-xs font-medium ${
+                            className={`px-3 py-1 rounded-full text-xs font-medium neon-text ${
                               hackathon.status === "Winner"
                                 ? "bg-green-500/20 text-green-400"
                                 : hackathon.status === "Selected"
-                                  ? "bg-blue-500/20 text-blue-400"
+                                  ? "bg-[#7209B7]/20 text-[#A855F7]"
                                   : "bg-[#707090]/20 text-[#707090]"
                             }`}
                           >
@@ -122,12 +123,12 @@ export default function HackathonsPage() {
                           </span>
                         </div>
                         <div className="flex items-center justify-between text-sm text-[#707090]">
-                          <span>{hackathon.duration}</span>
+                          <span className="text-glow-cyan">{hackathon.duration}</span>
                           <span>→ View Details</span>
                         </div>
-                      </GlassCard>
+                      </Tilt3DCard>
                     </motion.div>
-                  </Link>
+                  </Link></div>
                 ))}
               </div>
             </div>
