@@ -2,6 +2,7 @@ import projectsData from './data/projects.json';
 import hackathonsData from './data/hackathons.json';
 import aboutData from './data/about.json';
 import contactData from './data/contact.json';
+import dashboardData from './data/dashboard.json';
 
 export const config = {
     developer: {
@@ -20,19 +21,16 @@ export const config = {
         description: `${aboutData.core.currentRole} at ${aboutData.core.college}. ${aboutData.learningEngine.learningPhilosophy} ${aboutData.personality.mindset}`
     },
     experiences: [] as any[], // To be added later
-    hackathons: hackathonsData.map((h: any, index: number) => ({
-        id: index + 1,
-        position: h.role,
-        company: h.title,
-        period: h.year || h.duration,
-        location: h.location,
-        description: h.experience,
-        responsibilities: h.learnings.technical.concat(h.learnings.softSkills),
-        technologies: h.techStack.join(", "),
-        image: h.photos && h.photos.length > 0 ? h.photos[0].url : "/images/placeholder.webp"
-    })),
-    projects: projectsData.map((p: any, index: number) => ({
-        id: index + 1,
+    hackathons: hackathonsData.map((h: any) => ({
+        ...h,
+        title: h.title,
+        category: h.role || "Participant",
+        technologies: Array.isArray(h.techStack) ? h.techStack.join(", ") : "",
+        image: h.photos?.find((p: any) => p.url && p.url.trim() !== "")?.url || "/images/placeholder.webp",
+        description: h.description
+    })) as any[],
+    projects: projectsData.map((p: any) => ({
+        ...p,
         title: p.title,
         category: p.category,
         technologies: Array.isArray(p.tech) ? p.tech.join(", ") : "",
@@ -54,5 +52,6 @@ export const config = {
             details: "Specializing in Exploratory Data Analysis, Predictive Modeling, and Business Intelligence.",
             tools: aboutData.learningEngine.libraries
         }
-    }
+    },
+    certifications: dashboardData.certifications || []
 };

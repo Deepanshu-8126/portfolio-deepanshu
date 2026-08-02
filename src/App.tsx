@@ -8,6 +8,8 @@ const CharacterModel = lazy(() => import("./components/Character"));
 const MainContainer = lazy(() => import("./components/MainContainer"));
 const MyWorks = lazy(() => import("./pages/MyWorks"));
 const Play = lazy(() => import("./pages/Play"));
+const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
+const HackathonDetail = lazy(() => import("./pages/HackathonDetail"));
 import { LoadingProvider } from "./context/LoadingProvider";
 
 const App = () => {
@@ -37,6 +39,22 @@ const App = () => {
           }
         />
         <Route
+          path="/projects/:id"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <ProjectDetail />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/hackathons/:id"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <HackathonDetail />
+            </Suspense>
+          }
+        />
+        <Route
           path="/play"
           element={
             <Suspense fallback={<div>Loading...</div>}>
@@ -52,3 +70,4 @@ const App = () => {
 };
 
 export default App;
+
