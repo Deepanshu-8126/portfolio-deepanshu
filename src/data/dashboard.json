@@ -22,60 +22,35 @@
       "Open to full-time Data Analyst roles starting 2026-2027"
     ]
   },
-  "systemInfo": {
-    "title": "My Operating System & Mindset",
-    "discipline": "Daily Gym & Fitness routine built on strict consistency",
-    "philosophy": "Consistency over motivation. Discipline over talent.",
-    "creativeSkills": ["Data Storytelling", "Visual Analytics", "Design Thinking"],
-    "technicalStack": ["Python", "SQL", "Pandas", "Power BI / Excel"]
-  },
   "education": [
     {
       "id": "bca",
       "degree": "Bachelor of Computer Applications (BCA)",
-      "institution": "MIET College, Kumaun University",
+      "institution": "MIET College, Kumaon University",
       "timeline": "2024 - 2027",
       "status": "Currently Pursuing (3rd Year)",
-      "description": "Specializing in Computer Applications, Database Management Systems, Data Structures, and Data Science Fundamentals.",
+      "description": "Specializing in Computer Applications, DBMS, DSA, ML",
       "badge": "Active"
     }
   ],
   "certifications": [
     {
       "id": "cert-1",
-      "title": "Python for Data Science & Analytics",
-      "issuer": "Coursera / IBM",
-      "issueDate": "2025",
-      "image": "/images/cert-python.jpg",
-      "credentialUrl": "https://coursera.org",
-      "skills": ["Python", "pandas", "NumPy", "Data Cleaning"]
+      "title": "Sql ",
+      "issuer": "Hacker Rank",
+      "issueDate": "2026",
+      "image": "/images/sql.png",
+      "credentialUrl": "https://www.hackerrank.com/certificates/3f35f4d124a0",
+      "skills": ["Sql queries , aggregate functions"]
     },
     {
       "id": "cert-2",
-      "title": "SQL Fundamentals & Relational Databases",
-      "issuer": "freeCodeCamp",
-      "issueDate": "2025",
-      "image": "/images/cert-sql.jpg",
-      "credentialUrl": "https://freecodecamp.org",
-      "skills": ["SQL", "Join Operations", "Query Optimization"]
-    },
-    {
-      "id": "cert-3",
-      "title": "Exploratory Data Analysis & Visualization",
-      "issuer": "Kaggle Certificates",
-      "issueDate": "2025",
-      "image": "/images/cert-eda.jpg",
-      "credentialUrl": "https://kaggle.com",
-      "skills": ["Seaborn", "Matplotlib", "Data Storytelling"]
-    },
-    {
-      "id": "cert-4",
-      "title": "Excel & Business Data Analysis",
-      "issuer": "Udemy / Microsoft",
-      "issueDate": "2024",
-      "image": "/images/cert-excel.jpg",
-      "credentialUrl": "https://udemy.com",
-      "skills": ["Pivot Tables", "VLOOKUP/XLOOKUP", "Dashboarding"]
+      "title": "Python",
+      "issuer": "oneroadmap",
+      "image": "/images/python_oneroadmap.png",
+      "issueDate": "2026",
+      "credentialUrl": "https://www.oneroadmap.io/skills/python/certificate/CERT-03FA1545",
+      "skills": ["Python", "Loops", "Function"]
     }
   ],
   "skills": [
@@ -180,6 +155,26 @@
       "description": "Best practices for efficient database queries",
       "date": "2 weeks ago",
       "tags": ["SQL", "Database", "Optimization"]
+    }
+  ],
+  "roadmap": [
+    {
+      "stage": "Current",
+      "role": "BCA Student | Data Analyst Learner",
+      "focus": ["Python", "SQL", "EDA", "Visualization"],
+      "timeline": "2024-2025"
+    },
+    {
+      "stage": "Next",
+      "role": "Junior Data Analyst",
+      "focus": ["Advanced SQL", "Business Intelligence", "Dashboarding"],
+      "timeline": "2026"
+    },
+    {
+      "stage": "Future",
+      "role": "Data Scientist",
+      "focus": ["Machine Learning", "Deep Learning", "MLOps"],
+      "timeline": "2027+"
     }
   ]
 }
