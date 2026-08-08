@@ -4,7 +4,6 @@ import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import Lenis from "lenis";
 import "./styles/Navbar.css";
-import { config } from "../config";
 
 gsap.registerPlugin(ScrollTrigger);
 export let lenis: Lenis | null = null;
@@ -23,18 +22,15 @@ const Navbar = () => {
       infinite: false,
     });
 
-    // Start paused
-    lenis.stop();
+    lenis.start();
 
-    // Handle smooth scroll animation frame
     function raf(time: number) {
       lenis?.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
 
-    // Handle navigation links
-    let links = document.querySelectorAll(".header ul a");
+    let links = document.querySelectorAll(".header ul a[data-href]");
     links.forEach((elem) => {
       let element = elem as HTMLAnchorElement;
       element.addEventListener("click", (e) => {
@@ -55,7 +51,6 @@ const Navbar = () => {
       });
     });
 
-    // Handle resize
     window.addEventListener("resize", () => {
       lenis?.resize();
     });
@@ -64,20 +59,12 @@ const Navbar = () => {
       lenis?.destroy();
     };
   }, []);
+
   return (
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
-          DK
-        </a>
-        <a
-          href={`mailto:${config.contact.email}`}
-          className="navbar-connect"
-          data-cursor="disable"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {config.contact.email}
+          Deepanshu Kapri
         </a>
         <ul>
           <li>
@@ -95,11 +82,20 @@ const Navbar = () => {
               <HoverLinks text="CONTACT" />
             </a>
           </li>
+          <li>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="navbar-resume-btn"
+              data-cursor="disable"
+            >
+              View Resume
+            </a>
+          </li>
         </ul>
       </div>
 
-      <div className="landing-circle1"></div>
-      <div className="landing-circle2"></div>
       <div className="nav-fade"></div>
     </>
   );

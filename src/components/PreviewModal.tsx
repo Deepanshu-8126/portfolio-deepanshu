@@ -3,26 +3,37 @@ import { FaTimes, FaGithub, FaExternalLinkAlt, FaMapMarkerAlt, FaClock, FaUsers,
 import "./styles/PreviewModal.css";
 
 interface ModalProps {
-  data: any;
+  item: any;
   onClose: () => void;
-  type: "project" | "hackathon";
+  // Legacy compat
+  data?: any;
+  type?: "project" | "hackathon";
 }
 
-const PreviewModal = ({ data, onClose, type }: ModalProps) => {
+const PreviewModal = ({ item, data, onClose, type: typeProp }: ModalProps) => {
+  const modalData = item || data;
+  const type = typeProp || (modalData?.type === "hackathon" ? "hackathon" : "project");
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", handleEsc);
+
+    // Lock body scroll when modal is open
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
     return () => {
       window.removeEventListener("keydown", handleEsc);
+      document.body.style.overflow = prevOverflow;
     };
   }, [onClose]);
 
-  if (!data) return null;
+  if (!modalData) return null;
 
   // Get all valid photos for hackathons
-  const photos = (data.photos || []).filter((p: any) => p.url && p.url.trim() !== "");
+  const photos = (modalData.photos || []).filter((p: any) => p.url && p.url.trim() !== "");
 
   return (
     <div className="preview-modal-overlay" onClick={onClose}>
@@ -30,21 +41,21 @@ const PreviewModal = ({ data, onClose, type }: ModalProps) => {
         <button className="preview-close-btn" onClick={onClose}>
           <FaTimes />
         </button>
-        
+
         {/* Header */}
         <div className="preview-modal-header">
-          <h2>{data.title}</h2>
+          <h2>{modalData.title}</h2>
           <div className="preview-meta">
             {type === "project" ? (
               <>
-                <span className="preview-tag">{data.category}</span>
-                <span className="preview-tag status">{data.status}</span>
+                <span className="preview-tag">{modalData.category}</span>
+                <span className="preview-tag status">{modalData.status}</span>
               </>
             ) : (
               <>
-                <span className="preview-tag">{data.role}</span>
-                <span className="preview-tag status">{data.status}</span>
-                {data.result && <span className="preview-tag result"><FaTrophy /> {data.result}</span>}
+                <span className="preview-tag">{modalData.role}</span>
+                <span className="preview-tag status">{modalData.status}</span>
+                {modalData.result && <span className="preview-tag result"><FaTrophy /> {modalData.result}</span>}
               </>
             )}
           </div>
@@ -52,29 +63,29 @@ const PreviewModal = ({ data, onClose, type }: ModalProps) => {
           {/* Hackathon quick info bar */}
           {type === "hackathon" && (
             <div className="preview-quick-info">
-              {data.organizedBy && (
+              {modalData.organizedBy && (
                 <span className="quick-info-item">
-                  <FaUsers /> {data.organizedBy}
+                  <FaUsers /> {modalData.organizedBy}
                 </span>
               )}
-              {data.location && (
+              {modalData.location && (
                 <span className="quick-info-item">
-                  <FaMapMarkerAlt /> {data.location}
+                  <FaMapMarkerAlt /> {modalData.location}
                 </span>
               )}
-              {data.duration && (
+              {modalData.duration && (
                 <span className="quick-info-item">
-                  <FaClock /> {data.duration}
+                  <FaClock /> {modalData.duration}
                 </span>
               )}
-              {data.teamSize && (
+              {modalData.teamSize && (
                 <span className="quick-info-item">
-                  <FaUsers /> {data.teamSize}
+                  <FaUsers /> {modalData.teamSize}
                 </span>
               )}
-              {data.year && (
+              {modalData.year && (
                 <span className="quick-info-item">
-                  📅 {data.year}
+                  📅 {modalData.year}
                 </span>
               )}
             </div>
@@ -83,13 +94,6 @@ const PreviewModal = ({ data, onClose, type }: ModalProps) => {
 
         {/* Body */}
         <div className="preview-modal-body">
-          
-          {/* Main Image (project) */}
-          {type === "project" && data.image && (
-            <div className="preview-image-container">
-              <img src={data.image} alt={data.title} />
-            </div>
-          )}
 
           {/* Photo Gallery (hackathon) */}
           {type === "hackathon" && photos.length > 0 && (
@@ -105,54 +109,54 @@ const PreviewModal = ({ data, onClose, type }: ModalProps) => {
               </div>
             </div>
           )}
-          
+
           <div className="preview-details">
             {/* Description */}
-            {data.description && (
+            {(modalData.description || modalData.shortDesc) && (
               <div className="preview-section">
                 <h3>Overview</h3>
-                <p>{data.description}</p>
+                <p>{modalData.description || modalData.shortDesc}</p>
               </div>
             )}
 
             {/* Problem Statement */}
-            {data.problem && (
+            {modalData.problem && (
               <div className="preview-section">
                 <h3>🎯 Problem Statement</h3>
-                <p>{data.problem}</p>
+                <p>{modalData.problem}</p>
               </div>
             )}
-            
+
             {/* Solution */}
-            {data.solution && (
+            {modalData.solution && (
               <div className="preview-section">
                 <h3>💡 Solution</h3>
-                <p>{data.solution}</p>
+                <p>{modalData.solution}</p>
               </div>
             )}
 
             {/* Experience (hackathon) */}
-            {data.experience && (
+            {modalData.experience && (
               <div className="preview-section">
                 <h3>🏕️ Experience</h3>
-                <p>{data.experience}</p>
+                <p>{modalData.experience}</p>
               </div>
             )}
 
             {/* Challenges (hackathon) */}
-            {data.challenges && (
+            {modalData.challenges && (
               <div className="preview-section">
                 <h3>⚡ Challenges</h3>
-                <p>{data.challenges}</p>
+                <p>{modalData.challenges}</p>
               </div>
             )}
 
             {/* Key Insights */}
-            {data.insights && data.insights.length > 0 && (
+            {modalData.insights && modalData.insights.length > 0 && (
               <div className="preview-section">
                 <h3>📊 Key Insights</h3>
                 <ul>
-                  {data.insights.map((item: string, i: number) => (
+                  {modalData.insights.map((item: string, i: number) => (
                     <li key={i}>{item}</li>
                   ))}
                 </ul>
@@ -160,28 +164,28 @@ const PreviewModal = ({ data, onClose, type }: ModalProps) => {
             )}
 
             {/* Learnings */}
-            {data.learnings && (
+            {modalData.learnings && (
               <div className="preview-section">
                 <h3>📚 Learnings</h3>
-                {typeof data.learnings === 'string' ? (
-                  <p>{data.learnings}</p>
+                {typeof modalData.learnings === 'string' ? (
+                  <p>{modalData.learnings}</p>
                 ) : (
                   <div className="learnings-grid">
-                    {data.learnings.technical && (
+                    {modalData.learnings.technical && (
                       <div className="learning-column">
                         <h4>🔧 Technical</h4>
                         <ul>
-                          {data.learnings.technical.map((item: string, i: number) => (
+                          {modalData.learnings.technical.map((item: string, i: number) => (
                             <li key={i}>{item}</li>
                           ))}
                         </ul>
                       </div>
                     )}
-                    {data.learnings.softSkills && (
+                    {modalData.learnings.softSkills && (
                       <div className="learning-column">
                         <h4>🤝 Soft Skills</h4>
                         <ul>
-                          {data.learnings.softSkills.map((item: string, i: number) => (
+                          {modalData.learnings.softSkills.map((item: string, i: number) => (
                             <li key={i}>{item}</li>
                           ))}
                         </ul>
@@ -193,11 +197,11 @@ const PreviewModal = ({ data, onClose, type }: ModalProps) => {
             )}
 
             {/* Metrics (project) */}
-            {data.metrics && (
+            {modalData.metrics && (
               <div className="preview-section">
                 <h3>📈 Metrics</h3>
                 <div className="metrics-grid">
-                  {Object.entries(data.metrics).map(([key, value]) => (
+                  {Object.entries(modalData.metrics).map(([key, value]) => (
                     <div className="metric-card" key={key}>
                       <span className="metric-value">{String(value)}</span>
                       <span className="metric-label">{key}</span>
@@ -208,26 +212,28 @@ const PreviewModal = ({ data, onClose, type }: ModalProps) => {
             )}
 
             {/* Tech Stack */}
-            <div className="preview-section">
-              <h3>🛠️ Tech Stack</h3>
-              <div className="preview-tech-stack">
-                {(data.tools || data.techStack || data.tech || []).map((t: string, i: number) => (
-                  <span key={i} className="tech-badge">{t}</span>
-                ))}
+            {(modalData.tools || modalData.techStack || modalData.tech) && (
+              <div className="preview-section">
+                <h3>🛠️ Tech Stack</h3>
+                <div className="preview-tech-stack">
+                  {(modalData.tools || modalData.techStack || modalData.tech || []).map((t: string, i: number) => (
+                    <span key={i} className="tech-badge">{t}</span>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
 
         {/* Footer with links */}
         <div className="preview-modal-footer">
-          {data.github && (
-            <a href={data.github} target="_blank" rel="noreferrer" className="preview-link-btn">
+          {modalData.github && (
+            <a href={modalData.github} target="_blank" rel="noreferrer" className="preview-link-btn">
               <FaGithub /> View Source
             </a>
           )}
-          {data.live && (
-            <a href={data.live} target="_blank" rel="noreferrer" className="preview-link-btn primary">
+          {modalData.live && (
+            <a href={modalData.live} target="_blank" rel="noreferrer" className="preview-link-btn primary">
               <FaExternalLinkAlt /> Live Demo
             </a>
           )}

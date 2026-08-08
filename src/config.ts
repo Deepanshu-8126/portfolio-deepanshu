@@ -8,7 +8,7 @@ export const config = {
     developer: {
         name: aboutData.core.name.split(" ")[0] || "Deepanshu",
         fullName: aboutData.core.name,
-        title: "Data Analyst & AI/ML Aspirant",
+        title: "Data Analyst & AI/ML Engineer",
         description: aboutData.core.currentFocus
     },
     social: {

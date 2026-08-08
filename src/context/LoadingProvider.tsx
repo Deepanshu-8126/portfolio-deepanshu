@@ -5,7 +5,6 @@ import {
   useEffect,
   useState,
 } from "react";
-import Loading from "../components/Loading";
 
 interface LoadingType {
   isLoading: boolean;
@@ -15,37 +14,34 @@ interface LoadingType {
 
 export const LoadingContext = createContext<LoadingType | null>(null);
 
+// Loading screen completely removed — instantly start animations
 export const LoadingProvider = ({ children }: PropsWithChildren) => {
-  const [isLoading, setIsLoading] = useState(() => {
-    // Skip loading on mobile
-    if (window.innerWidth <= 768) return false;
-    return true;
-  });
+  const [isLoading] = useState(false);
   const [loading, setLoading] = useState(0);
+
+  const setIsLoading = (_state: boolean) => {};
 
   const value = {
     isLoading,
     setIsLoading,
     setLoading,
   };
+
   useEffect(() => {
-    // Auto-start animations on mobile since there's no 3D model
-    if (window.innerWidth <= 768) {
-      import("../components/utils/initialFX").then((module) => {
-        if (module.initialFX) {
-          setTimeout(() => {
-            module.initialFX();
-          }, 100);
-        }
-      });
-    }
+    // Always auto-start animations immediately
+    import("../components/utils/initialFX").then((module) => {
+      if (module.initialFX) {
+        setTimeout(() => {
+          module.initialFX();
+        }, 100);
+      }
+    });
   }, []);
 
   useEffect(() => {}, [loading]);
 
   return (
     <LoadingContext.Provider value={value as LoadingType}>
-      {isLoading && <Loading percent={loading} />}
       <main className="main-body">{children}</main>
     </LoadingContext.Provider>
   );

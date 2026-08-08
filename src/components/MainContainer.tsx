@@ -1,4 +1,4 @@
-import { PropsWithChildren, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import About from "./About";
 import Career from "./Career";
 import Contact from "./Contact";
@@ -6,7 +6,6 @@ import Certifications from "./Certifications";
 import WhatIDo from "./WhatIDo";
 import Landing from "./Landing";
 import Navbar from "./Navbar";
-import SocialIcons from "./SocialIcons";
 import Work from "./Work";
 import Hackathons from "./Hackathons";
 import TechStackNew from "./TechStackNew";
@@ -14,9 +13,9 @@ import CallToAction from "./CallToAction";
 import setSplitText from "./utils/splitText";
 import GalaxyBackground from "./GalaxyBackground";
 
-const MainContainer = ({ children }: PropsWithChildren) => {
-  const [isDesktopView, setIsDesktopView] = useState<boolean>(window.innerWidth > 1024);
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 768);
+const MainContainer = () => {
+  const [, setIsDesktopView] = useState<boolean>(window.innerWidth > 1024);
+  const [, setIsMobile] = useState<boolean>(window.innerWidth <= 768);
 
   useEffect(() => {
     const resizeHandler = () => {
@@ -35,8 +34,6 @@ const MainContainer = ({ children }: PropsWithChildren) => {
     <div className="container-main">
       <GalaxyBackground />
       <Navbar />
-      <SocialIcons />
-      {isDesktopView && !isMobile && children}
       <div className="container-main-content">
         <Landing />
         <About />

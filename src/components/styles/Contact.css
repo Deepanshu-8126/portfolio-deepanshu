@@ -1,139 +1,113 @@
+/* ─── Contact Section — Brutalist Minimal ─── */
+
 .contact-section {
   margin: auto;
-  padding-bottom: 150px;
-  margin-top: 0;
+  padding: 100px 0 120px;
   position: relative;
   z-index: 1;
-  background-color: var(--backgroundColor);
-  min-height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  background: #0a0a0a;
+  border-top: 1px solid #222;
 }
+
 .contact-section h3 {
-  font-size: 32px;
-  font-weight: 400;
-  text-transform: uppercase;
-  margin: 0;
-  margin-bottom: 30px;
+  font-size: 52px;
+  font-family: "Geist", sans-serif;
+  font-weight: 700;
+  margin: 0 0 56px;
+  color: #f5f5f0;
+  letter-spacing: -0.04em;
 }
+
 .contact-flex {
   display: flex;
   justify-content: space-between;
+  gap: 0;
+  border: 1px solid #222;
 }
-.contact-flex h4 {
-  font-weight: 500;
-  margin: 0;
-  opacity: 0.6;
-  font-size: 14px;
-}
+
 .contact-box {
   display: flex;
   flex-direction: column;
+  padding: 40px;
+  background: #0a0a0a;
+  border: none;
+  border-right: 1px solid #222;
+  flex: 1;
+  transition: background 0.15s ease;
 }
-.contact-flex p {
-  margin-top: 8px;
-  margin-bottom: 15px;
-  font-size: 14px;
-}
-a.contact-social {
-  font-size: 16px;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 8px;
-}
-.contact-box h2 {
+.contact-box:last-child { border-right: none; }
+.contact-box:hover { background: #0d0d0d; }
+
+.contact-flex h4 {
+  font-family: "JetBrains Mono", monospace;
   font-weight: 400;
-  font-size: 16px;
-  margin: 0;
-  line-height: 22px;
+  margin: 0 0 12px;
+  color: #555555;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
-.contact-box h2 > span {
-  color: var(--accentColor);
+
+.contact-flex p {
+  margin: 0 0 24px;
+  font-size: 15px;
+  font-family: "Geist", sans-serif;
+  color: #888888;
+  line-height: 1.6;
 }
-.contact-box h5 {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 14px;
+
+.contact-flex p a {
+  color: #f5f5f0;
+  transition: color 0.15s;
+}
+.contact-flex p a:hover { color: #4a90e2; }
+
+a.contact-social {
+  font-size: 13px;
+  font-family: "JetBrains Mono", monospace;
+  color: #888888;
+  border-bottom: 1px solid #1a1a1a;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: color 0.15s, border-color 0.15s, padding-left 0.15s;
+  letter-spacing: 0.04em;
+}
+a.contact-social:hover {
+  color: #f5f5f0;
+  border-color: #444;
+  padding-left: 6px;
+}
+
+.contact-box h2 {
+  font-family: "Geist", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  margin: 0;
+  line-height: 1.45;
+  color: #f5f5f0;
+  letter-spacing: -0.01em;
+}
+.contact-box h2 > span { color: #f5f5f0; }
+
+.contact-box h5 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
   gap: 8px;
-  opacity: 0.5;
+  color: #555555;
+  margin-top: 24px;
+  text-transform: uppercase;
 }
-@media only screen and (min-width: 600px) {
-  .contact-section h3 {
-    font-size: 40px;
-  }
-  .contact-box h2 {
-    font-size: 18px;
-  }
-  a.contact-social {
-    font-size: 18px;
-  }
-  .contact-flex h4 {
-    font-size: 15px;
-  }
-  .contact-flex p {
-    font-size: 15px;
-  }
-}
-@media only screen and (min-width: 900px) {
-  .contact-section h3 {
-    font-size: 48px;
-  }
-  .contact-box h2 {
-    font-size: 20px;
-  }
-  a.contact-social {
-    font-size: 22px;
-  }
-}
-@media only screen and (min-width: 1300px) {
-  .contact-section h3 {
-    font-size: 55px;
-  }
-  .contact-box h2 {
-    font-size: 22px;
-  }
-  a.contact-social {
-    font-size: 24px;
-  }
-}
-@media only screen and (min-width: 1600px) {
-  .contact-section h3 {
-    font-size: 60px;
-    margin-bottom: 40px;
-  }
-  .contact-box h2 {
-    font-size: 23px;
-  }
-  a.contact-social {
-    font-size: 25px;
-  }
-  .contact-flex p {
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
-  .contact-box h5 {
-    font-size: 20px;
-    line-height: 20px;
-    gap: 10px;
-  }
-}
-@media only screen and (max-width: 900px) {
-  .contact-flex {
-    flex-direction: column;
-    gap: 40px;
-  }
-  .contact-flex p {
-    margin-bottom: 0px;
-  }
-  .contact-flex h4 {
-    margin-top: 20px;
-  }
-  .contact-section {
-    margin-top: 50px;
-    padding-bottom: 50px;
-  }
-  .contact-container {
-    width: calc(100% - 25px);
-  }
+
+@media (max-width: 900px) {
+  .contact-flex { flex-direction: column; border: 1px solid #222; }
+  .contact-box { border-right: none; border-bottom: 1px solid #222; }
+  .contact-box:last-child { border-bottom: none; }
+  .contact-section h3 { font-size: 36px; }
 }

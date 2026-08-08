@@ -1,100 +1,77 @@
 import "./styles/Work.css";
-import WorkImage from "./WorkImage";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect } from "react";
+import { useState } from "react";
 import { config } from "../config";
 import { Link } from "react-router-dom";
-
-gsap.registerPlugin(ScrollTrigger);
+import { MdFolderOpen, MdArrowForward } from "react-icons/md";
+import PreviewModal from "./PreviewModal";
 
 const Work = () => {
-
-  useEffect(() => {
-    let mm = gsap.matchMedia();
-
-    mm.add("(min-width: 769px)", () => {
-      function getTranslateX() {
-        const box = document.getElementsByClassName("work-box");
-        if (box.length === 0) return 0;
-        const rectLeft = document
-          .querySelector(".work-container")!
-          .getBoundingClientRect().left;
-        const rect = box[0].getBoundingClientRect();
-        const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
-        let padding: number =
-          parseInt(window.getComputedStyle(box[0]).padding) / 2;
-        return rect.width * box.length - (rectLeft + parentWidth) + padding;
-      }
-
-      let timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".work-section",
-          start: "top top",
-          end: () => `+=${getTranslateX() * 0.6}`,
-          scrub: 1,
-          pin: true,
-          pinSpacing: true,
-          anticipatePin: 1,
-          id: "work",
-          invalidateOnRefresh: true,
-        },
-      });
-
-      timeline.to(".work-flex", {
-        x: () => -getTranslateX(),
-        ease: "none",
-      });
-
-      ScrollTrigger.refresh();
-    });
-
-    return () => {
-      mm.revert();
-      ScrollTrigger.getById("work")?.kill();
-    };
-  }, []);
+  const [selectedProject, setSelectedProject] = useState<any>(null);
 
   return (
-    <div className="work-section" id="work">
-      <div className="work-container section-container">
-        <h2>
-          My <span>Work</span>
-        </h2>
-        <div className="work-flex">
-          {config.projects.slice(0, 5).map((project, index) => (
-            <Link 
-              to={`/projects/${project.id}`}
-              className="work-box" 
-              key={project.id}
-              style={{ cursor: "pointer", textDecoration: "none", color: "inherit" }}
-            >
-              <div className="work-info">
-                <div className="work-title">
-                  <h3>0{index + 1}</h3>
-                  <div>
-                    <h4>{project.title}</h4>
-                    <p>{project.category}</p>
-                  </div>
+    <>
+      <div className="work-section" id="work">
+        <div className="work-container section-container">
+          <div className="work-header">
+            <span className="work-label">PORTFOLIO ARCHIVE</span>
+            <h2>Featured Projects</h2>
+          </div>
+
+          <div className="work-grid">
+            {config.projects.slice(0, 5).map((project, index) => (
+              <div
+                className="work-box"
+                key={project.id}
+                onClick={() => setSelectedProject({ ...project, type: "project" })}
+              >
+                <div className="work-card-header">
+                  <span className="work-card-folder">
+                    <MdFolderOpen /> PROJECT_0{index + 1}
+                  </span>
+                  <span className="work-card-category">{project.category}</span>
                 </div>
-                <h4>Tools and features</h4>
-                <p>{project.technologies}</p>
+
+                <div className="work-info">
+                  <h3>{project.title}</h3>
+                  <p className="work-description">
+                    {project.description || "High-performance data analysis and insights generation."}
+                  </p>
+                </div>
+
+                <div className="work-tech-tags">
+                  {(project.technologies || "").split(",").map((tech: string, i: number) => (
+                    <span key={i} className="tech-tag">{tech.trim()}</span>
+                  ))}
+                </div>
+
+                <div className="work-card-footer">
+                  <span className="open-project-btn">
+                    View Details <MdArrowForward />
+                  </span>
+                </div>
               </div>
-              <WorkImage image={project.image} alt={project.title} />
-            </Link>
-          ))}
-          <div className="work-box work-box-cta">
-            <div className="see-all-works">
-              <h3>Want to see more?</h3>
-              <p>Explore all of my projects and creations</p>
-              <Link to="/myworks" className="see-all-btn" data-cursor="disable">
-                See All Works →
-              </Link>
+            ))}
+
+            <div className="work-box work-box-cta">
+              <div className="see-all-works">
+                <h3>All Projects</h3>
+                <p>Explore the complete archive of data builds, notebooks, and analyses.</p>
+                <Link to="/myworks" className="see-all-btn">
+                  View Full Archive ⟶
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+      {selectedProject && (
+        <PreviewModal
+          item={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
+    </>
   );
 };
 

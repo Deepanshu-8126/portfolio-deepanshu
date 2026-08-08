@@ -1,388 +1,237 @@
-/* =================== DETAIL PAGE =================== */
+/* ─── Project Detail Page — Brutalist Minimal ─── */
+
 .detail-page {
   min-height: 100vh;
-  background: #0a0a0f;
-  color: #e6e6ff;
-  padding: 40px 20px;
+  background: #0a0a0a;
+  color: #f5f5f0;
+  padding: 100px 0 140px;
 }
 
 .detail-container {
+  width: calc(100% - 96px);
   max-width: 900px;
   margin: 0 auto;
 }
 
-.detail-not-found {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
-  text-align: center;
-}
-
-.detail-not-found h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.detail-not-found p {
-  color: #a0a0c0;
-  margin-bottom: 20px;
-}
-
+/* Back link */
 .detail-back-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #4cc9f0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #888;
+  text-transform: uppercase;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 30px;
-  transition: 0.2s;
+  margin-bottom: 40px;
+  transition: color 0.15s ease;
 }
-
 .detail-back-link:hover {
-  color: #fff;
-}
-
-.detail-back-btn {
-  display: inline-flex;
-  padding: 10px 24px;
-  background: #4cc9f0;
-  color: #000;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 700;
+  color: #4a90e2;
 }
 
 /* Header */
 .detail-header {
-  margin-bottom: 30px;
+  border-bottom: 1px solid #222;
+  padding-bottom: 40px;
+  margin-bottom: 48px;
+}
+
+.detail-category {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: #555;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 12px;
 }
 
 .detail-header h1 {
-  font-size: 36px;
+  font-family: "Geist", sans-serif;
+  font-size: clamp(32px, 4vw, 56px);
   font-weight: 700;
-  margin: 0 0 15px 0;
-  line-height: 1.2;
+  letter-spacing: -0.04em;
+  color: #f5f5f0;
+  margin: 0 0 16px;
+  line-height: 1.1;
 }
 
-.detail-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
+.detail-summary {
+  font-family: "Geist", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #888;
+  margin: 0 0 32px;
 }
 
-.detail-badge {
-  padding: 5px 16px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.detail-badge.primary {
-  background: rgba(114, 9, 183, 0.15);
-  color: #a855f7;
-  border: 1px solid rgba(114, 9, 183, 0.3);
-}
-
-.detail-badge.success {
-  background: rgba(76, 201, 240, 0.12);
-  color: #4cc9f0;
-  border: 1px solid rgba(76, 201, 240, 0.25);
-}
-
-.detail-badge.secondary {
-  background: rgba(160, 160, 192, 0.1);
-  color: #a0a0c0;
-  border: 1px solid rgba(160, 160, 192, 0.2);
-}
-
-.detail-badge.gold {
-  background: rgba(255, 215, 0, 0.1);
-  color: #ffd700;
-  border: 1px solid rgba(255, 215, 0, 0.25);
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-/* Action Buttons */
 .detail-actions {
   display: flex;
-  flex-wrap: wrap;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
-.detail-action-btn {
+.detail-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 24px;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 700;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f5f5f0;
+  background: transparent;
+  border: 1px solid #333;
+  padding: 10px 20px;
   text-decoration: none;
-  transition: all 0.2s;
+  transition: all 0.12s ease;
+}
+.detail-btn:hover {
+  border-color: #f5f5f0;
+  color: #f5f5f0;
 }
 
-.detail-action-btn.github {
-  background: rgba(255, 255, 255, 0.06);
-  color: #e6e6ff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+.detail-btn.primary {
+  background: #f5f5f0;
+  color: #0a0a0a;
+  border-color: #f5f5f0;
+}
+.detail-btn.primary:hover {
+  background: #4a90e2;
+  border-color: #4a90e2;
+  color: #fff;
 }
 
-.detail-action-btn.github:hover {
-  background: rgba(255, 255, 255, 0.12);
+/* Detail Block */
+.detail-block {
+  border: 1px solid #222;
+  padding: 32px;
+  margin-bottom: 24px;
+  background: #0a0a0a;
 }
 
-.detail-action-btn.live {
-  background: rgba(76, 201, 240, 0.15);
-  color: #4cc9f0;
-  border: 1px solid rgba(76, 201, 240, 0.3);
-}
-
-.detail-action-btn.live:hover {
-  background: rgba(76, 201, 240, 0.25);
-}
-
-/* Hero Image */
-.detail-image-hero {
-  border-radius: 16px;
-  overflow: hidden;
-  margin-bottom: 30px;
-  border: 1px solid #1f1f29;
-}
-
-.detail-image-hero img {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-}
-
-/* Cards */
-.detail-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid #1f1f29;
-  border-radius: 16px;
-  padding: 28px;
-  margin-bottom: 20px;
-}
-
-.detail-card-title {
+.detail-block h3 {
+  font-family: "Geist", sans-serif;
   font-size: 20px;
-  font-weight: 700;
-  margin: 0 0 15px 0;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #f5f5f0;
+  margin: 0 0 16px;
 }
 
-.detail-card-title.purple {
-  color: #a855f7;
-}
-
-.detail-card-title.cyan {
-  color: #4cc9f0;
-}
-
-.detail-card p {
-  color: #c0c0d0;
+.detail-block p {
+  font-family: "Geist", sans-serif;
   font-size: 15px;
-  line-height: 1.8;
+  line-height: 1.7;
+  color: #888;
   margin: 0;
 }
 
 .detail-quote {
   font-style: italic;
-  font-size: 16px !important;
-  color: #e6e6ff !important;
-}
-
-.detail-result {
-  font-size: 18px !important;
-  font-weight: 600;
-  color: #ffd700 !important;
+  color: #aaa !important;
 }
 
 /* Metrics */
 .detail-metrics-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  text-align: center;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
 }
 
-.detail-metric {
+.detail-metric-card {
+  border: 1px solid #222;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  background: #0d0d0d;
 }
 
-.detail-metric-value {
+.detail-metric-val {
+  font-family: "Geist", sans-serif;
   font-size: 32px;
   font-weight: 700;
-  color: #4cc9f0;
-  margin-bottom: 4px;
+  color: #f5f5f0;
+  line-height: 1;
+  margin-bottom: 6px;
 }
 
-.detail-metric-label {
-  font-size: 13px;
-  color: #a0a0c0;
-  text-transform: capitalize;
+.detail-metric-lbl {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #555;
+  text-transform: uppercase;
 }
 
-/* Tech badges */
-.detail-tech-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.detail-tech-badge {
-  padding: 6px 16px;
-  background: #1f1f29;
-  color: #a0a0c0;
-  border-radius: 20px;
-  font-size: 13px;
-}
-
-/* Lists */
-.detail-list {
+/* Insights list */
+.detail-insights-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.detail-list li {
+.detail-insights-list li {
   position: relative;
   padding-left: 20px;
-  margin-bottom: 10px;
-  color: #c0c0d0;
+  font-family: "Geist", sans-serif;
   font-size: 15px;
   line-height: 1.6;
+  color: #888;
+  margin-bottom: 12px;
 }
+.detail-insights-list li:last-child { margin-bottom: 0; }
 
-.detail-list li::before {
-  content: "•";
+.detail-insights-list li::before {
+  content: "—";
   position: absolute;
   left: 0;
-  color: #4cc9f0;
-  font-weight: bold;
+  color: #4a90e2;
 }
 
-/* Info Grid (hackathons) */
-.detail-info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.detail-info-item {
+/* Tags */
+.detail-tags-list {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.detail-info-icon {
-  color: #4cc9f0;
-  font-size: 14px;
+.detail-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #888;
+  border: 1px solid #222;
+  padding: 4px 12px;
 }
 
-.detail-info-label {
-  font-size: 12px;
-  color: #707090;
+.detail-footer {
+  margin-top: 48px;
 }
 
-.detail-info-value {
-  font-size: 15px;
-  color: #e6e6ff;
-}
-
-/* Learnings Grid */
-.detail-learnings-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
-}
-
-.detail-learning-col h3 {
-  font-size: 16px;
-  font-weight: 700;
-  color: #e6e6ff;
-  margin: 0 0 12px 0;
-}
-
-/* Photo Gallery */
-.detail-photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 15px;
-}
-
-.detail-photo-item {
-  border-radius: 12px;
-  overflow: hidden;
-  background: #111;
-  border: 1px solid #1f1f29;
-  transition: transform 0.3s;
-}
-
-.detail-photo-item:hover {
-  transform: scale(1.02);
-}
-
-.detail-photo-item img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
-
-.detail-photo-caption {
-  display: block;
-  padding: 10px 12px;
-  font-size: 13px;
-  color: #a0a0c0;
-}
-
-/* Bottom Nav */
-.detail-bottom-nav {
-  margin-top: 40px;
+.detail-not-found {
   text-align: center;
+  padding: 80px 0;
+}
+.detail-not-found h2 {
+  font-family: "Geist", sans-serif;
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+.detail-not-found p {
+  color: #888;
+  margin-bottom: 32px;
 }
 
-/* =================== RESPONSIVE =================== */
 @media (max-width: 768px) {
-  .detail-header h1 {
-    font-size: 26px;
+  .detail-container {
+    width: calc(100% - 40px);
   }
-
-  .detail-metrics-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-
-  .detail-metric-value {
-    font-size: 24px;
-  }
-
-  .detail-info-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .detail-learnings-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .detail-photo-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .detail-actions {
-    flex-direction: column;
-  }
-
-  .detail-action-btn {
-    justify-content: center;
+  .detail-block {
+    padding: 24px 20px;
   }
 }
