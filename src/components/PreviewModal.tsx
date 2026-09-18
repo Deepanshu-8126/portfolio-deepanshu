@@ -32,8 +32,11 @@ const PreviewModal = ({ item, data, onClose, type: typeProp }: ModalProps) => {
 
   if (!modalData) return null;
 
-  // Get all valid photos for hackathons
-  const photos = (modalData.photos || []).filter((p: any) => p.url && p.url.trim() !== "");
+  // Get all valid photos or screenshots
+  const photos = (modalData.photos || modalData.screenshots || []).filter((p: any) => {
+    if (typeof p === "string") return p.trim() !== "";
+    return p.url && p.url.trim() !== "";
+  });
 
   return (
     <div className="preview-modal-overlay" onClick={onClose}>
@@ -95,17 +98,21 @@ const PreviewModal = ({ item, data, onClose, type: typeProp }: ModalProps) => {
         {/* Body */}
         <div className="preview-modal-body">
 
-          {/* Photo Gallery (hackathon) */}
-          {type === "hackathon" && photos.length > 0 && (
+          {/* Photo Gallery / Project Screenshots */}
+          {photos.length > 0 && (
             <div className="preview-photo-gallery">
-              <h3>📸 Event Photos</h3>
+              <h3>{type === "hackathon" ? "📸 Event Photos" : "🖼️ Project Architecture & Visual Showcase"}</h3>
               <div className="photo-grid">
-                {photos.map((photo: any, i: number) => (
-                  <div className="photo-item" key={i}>
-                    <img src={photo.url} alt={photo.caption || `Photo ${i + 1}`} />
-                    {photo.caption && <span className="photo-caption">{photo.caption}</span>}
-                  </div>
-                ))}
+                {photos.map((photo: any, i: number) => {
+                  const url = typeof photo === "string" ? photo : photo.url;
+                  const caption = typeof photo === "string" ? "" : photo.caption;
+                  return (
+                    <div className="photo-item" key={i}>
+                      <img src={url} alt={caption || `Showcase ${i + 1}`} />
+                      {caption && <span className="photo-caption">{caption}</span>}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
@@ -132,6 +139,23 @@ const PreviewModal = ({ item, data, onClose, type: typeProp }: ModalProps) => {
               <div className="preview-section">
                 <h3>💡 Solution</h3>
                 <p>{modalData.solution}</p>
+              </div>
+            )}
+
+            {/* Team Collaboration */}
+            {modalData.collaboration && (
+              <div className="preview-section">
+                <h3>👥 Teamwork & Collaboration</h3>
+                <p>{modalData.collaboration.summary}</p>
+                {modalData.collaboration.roles && modalData.collaboration.roles.length > 0 && (
+                  <ul style={{ marginTop: "10px", paddingLeft: "20px" }}>
+                    {modalData.collaboration.roles.map((r: string, i: number) => (
+                      <li key={i} style={{ color: "#aaa", marginBottom: "6px", fontSize: "14px" }}>
+                        {r}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             )}
 

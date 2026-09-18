@@ -73,8 +73,42 @@ const ProjectDetail = () => {
         {/* Solution */}
         {project.solution && (
           <div className="detail-block">
-            <h3>Analytical Solution</h3>
+            <h3>Analytical & Engineering Solution</h3>
             <p>{project.solution}</p>
+          </div>
+        )}
+
+        {/* Team Collaboration */}
+        {project.collaboration && (
+          <div className="detail-block">
+            <h3>👥 Teamwork & Engineering Collaboration</h3>
+            <p>{project.collaboration.summary}</p>
+            {project.collaboration.roles && project.collaboration.roles.length > 0 && (
+              <ul className="detail-insights-list" style={{ marginTop: "16px" }}>
+                {project.collaboration.roles.map((role: string, i: number) => (
+                  <li key={i}>{role}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
+
+        {/* Visual Showcase & Screenshots */}
+        {((project.screenshots && project.screenshots.length > 0) || (project.photos && project.photos.length > 0)) && (
+          <div className="detail-block">
+            <h3>🖼️ Project Architecture & Visual Showcase</h3>
+            <div className="detail-gallery-grid">
+              {(project.screenshots || project.photos).map((shot: any, i: number) => {
+                const url = typeof shot === "string" ? shot : shot.url;
+                const caption = typeof shot === "string" ? "" : shot.caption;
+                return (
+                  <div className="detail-gallery-item" key={i}>
+                    <img src={url} alt={caption || `Showcase ${i + 1}`} loading="lazy" />
+                    {caption && <span className="detail-gallery-caption">{caption}</span>}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         )}
 

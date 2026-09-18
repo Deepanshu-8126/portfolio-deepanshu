@@ -1,5 +1,87 @@
 [
   {
+    "id": "smart-city-urban-management",
+    "title": "CityOS — Smart City Urban Management Platform",
+    "description": "A full-stack, production-deployed urban governance platform featuring 50+ REST endpoints, secure JWT + Resend OTP authentication, automated grievance resolution, and real-time civic telemetry.",
+    "shortDesc": "Production full-stack smart city platform with 50+ APIs, automated grievance engine, and civic services.",
+    "tech": [
+      "Node.js",
+      "Express.js",
+      "MongoDB Atlas",
+      "React",
+      "JWT Auth",
+      "Resend API",
+      "Render",
+      "REST APIs"
+    ],
+    "status": "Production Deployed",
+    "category": "Full Stack & Cloud",
+    "featured": true,
+    "problem": "Modern cities struggle with fragmented civic infrastructure: complaints get lost in bureaucratic pipelines without SLA tracking, emergency alerts lack instantaneous broadcast, tax payments involve slow physical lines, and municipal departments operate in data silos without centralized telemetry.",
+    "solution": "Architected and deployed an end-to-end full-stack smart city management platform. Built 50+ RESTful API endpoints, secure JWT authentication with background OTP delivery via Resend API, automated grievance priority and category classification, property tax billing, real-time AQI and transit telemetry, and deployed to Render cloud with automated CI/CD.",
+    "collaboration": {
+      "summary": "Engineered through intensive agile team collaboration, simulating real-world industry sprint workflows. Led backend architecture, database schema design, and cloud deployments while collaborating closely with teammates on frontend integration, responsive UI flows, unified API contracts, and peer code reviews.",
+      "teamSize": "Cross-Functional Engineering Team",
+      "roles": [
+        "Backend Architecture & Database Design (Deepanshu) — Built 50+ REST endpoints with Node.js & Express, schema models on MongoDB Atlas, JWT authentication, and transactional OTP email service via Resend API",
+        "Frontend & Dashboard UI Integration — Collaborated with teammates to integrate React client components, dynamic maps, and citizen grievance submission forms",
+        "Agile Git & GitHub Workflow — Managed feature branches, coordinated pull requests, resolved merge conflicts, and conducted code reviews",
+        "Production Deployment & Cloud CI/CD — Deployed backend to Render, configured environment security, managed database connection pools, and eliminated CORS/port bottlenecks"
+      ]
+    },
+    "tools": [
+      "Node.js",
+      "Express.js",
+      "MongoDB Atlas",
+      "Mongoose",
+      "React.js",
+      "JWT",
+      "Resend Email API",
+      "Render Cloud",
+      "Postman",
+      "Git & GitHub"
+    ],
+    "insights": [
+      "Architected 50+ modular RESTful API endpoints covering Authentication, Grievances, Tax Assessment, Transit, Environment, and Emergency SOS",
+      "Implemented automated OTP email verification pipeline using Resend API with asynchronous background delivery and zero UI latency",
+      "Engineered robust MongoDB schemas with compound indexes and optimized query filters for high-throughput concurrency",
+      "Collaborated smoothly with teammates using modular Git branching, shared API schemas, and synchronous integration testing",
+      "Successfully resolved cloud-environment port binding and SMTP network restrictions during production deployment on Render"
+    ],
+    "learnings": "Mastered end-to-end full-stack engineering and teamwork — from designing API contracts and database indexing to coordinating Git branches with teammates and maintaining zero-downtime deployments in the cloud.",
+    "github": "https://github.com/Deepanshu-8126/backend_urban",
+    "live": "https://urban-backend-28dc.onrender.com",
+    "metrics": {
+      "apiEndpoints": "50+",
+      "authSecurity": "JWT + OTP",
+      "deliveryRate": "100%",
+      "modules": 8
+    },
+    "image": "/images/smart-city-hero.jpg",
+    "screenshots": [
+      {
+        "url": "/images/smart-city-hero.jpg",
+        "caption": "CityOS Hero & Urban IoT Platform Overview"
+      },
+      {
+        "url": "/images/smart-city-dashboard.jpg",
+        "caption": "Command Center Dashboard — Real-time telemetry, AQI, and municipal analytics"
+      },
+      {
+        "url": "/images/smart-city-mobile.jpg",
+        "caption": "Citizen Mobile Application — Instant grievance lodging, SOS emergency, and digital tax payments"
+      },
+      {
+        "url": "/images/smart-city-grievance.jpg",
+        "caption": "AI Grievance Resolution Engine — Geospatial mapping, automated routing & SLA tracking"
+      },
+      {
+        "url": "/images/smart-city-architecture.jpg",
+        "caption": "Full-Stack Backend System Architecture & Microservice Data Flow"
+      }
+    ]
+  },
+  {
     "id": "Netflix-content-analysis",
     "title": "Netflix Content Analysis",
     "description": "Explored content trends and regional preferences using real-world datasets.",

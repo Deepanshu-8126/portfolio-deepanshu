@@ -12,9 +12,9 @@ const MyWorks = () => {
             <FaArrowLeft /> Back to Home
           </Link>
           <span className="myworks-label">PROJECT ARCHIVE</span>
-          <h1>All Data Projects</h1>
+          <h1>All Engineered Projects</h1>
           <p className="myworks-sub">
-            Exploratory Data Analysis, Analytics Dashboards, and Machine Learning Projects
+            Full-Stack Cloud Applications, Civic Tech, and Data Intelligence Systems
           </p>
         </div>
 

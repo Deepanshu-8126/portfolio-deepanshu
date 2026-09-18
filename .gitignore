@@ -27,3 +27,4 @@ dist-ssr
 backup/
 backup_data_july29/
 .env
+.agents/
