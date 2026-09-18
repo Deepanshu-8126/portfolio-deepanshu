@@ -1,12 +1,9 @@
 import "./styles/Hackathons.css";
-import { useState } from "react";
 import { config } from "../config";
+import { Link } from "react-router-dom";
 import { MdFolderZip, MdArrowForward } from "react-icons/md";
-import PreviewModal from "./PreviewModal";
 
 const Hackathons = () => {
-  const [selectedHackathon, setSelectedHackathon] = useState<any>(null);
-
   return (
     <>
       <div className="hackathons-section" id="Hackathons">
@@ -18,10 +15,10 @@ const Hackathons = () => {
 
           <div className="hackathons-grid">
             {config.hackathons.slice(0, 5).map((hackathon, index) => (
-              <div
+              <Link
+                to={`/hackathons/${hackathon.id}`}
                 className="hackathons-box"
                 key={hackathon.id}
-                onClick={() => setSelectedHackathon({ ...hackathon, type: "hackathon" })}
               >
                 <div className="hackathon-card-header">
                   <span className="hackathon-card-folder">
@@ -48,7 +45,7 @@ const Hackathons = () => {
                     View Story <MdArrowForward />
                   </span>
                 </div>
-              </div>
+              </Link>
             ))}
 
             <div className="hackathons-box hackathons-box-cta">
@@ -63,13 +60,6 @@ const Hackathons = () => {
           </div>
         </div>
       </div>
-
-      {selectedHackathon && (
-        <PreviewModal
-          item={selectedHackathon}
-          onClose={() => setSelectedHackathon(null)}
-        />
-      )}
     </>
   );
 };

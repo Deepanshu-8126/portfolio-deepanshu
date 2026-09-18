@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import hackathonsData from "../data/hackathons.json";
 import { FaArrowLeft, FaMapMarkerAlt, FaClock, FaUsers, FaTrophy } from "react-icons/fa";
@@ -5,6 +6,11 @@ import "./ProjectDetail.css";
 
 const HackathonDetail = () => {
   const { id } = useParams<{ id: string }>();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [id]);
+
   const hackathon = (hackathonsData as any[]).find(
     (h: any) => h.id?.toLowerCase() === id?.toLowerCase()
   );

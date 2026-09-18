@@ -35,16 +35,8 @@
 
     "photos": [
       {
-        "url": "",
-        "caption": "Working on our first hackathon project"
-      },
-      {
         "url": "/images/_DSC0475.JPG",
         "caption": "Presenting our project to judges"
-      },
-      {
-        "url": "",
-        "caption": "Receiving 3rd position award"
       }
     ]
   },
@@ -84,20 +76,7 @@
     "result": "Successfully built and demonstrated a working Student Attendance Dashboard.",
     "status": "Participated",
 
-    "photos": [
-      {
-        "url": "/images/hackathon2-1.jpg",
-        "caption": "Working through the night during the 24-hour hackathon"
-      },
-      {
-        "url": "/images/hackathon1-2.jpg",
-        "caption": "Final presentation setup with our working prototype"
-      },
-      {
-        "url": "/images/hackathon1-3.jpg",
-        "caption": "Team after project submission"
-      }
-    ]
+    "photos": []
   },
   {
     "id": "kumaun-university",

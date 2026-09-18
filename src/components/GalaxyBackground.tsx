@@ -8,41 +8,68 @@ const GalaxyParticles = () => {
   const ref = useRef<THREE.Points>(null);
   const groupRef = useRef<THREE.Group>(null);
   
-  // Create random particles in a sphere for extra depth
-  const [sphere] = useState(() => {
-    const positions = new Float32Array(5000);
-    for (let i = 0; i < 5000; i++) {
+  // Create dual particle clouds (Cyan + Violet) for multi-color cosmic depth
+  const [cyanSphere] = useState(() => {
+    const positions = new Float32Array(3500 * 3);
+    for (let i = 0; i < 3500; i++) {
       const theta = Math.random() * 2 * Math.PI;
       const phi = Math.acos(Math.random() * 2 - 1);
-      const radius = 5 + Math.random() * 35; // 5 to 40 radius
+      const radius = 6 + Math.random() * 32;
       
-      positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta); // x
-      positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta); // y
-      positions[i * 3 + 2] = radius * Math.cos(phi); // z
+      positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+      positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+      positions[i * 3 + 2] = radius * Math.cos(phi);
+    }
+    return positions;
+  });
+
+  const [violetSphere] = useState(() => {
+    const positions = new Float32Array(2500 * 3);
+    for (let i = 0; i < 2500; i++) {
+      const theta = Math.random() * 2 * Math.PI;
+      const phi = Math.acos(Math.random() * 2 - 1);
+      const radius = 8 + Math.random() * 36;
+      
+      positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+      positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+      positions[i * 3 + 2] = radius * Math.cos(phi);
     }
     return positions;
   });
 
   useFrame((state, delta) => {
     if (ref.current) {
-      // Rotate particles continuously
-      ref.current.rotation.x -= delta / 10;
-      ref.current.rotation.y -= delta / 15;
+      ref.current.rotation.x -= delta / 12;
+      ref.current.rotation.y -= delta / 18;
     }
     if (groupRef.current) {
-      // Slowly rotate the entire galaxy group for a cinematic 3D pan
-      groupRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.1) * 0.2;
-      groupRef.current.rotation.z = Math.cos(state.clock.elapsedTime * 0.1) * 0.1;
+      const targetX = (state.pointer.y * 0.25) + Math.sin(state.clock.elapsedTime * 0.1) * 0.15;
+      const targetY = (state.pointer.x * 0.35) + Math.cos(state.clock.elapsedTime * 0.1) * 0.15;
+      
+      groupRef.current.rotation.x += (targetX - groupRef.current.rotation.x) * 0.05;
+      groupRef.current.rotation.y += (targetY - groupRef.current.rotation.y) * 0.05;
     }
   });
 
   return (
     <group ref={groupRef} rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
+      {/* Cyan Star Cloud */}
+      <Points ref={ref} positions={cyanSphere} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
           color="#00f0ff"
           size={0.08}
+          sizeAttenuation={true}
+          depthWrite={false}
+          blending={THREE.AdditiveBlending}
+        />
+      </Points>
+      {/* Violet/Purple Star Cloud */}
+      <Points positions={violetSphere} stride={3} frustumCulled={false}>
+        <PointMaterial
+          transparent
+          color="#a855f7"
+          size={0.1}
           sizeAttenuation={true}
           depthWrite={false}
           blending={THREE.AdditiveBlending}
@@ -83,10 +110,14 @@ const GalaxyBackground = () => {
         height: '100%',
         zIndex: -1,
         pointerEvents: 'none',
-        background: 'radial-gradient(circle at center, #0a0515 0%, #020105 100%)' // Deep galaxy gradient
+        background: 'radial-gradient(ellipse at 85% 15%, rgba(168, 85, 247, 0.16) 0%, transparent 60%), radial-gradient(ellipse at 15% 85%, rgba(0, 240, 255, 0.12) 0%, transparent 60%), radial-gradient(circle at center, #090b1c 0%, #020308 100%)'
       }}
     >
-      <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
+      <Canvas 
+        dpr={[1, 1.5]}
+        gl={{ powerPreference: 'high-performance', antialias: true }}
+        camera={{ position: [0, 0, 5], fov: 60 }}
+      >
         <Suspense fallback={null}>
           <AnimatedStars />
           <GalaxyParticles />

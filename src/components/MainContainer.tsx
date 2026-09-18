@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import About from "./About";
 import Career from "./Career";
 import Contact from "./Contact";
@@ -14,14 +14,9 @@ import setSplitText from "./utils/splitText";
 import GalaxyBackground from "./GalaxyBackground";
 
 const MainContainer = () => {
-  const [, setIsDesktopView] = useState<boolean>(window.innerWidth > 1024);
-  const [, setIsMobile] = useState<boolean>(window.innerWidth <= 768);
-
   useEffect(() => {
     const resizeHandler = () => {
       setSplitText();
-      setIsDesktopView(window.innerWidth > 1024);
-      setIsMobile(window.innerWidth <= 768);
     };
     resizeHandler();
     window.addEventListener("resize", resizeHandler);

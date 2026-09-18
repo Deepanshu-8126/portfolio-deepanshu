@@ -129,9 +129,20 @@
 }
 
 @media (max-width: 768px) {
-  .techstack-content h2 { font-size: 32px; }
-  .techstack-content { padding: 0 20px; }
-  .techstack-item { padding: 16px 8px; }
-  .techstack-item img { width: 28px; height: 28px; }
-  .techstack-item span { font-size: 9px; }
+  .techstack-content h2 { font-size: 28px; }
+  .techstack-content { padding: 0 16px; }
+  .techstack-row {
+    flex-wrap: wrap;
+  }
+  .techstack-item {
+    flex: 1 1 auto;
+    min-width: 68px;
+    padding: 14px 6px;
+  }
+  .techstack-item img { width: 24px; height: 24px; }
+  .techstack-item span {
+    font-size: 8.5px;
+    letter-spacing: 0.02em;
+    margin-top: 6px;
+  }
 }

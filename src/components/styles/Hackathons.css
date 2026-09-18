@@ -49,15 +49,22 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 320px;
-  background: #0a0a0a;
-  border: 1px solid #222222;
-  border-radius: 0;
-  transition: border-color 0.15s ease, background 0.15s ease;
+  background: linear-gradient(160deg, rgba(17, 21, 41, 0.6) 0%, rgba(9, 12, 25, 0.6) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
 }
 .hackathons-box:hover {
-  border-color: #4a90e2;
-  background: #0d0d0d;
+  border-color: rgba(0, 240, 255, 0.35);
+  background: linear-gradient(160deg, rgba(22, 28, 54, 0.75) 0%, rgba(13, 17, 36, 0.75) 100%);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 240, 255, 0.12);
+  transform: translateY(-4px);
 }
 
 .hackathon-card-header {

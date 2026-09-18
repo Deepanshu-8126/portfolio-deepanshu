@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { config } from "../config";
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
@@ -5,6 +6,11 @@ import "./ProjectDetail.css";
 
 const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [id]);
+
   const project = config.projects.find(
     (p: any) => p.id?.toLowerCase() === id?.toLowerCase()
   );

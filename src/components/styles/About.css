@@ -186,12 +186,17 @@
     grid-template-columns: 1fr;
     gap: 40px;
   }
+  .about-photo-col {
+    max-width: 280px;
+    margin: 0 auto;
+    width: 100%;
+  }
   .about-photo-frame {
-    aspect-ratio: 4 / 3;
-    max-height: 360px;
+    aspect-ratio: 3 / 4;
+    max-height: 380px;
   }
   .about-photo {
-    object-position: center 20%;
+    object-position: center top;
   }
-  .about-headline { font-size: 22px; }
+  .about-headline { font-size: 24px; }
 }
